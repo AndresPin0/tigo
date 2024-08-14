@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0C57C7E3-2CFD-8181-078D-0121AEFE4397" name="INGRESO">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-07 23:19:17 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="valor" id="5122E760-E5F6-F64D-61F3-DBCBBA379EB8">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-07 23:26:03 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="detalleAdicional" id="CEF1616E-B241-7AB9-E877-759B540AB278">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-07 23:32:53 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numeroDeDocumento" id="F4AEDEC4-3B8C-18A9-4D01-6EDC9E5E3B2C">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-07 23:57:17 UTC</createdTime>
+<generatorID>91518686-0086-22D2-5588-F5ECD0BD3030</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idIngreso" id="50E573A4-05A3-F0A1-6231-F7119FF4F75E">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-08 00:04:43 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="73F6C6F8-6718-55D7-D53A-012A05F657F5">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 01:16:18 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo" id="6F465A16-2803-258E-33F2-E6BD18D24380">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 18:58:16 UTC</createdTime>
+<generatorID>10D926AA-40CE-2046-0D96-E99090304F11</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>373096E3-EFB5-7675-3607-6ACC5403E336</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo1" id="9A8F8BB8-B714-2513-1898-DF6285FD3E14">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 19:01:10 UTC</createdTime>
+<generatorID>9FBE1504-EBD3-DA57-A516-97333958012A</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>52FCBF8D-85CF-EA72-958C-F40FE1FBE39E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo2" id="2E9183FD-5828-1363-EE93-720E18D89355">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 19:01:50 UTC</createdTime>
+<generatorID>02833E6D-F8AA-9395-1BCC-875E4000C62D</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>26676294-A72C-6575-AFAD-57F3AF118CCA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1D1C86BC-E5DF-8F51-756F-3D4070ADC57A" name="INGRESO PK">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-08 00:04:49 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>50E573A4-05A3-F0A1-6231-F7119FF4F75E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="14FABB8F-DDF6-687B-7037-EFBE75153647" name="TIPOS_DE_PAGO">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>0399F22E-A783-BBB5-F585-5BAF86512E32</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<ordsAlias>tipo_de_pago</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="C69775B8-F717-E3B6-C10C-F68A60F958C2">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>52FCBF8D-85CF-EA72-958C-F40FE1FBE39E</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="EAB15033-8647-FD29-0239-3CE8058D250B">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>C3E31129-4873-3165-1A57-3B6361A69236</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F87BCF3C-2EAD-C669-B8D8-4C8DB87EB85C" name="TIPO_DE_PAGO_PK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>C99C5EE6-B869-A99D-478E-59856864E899</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C69775B8-F717-E3B6-C10C-F68A60F958C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

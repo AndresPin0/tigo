@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="06E921C8-6E2D-A6A1-D8B5-C47AAD4FFAF1" name="CONCEPTO_DE_INGRESO">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 01:05:00 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="26676294-A72C-6575-AFAD-57F3AF118CCA">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 19:01:46 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="2E61AB24-AD78-02F5-C15C-F36592F849B1">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 19:01:22 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8FB3A9C9-1052-9AA6-82B6-D01761FF8614" name="CONCEPTO_DE_INGRESO PK">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 19:01:49 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>26676294-A72C-6575-AFAD-57F3AF118CCA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

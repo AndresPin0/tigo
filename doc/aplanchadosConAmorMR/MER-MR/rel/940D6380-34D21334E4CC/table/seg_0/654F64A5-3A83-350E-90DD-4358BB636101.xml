@@ -1,0 +1,182 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="654F64A5-3A83-350E-90DD-4358BB636101" name="INGRESOS">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>0C57C7E3-2CFD-8181-078D-0121AEFE4397</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<ordsAlias>ingreso</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idIngreso" id="31A57425-89FC-1F15-C1F1-A938659D8D26">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>50E573A4-05A3-F0A1-6231-F7119FF4F75E</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="valor" id="B15A7646-EF37-E4B7-03B9-B59949358BE2">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>5122E760-E5F6-F64D-61F3-DBCBBA379EB8</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="8A26B5FA-093E-49BE-C1AE-7C18B3274301">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>73F6C6F8-6718-55D7-D53A-012A05F657F5</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="detalleAdicional" id="E2F032B0-5926-CAB0-18AD-CB0A69138DE0">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>CEF1616E-B241-7AB9-E877-759B540AB278</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="persona_numeroDeDocumento" id="B5E6AC59-083F-94B5-3399-3EFCA202F59C">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>F4AEDEC4-3B8C-18A9-4D01-6EDC9E5E3B2C</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B242FF62-4FA1-14CD-9B52-23ABD124F8BE" referredColumn="204E0751-3748-658C-8379-12E010E167A0"/>
+</associations>
+</Column>
+<Column name="medio_de_pago_codigo" id="778608B8-6D20-0A21-EC81-A8FBA13A8BC2">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>6F465A16-2803-258E-33F2-E6BD18D24380</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="46E7D28D-1ECF-013B-625A-01DF3AF94D4C" referredColumn="FC7F801D-8AE1-F2C8-825D-CA942EB95121"/>
+</associations>
+</Column>
+<Column name="tipo_de_pago_codigo" id="10E01D1E-D2E5-E4EF-B32B-29E4AAE366EB">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>9A8F8BB8-B714-2513-1898-DF6285FD3E14</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7212D8B4-FC6A-9D3A-30AC-7B6D2620F838" referredColumn="C69775B8-F717-E3B6-C10C-F68A60F958C2"/>
+</associations>
+</Column>
+<Column name="concepto_de_ingreso_codigo" id="6419BD01-64ED-07FF-B851-3027629B55C8">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>2E9183FD-5828-1363-EE93-720E18D89355</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB72FDCA-6F8C-5898-3948-9AEBC77F287D" referredColumn="17A87BDA-C1ED-5A29-9963-F5226BD525CA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6C172DDE-E940-7E07-9492-AFE9B7813CE3" name="INGRESO_PK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>1D1C86BC-E5DF-8F51-756F-3D4070ADC57A</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="31A57425-89FC-1F15-C1F1-A938659D8D26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D81F7970-BEC8-48C8-7CE1-D87C71A6EC9F" name="INGRESO_PERSONA_FK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>91518686-0086-22D2-5588-F5ECD0BD3030</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5E6AC59-083F-94B5-3399-3EFCA202F59C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F3D271C1-4F0B-79E1-DD91-30AE2CB4862A" name="INGRESO_TIPO_DE_PAGO_FK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>9FBE1504-EBD3-DA57-A516-97333958012A</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="10E01D1E-D2E5-E4EF-B32B-29E4AAE366EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ADC0F062-2AFC-7444-25C0-A5753A0859FC" name="INGRESO_CONCEPTO_DE_INGRESO_FK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>02833E6D-F8AA-9395-1BCC-875E4000C62D</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6419BD01-64ED-07FF-B851-3027629B55C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="636A6168-F72B-A049-AF31-C221499BE933" name="INGRESO_MEDIO_DE_PAGO_FK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>10D926AA-40CE-2046-0D96-E99090304F11</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="778608B8-6D20-0A21-EC81-A8FBA13A8BC2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DDF5CF52-7FB9-A74B-F91C-B52B11E0F93D" name="EGRESO">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-07 23:37:48 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idEgreso" id="AC932EFF-FA24-7C32-6A19-7E2FE6A147E6">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-08 00:04:57 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor" id="5D072F36-D100-EC79-F6AD-153BEC2BAFF2">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-07 23:38:53 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="B38512CA-50E6-3B87-D89D-AFFD8A85E601">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 01:15:41 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo" id="13911870-1609-CC66-B0F8-F0F82DF3B994">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 19:05:33 UTC</createdTime>
+<generatorID>36AA5D98-289F-D423-126E-4E1301D767A6</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>403C3EAA-346E-FE5B-37CC-AC2693989B42</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numeroDeDocumento" id="92D0A03F-56D6-0300-B070-317660FBF71B">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-08 00:00:25 UTC</createdTime>
+<generatorID>67832C81-45D7-CE33-2905-32ADE40F4805</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F26319ED-5DF6-F4AC-ED83-10B483DD6832" name="EGRESO PK">
+<createdBy>julio</createdBy>
+<createdTime>2024-03-08 00:05:02 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AC932EFF-FA24-7C32-6A19-7E2FE6A147E6</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

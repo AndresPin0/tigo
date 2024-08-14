@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="63625FA1-F0A3-C7DC-6A45-FAA4A3C9EA3C" name="PERSONAS">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>7D280CC7-BAD7-C36B-5661-9BF4AA578B0E</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<ordsAlias>persona</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroDeDocumento" id="204E0751-3748-658C-8379-12E010E167A0">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="AD389631-5C0C-5FEF-401F-668F0294CDB1">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>85CF0A84-8C17-33FF-98FC-B5AF2C62A5E4</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipos_documento_id_doc" id="958E8EF6-982E-98DF-8D64-A3DEF493827F">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:45:24 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6EB1D2D4-3CB1-1C32-EA4F-62BD3A4202B1" referredColumn="5FF1E2E8-E906-29D7-8FC3-D1A112ED5817"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EDA86B9F-3834-5A1F-2756-550472FDB1C2" name="PERSONA_PK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>BC0A60E9-8C0A-A66D-49AD-5CDEA8D0BAD4</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="204E0751-3748-658C-8379-12E010E167A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="772AEBEF-4F9B-B53B-4C6D-127D66E3A214" name="PERSONAS_TIPOS_DOCUMENTO_FK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:45:24 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="958E8EF6-982E-98DF-8D64-A3DEF493827F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

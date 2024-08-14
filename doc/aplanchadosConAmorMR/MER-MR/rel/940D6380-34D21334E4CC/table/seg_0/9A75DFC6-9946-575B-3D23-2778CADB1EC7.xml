@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9A75DFC6-9946-575B-3D23-2778CADB1EC7" name="CONCEPTOS_DE_INGRESO">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>06E921C8-6E2D-A6A1-D8B5-C47AAD4FFAF1</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<ordsAlias>concepto_de_ingreso</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="17A87BDA-C1ED-5A29-9963-F5226BD525CA">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>26676294-A72C-6575-AFAD-57F3AF118CCA</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="8D095FB3-EA24-8E97-48E5-9441521925C8">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>2E61AB24-AD78-02F5-C15C-F36592F849B1</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06ADFEEE-AECE-6973-66BE-7F9675EEA1FE" name="CONCEPTO_DE_INGRESO_PK">
+<createdBy>Mateo R</createdBy>
+<createdTime>2024-05-10 15:27:23 UTC</createdTime>
+<generatorID>8FB3A9C9-1052-9AA6-82B6-D01761FF8614</generatorID>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="17A87BDA-C1ED-5A29-9963-F5226BD525CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

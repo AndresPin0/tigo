@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8A5ECC3A-082B-15DC-A050-B705E81D28E9" name="MEDIO_DE_PAGO">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 01:16:53 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="373096E3-EFB5-7675-3607-6ACC5403E336">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 18:57:51 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="22FB44C8-6167-9F0C-021B-A84977D17C37">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 18:57:54 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4340379F-408C-5F2B-FCDA-E61F5A5250E9" name="MEDIO_DE_PAGO PK">
+<createdBy>julio</createdBy>
+<createdTime>2024-04-16 18:58:09 UTC</createdTime>
+<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>373096E3-EFB5-7675-3607-6ACC5403E336</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
