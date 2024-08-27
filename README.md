@@ -8,15 +8,13 @@
 
 Este módulo permite registrar todas las transacciones que resultan en ingresos para la empresa. Las entradas pueden ser ventas de productos o ingresos adicionales como comisiones o alquiler de equipos. Cada tipo de entrada tiene un conjunto de datos específicos que deben ser capturados para garantizar un seguimiento preciso y detallado de los ingresos.
 
-- **Tipos de entradas**:
-  - Ingresos (
 - **Ingreso**:
-  - Documento del cliente
+  - Tipo de documento del cliente (opcional)
+  - Documento  del cliente (opcional)
   - Nombre del cliente
   - Tipo de pago (contado o crédito)
   - Medio de pago utilizado (de una lista predefinida)
   - Valor de la transacción
-
   - Detalles adicionales relevantes
   - Concepto del ingreso (de venta u otros conceptos))
 
@@ -26,10 +24,10 @@ Este módulo gestiona todas las transacciones que implican la salida de fondos d
 
 - **Tipos de salidas**:
   - Concepto de egreso (insumo, salida gerencia, gastos operativos cotidianos u otros)
+  - tipo de documento(a quien va dirijida la salida)
   - Número de documento específico (a quien va dirijida la salida)
   - Detalle adicional 
   - Valor correspondiente
-  - 
 
 ### Resúmenes Diarios
 
