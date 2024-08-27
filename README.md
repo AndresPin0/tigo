@@ -9,36 +9,27 @@
 Este módulo permite registrar todas las transacciones que resultan en ingresos para la empresa. Las entradas pueden ser ventas de productos o ingresos adicionales como comisiones o alquiler de equipos. Cada tipo de entrada tiene un conjunto de datos específicos que deben ser capturados para garantizar un seguimiento preciso y detallado de los ingresos.
 
 - **Tipos de entradas**:
-  - Ventas de productos
-  - Ingresos adicionales (comisiones, alquiler de equipos, otros conceptos)
-- **Datos requeridos para ventas de productos**:
-  - Documento correspondiente
+  - Ingresos (
+- **Ingreso**:
+  - Documento del cliente
   - Nombre del cliente
   - Tipo de pago (contado o crédito)
-  - Medio de pago utilizado
+  - Medio de pago utilizado (de una lista predefinida)
   - Valor de la transacción
-  - Fecha de la transacción
+
   - Detalles adicionales relevantes
-- **Datos requeridos para ingresos adicionales**:
-  - Nombre del cliente
-  - Documento asociado
-  - Concepto del ingreso
-  - Detalle de la transacción
-  - Fecha de la transacción
-  - Valor de la transacción
+  - Concepto del ingreso (de venta u otros conceptos))
 
 ### Registro de Salidas
 
 Este módulo gestiona todas las transacciones que implican la salida de fondos de la empresa. Esto incluye la adquisición de insumos necesarios para la producción y los gastos operativos. Es crucial que cada salida esté bien documentada con información detallada para asegurar la precisión en la contabilidad y la gestión de los recursos.
 
 - **Tipos de salidas**:
-  - Adquisición de insumos
-  - Gastos operativos cotidianos
-- **Datos requeridos**:
-  - Número de documento específico
-  - Concepto del gasto
-  - Fecha en que se realizó el gasto
+  - Concepto de egreso (insumo, salida gerencia, gastos operativos cotidianos u otros)
+  - Número de documento específico (a quien va dirijida la salida)
+  - Detalle adicional 
   - Valor correspondiente
+  - 
 
 ### Resúmenes Diarios
 
@@ -66,7 +57,7 @@ El sistema debe generar un resumen diario que consolide toda la actividad financ
 - **Gestión de resúmenes diarios**:
   - Visualización de resumenes diarios: El gerente debe poder ver la información generada por los movimientos cargados por los empleados en un día, es decir, el empleado simplemente carga los movimientos, mientras que el gerente ve los movimientos y el resumen diario. 
   - Descarga de resúmenes a archivos de Excel: El gerente debe poder descargar el resumen diario a un archivo de excel, que contiene tanto el resumen como los movimientos que lo generan
-  - Edición de movimientos: El gerente debe poder editar los movimientos, y por tanto el resumen diario. Esto es en caso de que un empleado reporte un error en el registro, y el gerente considere necesario su edición. 
+  - Edición de movimientos: El gerente debe poder editar(agregar, eliminar o modificar) los movimientos, y por tanto el resumen diario. Esto es en caso de que un empleado reporte un error en el registro, y el gerente considere necesario su edición. 
 - **Visualización contable**:
   - Información contable separada por meses
   - Gráficas que muestran ingresos, egresos y utilidades mensuales
