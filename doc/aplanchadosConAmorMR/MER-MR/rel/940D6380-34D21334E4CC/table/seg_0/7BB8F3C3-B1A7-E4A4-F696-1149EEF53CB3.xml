@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7BB8F3C3-B1A7-E4A4-F696-1149EEF53CB3" name="PERSONA">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>7D280CC7-BAD7-C36B-5661-9BF4AA578B0E</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroDeDocumento" id="50976124-5909-6111-0274-378C0E3DBD34">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipoDeDocumento" id="73D89BCC-6D9F-198B-3222-3A29E7D86804">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>5134E59D-E1C8-697A-21B7-2E934E076074</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="9F998DE7-A65B-B147-67F1-4CA3952B4653">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>85CF0A84-8C17-33FF-98FC-B5AF2C62A5E4</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E0C94E1E-C45D-2D61-D890-75FA8A8FC42E" name="PERSONA_PK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>BC0A60E9-8C0A-A66D-49AD-5CDEA8D0BAD4</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50976124-5909-6111-0274-378C0E3DBD34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

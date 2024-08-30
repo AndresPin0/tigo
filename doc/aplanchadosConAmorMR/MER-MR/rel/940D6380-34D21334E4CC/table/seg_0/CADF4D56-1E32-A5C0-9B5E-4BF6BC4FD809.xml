@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CADF4D56-1E32-A5C0-9B5E-4BF6BC4FD809" name="CONCEPTO_DE_INGRESO">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>06E921C8-6E2D-A6A1-D8B5-C47AAD4FFAF1</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="95F515E9-D826-1D6B-E66F-E8C476D90575">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>26676294-A72C-6575-AFAD-57F3AF118CCA</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="356C6166-4B6D-7AAB-411E-616D5E48BF7A">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>2E61AB24-AD78-02F5-C15C-F36592F849B1</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84E4206F-72BF-DCBD-1F1E-074933553DFF" name="CONCEPTO_DE_INGRESO_PK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>8FB3A9C9-1052-9AA6-82B6-D01761FF8614</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95F515E9-D826-1D6B-E66F-E8C476D90575"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

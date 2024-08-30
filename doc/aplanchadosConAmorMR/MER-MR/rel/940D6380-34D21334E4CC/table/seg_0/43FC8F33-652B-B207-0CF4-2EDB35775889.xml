@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43FC8F33-652B-B207-0CF4-2EDB35775889" name="USER">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>B9BB24E6-9142-AC39-A053-E112C70CE475</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="FCB1AB60-BB70-2640-49C6-36C4BCD683E3">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>B776BEEE-D52E-7E6E-F6EB-A49EF6DBF6AF</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="699315CD-2AA8-CC2D-1C3F-5D3F1E69C883">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>D762CAB8-5DB4-2A46-A102-FE288B1B7530</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lastname" id="2FBF51D4-F4C5-AE41-2859-F2A6B76E483F">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>122C5946-89F9-4C6F-4F18-1DBD366B3A7D</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rol_id" id="86598FBD-80A5-FDD4-880F-EE0870E032FF">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>A6A984C0-AADC-2C74-CACC-E372473715FC</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0819E922-5A02-B155-6998-FE5FA8A1DF57" referredColumn="DAEF4ADD-D192-2DCB-2AB5-EC6C026E6351"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1FF52E78-87F6-E9A8-85D4-25DFDDA9FCF2" name="User_PK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>DEBC27F6-3E18-BCDE-F2EB-CE202377E090</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FCB1AB60-BB70-2640-49C6-36C4BCD683E3"/>
+<colUsage columnID="86598FBD-80A5-FDD4-880F-EE0870E032FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C5117C2-3312-DF1C-2F0F-4AE576ADFC3D" name="User_Rol_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>D9BC184F-C7A2-5E63-5A40-FE1D63E21BE8</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86598FBD-80A5-FDD4-880F-EE0870E032FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9935A6D4-982C-DABE-86F1-0FAC7C251512" name="ROLE">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76BB6FA7-F203-29EC-2DD9-6AEC6CE31857" name="DOCUMENT_TYPE">
 <createdBy>root</createdBy>
-<createdTime>2024-08-30 03:17:53 UTC</createdTime>
+<createdTime>2024-08-30 14:00:29 UTC</createdTime>
 <ownerDesignName>MER-MR</ownerDesignName>
 <engineerTo>
 <item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
@@ -15,9 +15,21 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="role_id" id="9FF2DA53-0575-132E-A8FF-AB4BB72286B7">
+<Attribute name="name" id="F3718DC0-830E-CA31-FF2D-9FA6C949B36F">
 <createdBy>root</createdBy>
-<createdTime>2024-08-30 03:18:04 UTC</createdTime>
+<createdTime>2024-08-30 14:03:14 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_document" id="1F8E438A-FAF6-62CF-7527-F04853C727EF">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 14:06:18 UTC</createdTime>
 <ownerDesignName>MER-MR</ownerDesignName>
 <engineerTo>
 <item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
@@ -27,32 +39,18 @@
 <logicalDatatype>LOGDT027</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="name" id="A6FCF2F2-4A21-578D-03E0-999DA6A4957D">
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="576C97EA-C273-6C21-55E4-C9F1838925B5" name="DOCUMENT_TYPE PK">
 <createdBy>root</createdBy>
-<createdTime>2024-08-30 03:18:16 UTC</createdTime>
+<createdTime>2024-08-30 14:09:09 UTC</createdTime>
 <ownerDesignName>MER-MR</ownerDesignName>
 <engineerTo>
 <item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20 CHAR</dataTypeSize>
-<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
-</Attribute>
-</attributes>
-<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="3ED2CD01-C86D-126C-2CCC-7BD70ED1948E" name="Rol PK">
-<createdBy>root</createdBy>
-<createdTime>2024-08-30 03:18:42 UTC</createdTime>
-<ownerDesignName>MER-MR</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
-<engineerTo>
-<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="false"/>
-</engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>9FF2DA53-0575-132E-A8FF-AB4BB72286B7</attributeRef>
+<attributeRef>1F8E438A-FAF6-62CF-7527-F04853C727EF</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -46,6 +46,10 @@
 <bounds x="462" y="561" width="113" height="102"/>
 <comment>para concepto de ingreso hay 2 codigos correspondientes a venta de producto y transacción adicional</comment>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="76BB6FA7-F203-29EC-2DD9-6AEC6CE31857" otype="Entity" vid="CD397099-BB3D-6889-1DA5-EB760970A548">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="768" y="322" width="127" height="115"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="7D280CC7-BAD7-C36B-5661-9BF4AA578B0E" otype="Entity" vid="E0CE9D63-6837-8E62-33F9-334013F94BAB">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="462" y="339" width="135" height="73"/>
@@ -71,7 +75,7 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="9935A6D4-982C-DABE-86F1-0FAC7C251512" otype="Entity" vid="FFE4D64E-D899-09F9-D7B8-B9E216308ACD">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="718" y="55" width="91" height="86"/>
+<bounds x="719" y="73" width="91" height="87"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="B9BB24E6-9142-AC39-A053-E112C70CE475" otype="Entity" vid="FAE4B895-F73B-29B4-7D18-1B184D69A11C">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -79,7 +83,7 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="BABA2ECD-37AF-33CB-198B-3E3CA9D46EE6" otype="Entity" vid="CD9F9538-4EE6-48EC-B23F-CBB0C252DAE3">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="915" y="72" width="74" height="69"/>
+<bounds x="915" y="72" width="154" height="66"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="DDF5CF52-7FB9-A74B-F91C-B52B11E0F93D" otype="Entity" vid="D3B0FBB3-DC1D-ACD9-E329-37CF386A5FCC">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -121,15 +125,6 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <points>
 <point x="689" y="571"/>
 <point x="689" y="641"/>
-</points>
-</Connector>
-<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="60FAB2C2-A689-53E1-FD1B-74ADBB92BFFC" otype="Relation" vid_source="FAE4B895-F73B-29B4-7D18-1B184D69A11C" vid_target="FFE4D64E-D899-09F9-D7B8-B9E216308ACD">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<backgroundColor>-16777216</backgroundColor>
-<lineWidth>1</lineWidth>
-<points>
-<point x="597" y="114"/>
-<point x="718" y="114"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="67832C81-45D7-CE33-2905-32ADE40F4805" otype="Relation" vid_source="E0CE9D63-6837-8E62-33F9-334013F94BAB" vid_target="D3B0FBB3-DC1D-ACD9-E329-37CF386A5FCC">
@@ -197,8 +192,26 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="809" y="106"/>
-<point x="915" y="106"/>
+<point x="810" y="105"/>
+<point x="915" y="105"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="D9BC184F-C7A2-5E63-5A40-FE1D63E21BE8" otype="Relation" vid_source="FFE4D64E-D899-09F9-D7B8-B9E216308ACD" vid_target="FAE4B895-F73B-29B4-7D18-1B184D69A11C">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="719" y="123"/>
+<point x="597" y="123"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="E1D6B683-89B6-1DCD-B13A-50FAD420540D" otype="Relation" vid_source="CD397099-BB3D-6889-1DA5-EB760970A548" vid_target="E0CE9D63-6837-8E62-33F9-334013F94BAB">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="768" y="375"/>
+<point x="597" y="375"/>
 </points>
 </Connector>
 </connectors>

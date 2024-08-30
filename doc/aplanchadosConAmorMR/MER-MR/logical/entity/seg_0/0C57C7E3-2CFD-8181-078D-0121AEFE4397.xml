@@ -41,22 +41,6 @@
 <dataTypeSize>50</dataTypeSize>
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="numeroDeDocumento" id="F4AEDEC4-3B8C-18A9-4D01-6EDC9E5E3B2C">
-<createdBy>julio</createdBy>
-<createdTime>2024-03-07 23:57:17 UTC</createdTime>
-<generatorID>91518686-0086-22D2-5588-F5ECD0BD3030</generatorID>
-<ownerDesignName>MER-MR</ownerDesignName>
-<engineerTo>
-<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>15</dataTypeSize>
-<ownDataTypeParameters>15,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="idIngreso" id="50E573A4-05A3-F0A1-6231-F7119FF4F75E">
 <createdBy>julio</createdBy>
 <createdTime>2024-03-08 00:04:43 UTC</createdTime>
@@ -127,19 +111,46 @@
 <dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id" id="B35685B3-16B6-5AA3-491F-B6391B95F225">
+<Attribute name="role_id" id="6F3E409A-4F3C-E820-D76F-96FB872E97D7">
 <createdBy>root</createdBy>
-<createdTime>2024-08-30 03:23:17 UTC</createdTime>
+<createdTime>2024-08-30 14:09:58 UTC</createdTime>
 <generatorID>93B29710-2718-4FCC-67F0-C3613A2A47BB</generatorID>
 <ownerDesignName>MER-MR</ownerDesignName>
 <engineerTo>
 <item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
 </engineerTo>
-<referedAttribute>B776BEEE-D52E-7E6E-F6EB-A49EF6DBF6AF</referedAttribute>
+<referedAttribute>2138D321-3E7F-5726-55F4-A921B288BEBB</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20 CHAR</dataTypeSize>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="person_id" id="5107E3C7-5479-CCDA-D351-07787FAB17D8">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 14:14:18 UTC</createdTime>
+<generatorID>91518686-0086-22D2-5588-F5ECD0BD3030</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipoDeDocumento" id="A45197A2-2F95-495E-01C5-3FF474DFBD0F">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 14:14:21 UTC</createdTime>
+<generatorID>91518686-0086-22D2-5588-F5ECD0BD3030</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>5134E59D-E1C8-697A-21B7-2E934E076074</referedAttribute>
+<use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

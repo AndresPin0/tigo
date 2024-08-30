@@ -1,0 +1,226 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A4ECCB60-E462-1EE7-82E9-E3DC7E58C5FF" name="INGRESO">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>0C57C7E3-2CFD-8181-078D-0121AEFE4397</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="valor" id="CC9FF64C-B7D1-F993-70F1-87AD57AFB795">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>5122E760-E5F6-F64D-61F3-DBCBBA379EB8</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="detalleAdicional" id="3818F98E-C301-2C2E-39EB-FDE768DDD141">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>CEF1616E-B241-7AB9-E877-759B540AB278</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERSONA_numeroDeDocumento" id="6F94A0A6-3715-D40D-CB1B-14AF99039F0C">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>F4AEDEC4-3B8C-18A9-4D01-6EDC9E5E3B2C</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F54742EB-86C6-18FE-27D3-A9344E455B39" referredColumn="50976124-5909-6111-0274-378C0E3DBD34"/>
+</associations>
+</Column>
+<Column name="idIngreso" id="EB744639-05C9-13EA-6896-77A9B16AD59E">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>50E573A4-05A3-F0A1-6231-F7119FF4F75E</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="3C1B38DC-61C6-AFEF-A4E4-0D7A2F74CFCC">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>73F6C6F8-6718-55D7-D53A-012A05F657F5</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEDIO_DE_PAGO_codigo" id="6AA5059B-121D-14D1-939D-F5D60F056A7F">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>6F465A16-2803-258E-33F2-E6BD18D24380</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BB563561-915C-9F1B-7B60-E8B0F14379F8" referredColumn="94CEB3D5-9287-EF5E-2526-6778DA8B48E9"/>
+</associations>
+</Column>
+<Column name="TIPO_DE_PAGO_codigo" id="14377EEB-4B0A-B47E-2608-76899C2162EE">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>9A8F8BB8-B714-2513-1898-DF6285FD3E14</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D5B05E16-B01C-E99D-DDF3-250C4076B1C5" referredColumn="17527B03-10A9-5188-3D64-8C0100B9495E"/>
+</associations>
+</Column>
+<Column name="CONCEPTO_DE_INGRESO_codigo" id="0D6E4B59-DF8A-1CA1-5325-77B891B99DBF">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>2E9183FD-5828-1363-EE93-720E18D89355</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BA8BF875-4AAA-3B71-34B2-119C5D6C2867" referredColumn="95F515E9-D826-1D6B-E66F-E8C476D90575"/>
+</associations>
+</Column>
+<Column name="User_id" id="F019C9E5-EFC3-863F-E1F8-7957DC5916C4">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>B35685B3-16B6-5AA3-491F-B6391B95F225</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7D431436-D99C-719F-9D40-79ED4468CA4A" referredColumn="FCB1AB60-BB70-2640-49C6-36C4BCD683E3"/>
+</associations>
+</Column>
+<Column name="User_id1" id="7591AF49-082F-584D-74DB-23477E7717E9">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>F4AC70A5-3B71-7EC4-29F0-0D11EBD7432C</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7D431436-D99C-719F-9D40-79ED4468CA4A" referredColumn="86598FBD-80A5-FDD4-880F-EE0870E032FF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6EADB05C-142F-442E-01F4-94258782589A" name="INGRESO_PK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>1D1C86BC-E5DF-8F51-756F-3D4070ADC57A</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EB744639-05C9-13EA-6896-77A9B16AD59E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="879BB896-5026-4D63-2B64-D886597348BF" name="INGRESO_User_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>93B29710-2718-4FCC-67F0-C3613A2A47BB</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F019C9E5-EFC3-863F-E1F8-7957DC5916C4"/>
+<colUsage columnID="7591AF49-082F-584D-74DB-23477E7717E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="119C02FF-1F6C-1268-327A-75CB4716C184" name="INGRESO_PERSONA_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>91518686-0086-22D2-5588-F5ECD0BD3030</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6F94A0A6-3715-D40D-CB1B-14AF99039F0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="550D4FAE-A2AC-E656-0D75-63204BAC0475" name="INGRESO_TIPO_DE_PAGO_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>9FBE1504-EBD3-DA57-A516-97333958012A</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14377EEB-4B0A-B47E-2608-76899C2162EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F9FD5AEB-DE55-F9BB-4EF8-8180C0ADD007" name="INGRESO_CONCEPTO_DE_INGRESO_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>02833E6D-F8AA-9395-1BCC-875E4000C62D</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0D6E4B59-DF8A-1CA1-5325-77B891B99DBF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="31BC9C2F-13C4-8C94-A7B2-4FE813CC68F3" name="INGRESO_MEDIO_DE_PAGO_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 05:14:58 UTC</createdTime>
+<generatorID>10D926AA-40CE-2046-0D96-E99090304F11</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6AA5059B-121D-14D1-939D-F5D60F056A7F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
