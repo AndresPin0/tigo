@@ -10,15 +10,15 @@ import java.util.List;
 @Table(name="role")
 @Data
 public class Role implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "role")
     private List<User> users;
 
-
-
+    @OneToMany(mappedBy = "rolePermissionPK.role")
+    private List<RolePermission> rolePermissions;
 }

@@ -8,8 +8,8 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name="income")
-public class Income implements Serializable {
+@Table(name="expense")
+public class Expense implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,8 +31,8 @@ public class Income implements Serializable {
     private PaymentMethod paymentMethod;
 
     @ManyToOne
-    @JoinColumn(name = "income_concept_code")
-    private IncomeConcept incomeConcept;
+    @JoinColumn(name = "expense_concept_code")
+    private ExpenseConcept expenseConcept;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
