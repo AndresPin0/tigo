@@ -10,7 +10,7 @@ import lombok.Data;
 @Table(name = "user")
 @Data
 public class User implements Serializable{
-    @Id
+    @Id 
     private Long id;
     private String name;
     private String lastName;

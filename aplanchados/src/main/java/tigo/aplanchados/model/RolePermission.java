@@ -18,7 +18,7 @@ public class RolePermission implements Serializable {
 
     private Role role;
 
-    private Permission permission;
+    //private Permission permission;
 
 
 
