@@ -49,6 +49,7 @@
 <engineerTo>
 <item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <referedAttribute>D2D56D3B-A93A-AC0C-7F29-201E37ABB581</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -125,6 +126,21 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id" id="B35685B3-16B6-5AA3-491F-B6391B95F225">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:23:17 UTC</createdTime>
+<generatorID>93B29710-2718-4FCC-67F0-C3613A2A47BB</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<engineerTo>
+<item key="940D6380-71B0-1BD9-E9E0-34D21334E4CC" value="true"/>
+</engineerTo>
+<referedAttribute>B776BEEE-D52E-7E6E-F6EB-A49EF6DBF6AF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

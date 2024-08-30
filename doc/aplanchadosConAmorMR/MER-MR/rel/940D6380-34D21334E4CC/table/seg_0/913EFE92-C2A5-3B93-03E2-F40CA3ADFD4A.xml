@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="913EFE92-C2A5-3B93-03E2-F40CA3ADFD4A" name="MEDIOS_DE_PAGO">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="913EFE92-C2A5-3B93-03E2-F40CA3ADFD4A" name="MEDIO_DE_PAGO">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>8A5ECC3A-082B-15DC-A050-B705E81D28E9</generatorID>
-<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<ownerDesignName>MER-MR</ownerDesignName>
 <ordsAlias>medio_de_pago</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
@@ -13,7 +13,7 @@
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>373096E3-EFB5-7675-3607-6ACC5403E336</generatorID>
-<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<ownerDesignName>MER-MR</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -25,7 +25,7 @@
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>22FB44C8-6167-9F0C-021B-A84977D17C37</generatorID>
-<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<ownerDesignName>MER-MR</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -39,7 +39,7 @@
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>4340379F-408C-5F2B-FCDA-E61F5A5250E9</generatorID>
-<ownerDesignName>MERDEFINITIVO</ownerDesignName>
+<ownerDesignName>MER-MR</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>

@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="654F64A5-3A83-350E-90DD-4358BB636101" name="INGRESOS">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="654F64A5-3A83-350E-90DD-4358BB636101" name="INGRESO">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>0C57C7E3-2CFD-8181-078D-0121AEFE4397</generatorID>
@@ -56,23 +56,24 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="persona_numeroDeDocumento" id="B5E6AC59-083F-94B5-3399-3EFCA202F59C">
+<Column name="PERSONA_numeroDeDocumento" id="B5E6AC59-083F-94B5-3399-3EFCA202F59C">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>F4AEDEC4-3B8C-18A9-4D01-6EDC9E5E3B2C</generatorID>
 <ownerDesignName>MER-MR</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>15</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="B242FF62-4FA1-14CD-9B52-23ABD124F8BE" referredColumn="204E0751-3748-658C-8379-12E010E167A0"/>
 </associations>
 </Column>
-<Column name="medio_de_pago_codigo" id="778608B8-6D20-0A21-EC81-A8FBA13A8BC2">
+<Column name="MEDIO_DE_PAGO_codigo" id="778608B8-6D20-0A21-EC81-A8FBA13A8BC2">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>6F465A16-2803-258E-33F2-E6BD18D24380</generatorID>
@@ -81,14 +82,14 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="46E7D28D-1ECF-013B-625A-01DF3AF94D4C" referredColumn="FC7F801D-8AE1-F2C8-825D-CA942EB95121"/>
 </associations>
 </Column>
-<Column name="tipo_de_pago_codigo" id="10E01D1E-D2E5-E4EF-B32B-29E4AAE366EB">
+<Column name="TIPO_DE_PAGO_codigo" id="10E01D1E-D2E5-E4EF-B32B-29E4AAE366EB">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>9A8F8BB8-B714-2513-1898-DF6285FD3E14</generatorID>
@@ -97,14 +98,14 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="7212D8B4-FC6A-9D3A-30AC-7B6D2620F838" referredColumn="C69775B8-F717-E3B6-C10C-F68A60F958C2"/>
 </associations>
 </Column>
-<Column name="concepto_de_ingreso_codigo" id="6419BD01-64ED-07FF-B851-3027629B55C8">
+<Column name="CONCEPTO_DE_INGRESO_codigo" id="6419BD01-64ED-07FF-B851-3027629B55C8">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>2E9183FD-5828-1363-EE93-720E18D89355</generatorID>
@@ -113,11 +114,27 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="EB72FDCA-6F8C-5898-3948-9AEBC77F287D" referredColumn="17A87BDA-C1ED-5A29-9963-F5226BD525CA"/>
+</associations>
+</Column>
+<Column name="User_id" id="637777CA-A04A-7DCA-B2A3-FE741C78B84A">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>B35685B3-16B6-5AA3-491F-B6391B95F225</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BE781A23-E5AF-807C-55FF-666160DC87DA" referredColumn="F6B67258-6C7C-E6CC-AF63-3BC839075CC4"/>
 </associations>
 </Column>
 </columns>
@@ -176,6 +193,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="778608B8-6D20-0A21-EC81-A8FBA13A8BC2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="42598210-E251-672A-4125-7F16AB04313A" name="INGRESO_User_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>93B29710-2718-4FCC-67F0-C3613A2A47BB</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="637777CA-A04A-7DCA-B2A3-FE741C78B84A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

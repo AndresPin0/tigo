@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C38F5B70-F87C-4D1D-99F8-D1D6651D8ABF" name="EGRESOS">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C38F5B70-F87C-4D1D-99F8-D1D6651D8ABF" name="EGRESO">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>DDF5CF52-7FB9-A74B-F91C-B52B11E0F93D</generatorID>
@@ -43,23 +43,24 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="persona_numeroDeDocumento" id="D42A215E-B116-A4A2-C00A-C5860C6B56FA">
+<Column name="PERSONA_numeroDeDocumento" id="D42A215E-B116-A4A2-C00A-C5860C6B56FA">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>92D0A03F-56D6-0300-B070-317660FBF71B</generatorID>
 <ownerDesignName>MER-MR</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>15</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="23584B25-EFF6-6754-F77C-E55902D89882" referredColumn="204E0751-3748-658C-8379-12E010E167A0"/>
 </associations>
 </Column>
-<Column name="concepto_de_egreso_codigo" id="C79B99FF-8093-445E-17D9-97E3495D8117">
+<Column name="CONCEPTO_DE_EGRESO_codigo" id="C79B99FF-8093-445E-17D9-97E3495D8117">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>13911870-1609-CC66-B0F8-F0F82DF3B994</generatorID>
@@ -68,11 +69,40 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="363CB042-E720-7608-F5BA-65D087873FE7" referredColumn="65F55A55-9BA1-00E5-3B66-80814B33D59E"/>
+</associations>
+</Column>
+<Column name="detalleAdicional" id="E021158E-D73E-8585-DABF-66E3C339A53C">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>92DD2E6A-3E33-BD48-7B05-1B0FFAA98066</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_id" id="FB5E0BAB-A316-D7D7-37EB-FED8996E6110">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>24A02E09-FF10-00C2-0011-16C572D7D010</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BB98D17C-82C0-0618-8270-2127E63E67FA" referredColumn="F6B67258-6C7C-E6CC-AF63-3BC839075CC4"/>
 </associations>
 </Column>
 </columns>
@@ -109,6 +139,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="D42A215E-B116-A4A2-C00A-C5860C6B56FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D578928D-71B8-0161-9777-33883AE3B6BC" name="EGRESO_User_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>0A650FB5-E6CB-9143-F186-0CB1EBDCC888</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB5E0BAB-A316-D7D7-37EB-FED8996E6110"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

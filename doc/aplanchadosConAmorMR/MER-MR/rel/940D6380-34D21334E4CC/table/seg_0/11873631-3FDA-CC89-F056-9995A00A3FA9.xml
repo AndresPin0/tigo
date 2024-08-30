@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="11873631-3FDA-CC89-F056-9995A00A3FA9" name="RESUMENES_DIARIOS">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="11873631-3FDA-CC89-F056-9995A00A3FA9" name="RESUMEN_DIARIO">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>329906DF-BD38-2992-5D5B-47FBC36B28D8</generatorID>

@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="63625FA1-F0A3-C7DC-6A45-FAA4A3C9EA3C" name="PERSONAS">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="63625FA1-F0A3-C7DC-6A45-FAA4A3C9EA3C" name="PERSONA">
 <createdBy>Mateo R</createdBy>
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>7D280CC7-BAD7-C36B-5661-9BF4AA578B0E</generatorID>
@@ -41,12 +41,21 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="6EB1D2D4-3CB1-1C32-EA4F-62BD3A4202B1" referredColumn="5FF1E2E8-E906-29D7-8FC3-D1A112ED5817"/>
 </associations>
+</Column>
+<Column name="tipoDeDocumento" id="F912E551-72E0-65C6-E605-5CC3209E9220">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>5134E59D-E1C8-697A-21B7-2E934E076074</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

@@ -48,7 +48,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="7D280CC7-BAD7-C36B-5661-9BF4AA578B0E" otype="Entity" vid="E0CE9D63-6837-8E62-33F9-334013F94BAB">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="445" y="278" width="172" height="73"/>
+<bounds x="462" y="339" width="135" height="73"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="7F7C9DE6-9B1E-37FA-EC74-55E22D7B9B5E" otype="Entity" vid="B7ED5D03-D805-E675-455C-035DD11C695E">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -69,6 +69,18 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <bounds x="833" y="637" width="154" height="74"/>
 <comment>Para concepto de ingreso hay 2 codigos correspondientes a insumo y al valor de gerencia</comment>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="9935A6D4-982C-DABE-86F1-0FAC7C251512" otype="Entity" vid="FFE4D64E-D899-09F9-D7B8-B9E216308ACD">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="718" y="55" width="91" height="86"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="B9BB24E6-9142-AC39-A053-E112C70CE475" otype="Entity" vid="FAE4B895-F73B-29B4-7D18-1B184D69A11C">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="488" y="87" width="109" height="81"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="BABA2ECD-37AF-33CB-198B-3E3CA9D46EE6" otype="Entity" vid="CD9F9538-4EE6-48EC-B23F-CBB0C252DAE3">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="915" y="72" width="74" height="69"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="DDF5CF52-7FB9-A74B-F91C-B52B11E0F93D" otype="Entity" vid="D3B0FBB3-DC1D-ACD9-E329-37CF386A5FCC">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="620" y="477" width="137" height="94"/>
@@ -82,6 +94,15 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <points>
 <point x="344" y="593"/>
 <point x="344" y="648"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="0A650FB5-E6CB-9143-F186-0CB1EBDCC888" otype="Relation" vid_source="FAE4B895-F73B-29B4-7D18-1B184D69A11C" vid_target="D3B0FBB3-DC1D-ACD9-E329-37CF386A5FCC">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="557" y="168"/>
+<point x="671" y="477"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="10D926AA-40CE-2046-0D96-E99090304F11" otype="Relation" vid_source="3EB2FAA9-2A50-7151-1A10-D6002E63162D" vid_target="BA4B6F02-C0A1-EDF6-76B4-DBDFA9CF2C9D">
@@ -102,25 +123,34 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <point x="689" y="641"/>
 </points>
 </Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="60FAB2C2-A689-53E1-FD1B-74ADBB92BFFC" otype="Relation" vid_source="FAE4B895-F73B-29B4-7D18-1B184D69A11C" vid_target="FFE4D64E-D899-09F9-D7B8-B9E216308ACD">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="597" y="114"/>
+<point x="718" y="114"/>
+</points>
+</Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="67832C81-45D7-CE33-2905-32ADE40F4805" otype="Relation" vid_source="E0CE9D63-6837-8E62-33F9-334013F94BAB" vid_target="D3B0FBB3-DC1D-ACD9-E329-37CF386A5FCC">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <sourceLabel class="oracle.dbtools.crest.model.design.Label">
 <site>0</site>
-<labelBounds x="558" y="387" width="47" height="30"/>
+<labelBounds x="568" y="448" width="47" height="30"/>
 <noBackgroundColor>true</noBackgroundColor>
 <noForegroundColor>true</noForegroundColor>
 </sourceLabel>
 <targetLabel class="oracle.dbtools.crest.model.design.Label">
 <site>2</site>
-<labelBounds x="653" y="439" width="93" height="32"/>
+<labelBounds x="638" y="439" width="93" height="32"/>
 <noBackgroundColor>true</noBackgroundColor>
 <noForegroundColor>true</noForegroundColor>
 </targetLabel>
 <points>
-<point x="558" y="351"/>
-<point x="653" y="477"/>
+<point x="568" y="412"/>
+<point x="638" y="477"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="91518686-0086-22D2-5588-F5ECD0BD3030" otype="Relation" vid_source="3EB2FAA9-2A50-7151-1A10-D6002E63162D" vid_target="E0CE9D63-6837-8E62-33F9-334013F94BAB">
@@ -129,19 +159,28 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <lineWidth>1</lineWidth>
 <sourceLabel class="oracle.dbtools.crest.model.design.Label">
 <site>0</site>
-<labelBounds x="380" y="455" width="99" height="30"/>
+<labelBounds x="395" y="455" width="99" height="30"/>
 <noBackgroundColor>true</noBackgroundColor>
 <noForegroundColor>true</noForegroundColor>
 </sourceLabel>
 <targetLabel class="oracle.dbtools.crest.model.design.Label">
 <site>2</site>
-<labelBounds x="499" y="387" width="89" height="30"/>
+<labelBounds x="487" y="448" width="89" height="30"/>
 <noBackgroundColor>true</noBackgroundColor>
 <noForegroundColor>true</noForegroundColor>
 </targetLabel>
 <points>
-<point x="380" y="491"/>
-<point x="499" y="351"/>
+<point x="395" y="491"/>
+<point x="487" y="412"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="93B29710-2718-4FCC-67F0-C3613A2A47BB" otype="Relation" vid_source="FAE4B895-F73B-29B4-7D18-1B184D69A11C" vid_target="3EB2FAA9-2A50-7151-1A10-D6002E63162D">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="522" y="168"/>
+<point x="362" y="491"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="9FBE1504-EBD3-DA57-A516-97333958012A" otype="Relation" vid_source="3EB2FAA9-2A50-7151-1A10-D6002E63162D" vid_target="D2BFA662-511E-7C37-C759-FCFB3B4D6694">
@@ -151,6 +190,15 @@ Se pone como entidad debido a los atributos saldo inicial, saldo final y gananci
 <points>
 <point x="273" y="593"/>
 <point x="199" y="652"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="CF946B67-B4FF-B622-6A8D-4DE727715828" otype="Relation" vid_source="FFE4D64E-D899-09F9-D7B8-B9E216308ACD" vid_target="CD9F9538-4EE6-48EC-B23F-CBB0C252DAE3">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="809" y="106"/>
+<point x="915" y="106"/>
 </points>
 </Connector>
 </connectors>

@@ -4,12 +4,12 @@
 <createdTime>2024-05-10 15:27:23 UTC</createdTime>
 <generatorID>67832C81-45D7-CE33-2905-32ADE40F4805</generatorID>
 <ownerDesignName>MER-MR</ownerDesignName>
-<referredTableLongName>PERSONAS</referredTableLongName>
+<referredTableLongName>PERSONA</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>63625FA1-F0A3-C7DC-6A45-FAA4A3C9EA3C</referredTableID>
 <keyObject>EDA86B9F-3834-5A1F-2756-550472FDB1C2</keyObject>
 <referredKeyID>EDA86B9F-3834-5A1F-2756-550472FDB1C2</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>numeroDeDocumento</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DEC4E0FE-A2C5-2DEE-4E1D-87B5BDBDB6EF" name="Permiso_Rol">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<ordsAlias>relation_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Rol_id" id="85DAC5C0-B2B5-4D5D-3C4D-40252B3CB5DB">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="917A18E9-86F2-908A-D87C-C79B13932AE7" referredColumn="2D73C9C2-EC8B-AA73-D866-B531D31E0B94"/>
+</associations>
+</Column>
+<Column name="Permiso_id" id="298A9754-3CC7-08E0-5B26-B21C997309E0">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2C72F751-0DDF-EFCF-F3A8-F1ED16B1CC3C" referredColumn="22D90747-6431-D846-0DA2-94141D1B145F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56867795-5CB9-1FBC-30BB-1C7799B0307B" name="Relation_11_PK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<ownerDesignName>MER-MR</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85DAC5C0-B2B5-4D5D-3C4D-40252B3CB5DB"/>
+<colUsage columnID="298A9754-3CC7-08E0-5B26-B21C997309E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E6CBE8F-80C4-0BAA-95A7-C4B3F0BDA868" name="Relation_11_Rol_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>CF946B67-B4FF-B622-6A8D-4DE727715828</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85DAC5C0-B2B5-4D5D-3C4D-40252B3CB5DB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C1538D06-4513-E909-9213-6290E642A556" name="Relation_11_Permiso_FK">
+<createdBy>root</createdBy>
+<createdTime>2024-08-30 03:31:24 UTC</createdTime>
+<generatorID>CF946B67-B4FF-B622-6A8D-4DE727715828</generatorID>
+<ownerDesignName>MER-MR</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="298A9754-3CC7-08E0-5B26-B21C997309E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
