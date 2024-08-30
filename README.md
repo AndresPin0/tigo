@@ -6,7 +6,7 @@
 
 ### Registro de Entradas
 
-Este módulo permite registrar todas las transacciones que resultan en ingresos para la empresa. Las entradas pueden ser ventas de productos o ingresos adicionales como comisiones o alquiler de equipos. Cada tipo de entrada tiene un conjunto de datos específicos que deben ser capturados para garantizar un seguimiento preciso y detallado de los ingresos.
+Los empleados deben poder registrar todas las transacciones que resultan en ingresos para la empresa. Cada empleado tiene una cuenta, con un usuario y una contresa (mas adelante se especifica este requerimiento). Las entradas pueden ser ventas de productos o ingresos adicionales como comisiones o alquiler de equipos. Cada entrada tiene un conjunto de datos específicos que deben ser capturados para garantizar un seguimiento preciso y detallado de los ingresos.
 
 - **Ingreso**:
   - Tipo de documento del cliente (opcional)
@@ -15,8 +15,9 @@ Este módulo permite registrar todas las transacciones que resultan en ingresos 
   - Tipo de pago (contado o crédito)
   - Medio de pago utilizado (de una lista predefinida)
   - Valor de la transacción
-  - Detalles adicionales relevantes
+  - Detalles adicionales relevantes (opcional)
   - Concepto del ingreso (de venta u otros conceptos))
+  - id del empleado que realiza los registros (se deduce del empleado que hallqa iniciado sesion en else)
 
 ### Registro de Salidas
 
@@ -26,7 +27,7 @@ Este módulo gestiona todas las transacciones que implican la salida de fondos d
   - Concepto de egreso (insumo, salida gerencia, gastos operativos cotidianos u otros)
   - tipo de documento(a quien va dirijida la salida)
   - Número de documento específico (a quien va dirijida la salida)
-  - Detalle adicional 
+  - Detalle adicional (opcional)
   - Valor correspondiente
 
 ### Resúmenes Diarios
@@ -48,7 +49,7 @@ El sistema debe generar un resumen diario que consolide toda la actividad financ
 
 ### Para Empleados
 - **Registro de movimientos individuales** Los empleados deben poder registrar un movimiento en el día. 
-- **Registro de conjunto de movimientos** los empleados deben poder registrar multiples movimientos en un solo formulario, y tener la opcion de cargar 
+- **Registro de conjunto de movimientos** los empleados deben poder registrar multiples movimientos en un solo formulario en excel, y tener la opcion de cargar 
 - **Visualización de movimientos cargados** Los empleados deben poder vizualizar los movimientos que registraron, para saber si cometieron algún error, más no podrán editarlos. 
 
 ### Para Gerentes (más todas las funcionalidades de empleados)
