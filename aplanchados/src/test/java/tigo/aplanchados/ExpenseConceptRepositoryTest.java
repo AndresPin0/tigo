@@ -15,7 +15,7 @@ public class ExpenseConceptRepositoryTest {
     void testSaveAndFind() {
         ExpenseConceptRepository expenseConceptRepository;
         ExpenseConcept expenseConcept = new ExpenseConcept();
-        expenseConcept.setCode("123");
+        expenseConcept.setCode(123L);
         expenseConcept.setDescription("Concepto de prueba");
 
         

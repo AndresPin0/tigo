@@ -11,7 +11,8 @@ import java.util.List;
 @Table(name="income_concept")
 public class IncomeConcept implements Serializable {
     @Id
-    private String code;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String description;
 
     @OneToMany(mappedBy = "incomeConcept")

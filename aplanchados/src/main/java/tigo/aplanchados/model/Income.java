@@ -31,6 +31,10 @@ public class Income implements Serializable {
     private PaymentMethod paymentMethod;
 
     @ManyToOne
+    @JoinColumn(name = "payment_type_code")
+    private PaymentType paymentType;
+
+    @ManyToOne
     @JoinColumn(name = "income_concept_code")
     private IncomeConcept incomeConcept;
 

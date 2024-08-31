@@ -31,8 +31,14 @@ public class Expense implements Serializable {
     private PaymentMethod paymentMethod;
 
     @ManyToOne
+    @JoinColumn(name = "payment_type_code")
+    private PaymentType paymentType;
+
+    @ManyToOne
     @JoinColumn(name = "expense_concept_code")
     private ExpenseConcept expenseConcept;
+
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")

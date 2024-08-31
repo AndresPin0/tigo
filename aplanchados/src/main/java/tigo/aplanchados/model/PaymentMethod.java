@@ -10,8 +10,10 @@ import java.util.List;
 @Data
 @Table(name="payment_method")
 public class PaymentMethod implements Serializable {
+
     @Id
-    private String code;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long code;
     private String description;
 
     @OneToMany(mappedBy = "paymentMethod")

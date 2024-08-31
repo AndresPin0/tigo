@@ -8,13 +8,16 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name="expense_concept")
-public class ExpenseConcept implements Serializable {
+@Table(name="payment_type")
+public class PaymentType implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long code;
     private String description;
 
-    @OneToMany(mappedBy = "expenseConcept")
+    @OneToMany(mappedBy = "paymentType")
+    private List<Income> incomes;
+
+    @OneToMany(mappedBy = "paymentType")
     private List<Expense> expenses;
 }
