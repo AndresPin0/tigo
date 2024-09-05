@@ -7,19 +7,37 @@ import tigo.aplanchados.model.ExpenseConcept;
 import tigo.aplanchados.repositories.ExpenseConceptRepository;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+//check
 @SpringBootTest
 public class ExpenseConceptRepositoryTest {
+    @Autowired
+    ExpenseConceptRepository expenseConceptRepository;
+
 
 
     @Test
     void testSaveAndFind() {
-        ExpenseConceptRepository expenseConceptRepository;
         ExpenseConcept expenseConcept = new ExpenseConcept();
-        expenseConcept.setCode(123L);
         expenseConcept.setDescription("Concepto de prueba");
+        expenseConceptRepository.save(expenseConcept);
+        Optional<ExpenseConcept> foundExpenseConcept = expenseConceptRepository.findById(expenseConcept.getCode());
+        assertTrue(foundExpenseConcept.isPresent());
 
         
 
+    }
+
+    @Test()
+
+    void testDelete(){
+        ExpenseConcept expenseConcept = new ExpenseConcept();
+        expenseConcept.setDescription("Concepto de prueba 2");
+        ExpenseConcept savedExpenseConcept = expenseConceptRepository.save(expenseConcept);
+        expenseConceptRepository.deleteById(savedExpenseConcept.getCode());
+        Optional<ExpenseConcept> foundExpenseConcept = expenseConceptRepository.findById(savedExpenseConcept.getCode());
+        assertTrue(foundExpenseConcept.isEmpty());
     }
 
 

@@ -14,5 +14,5 @@ public class PersonPK implements Serializable {
     @JoinColumn(name = "document_type_id", referencedColumnName = "id")
     private DocumentType documentType;
 
-    private String numeroDeDocumento;
+    private String documentNumber;
 }

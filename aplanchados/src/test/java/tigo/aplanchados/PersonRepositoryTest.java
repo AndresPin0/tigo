@@ -26,31 +26,37 @@ class PersonRepositoryTest {
     void testSaveAndFindById() {
         DocumentType documentType = new DocumentType();
         documentType.setName("test");
+        documentTypeRepository.save(documentType);
         PersonPK personPK = new PersonPK();
         personPK.setDocumentType(documentType);
-        personPK.setNumeroDeDocumento("11");
-
+        personPK.setDocumentNumber("11");
         Person person = new Person();
         person.setPersonPK(personPK);
         personRepository.save(person);
-        Optional<Person> foundPerson = personRepository.findById(personPK);
-
-
-        assertTrue(foundPerson.isPresent());
-
+        if (personRepository.findById(person.getPersonPK()).isEmpty()) {
+            fail();
+        }
+        assertEquals(person.getPersonPK().getDocumentNumber(), personRepository.findById(person.getPersonPK()).get().getPersonPK().getDocumentNumber());
+        
     }
 
     @Test
     void testDelete() {
         DocumentType documentType = new DocumentType();
         documentType.setName("test");
+        documentTypeRepository.save(documentType);
         PersonPK personPK = new PersonPK();
         personPK.setDocumentType(documentType);
-        personPK.setNumeroDeDocumento("11");
+        personPK.setDocumentNumber("11");
         Person person = new Person();
         person.setPersonPK(personPK);
-
         personRepository.save(person);
+        if (personRepository.findById(person.getPersonPK()).isEmpty()) {
+            fail();
+        }
+        assertEquals(person.getPersonPK().getDocumentNumber(), personRepository.findById(person.getPersonPK()).get().getPersonPK().getDocumentNumber());
+        personRepository.deleteById(person.getPersonPK());
+        assertFalse(personRepository.findById(person.getPersonPK()).isPresent());
 
 
     }

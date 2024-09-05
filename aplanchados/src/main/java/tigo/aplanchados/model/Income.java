@@ -20,7 +20,7 @@ public class Income implements Serializable {
     @ManyToOne
     @JoinColumns({
         @JoinColumn(name="person_document_type", referencedColumnName="document_type_id"),
-        @JoinColumn(name="person_document_number", referencedColumnName="numeroDeDocumento")
+        @JoinColumn(name="person_document_number", referencedColumnName="documentNumber")
     })
     private Person person;
 

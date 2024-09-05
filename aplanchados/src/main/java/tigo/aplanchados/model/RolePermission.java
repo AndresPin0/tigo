@@ -11,4 +11,16 @@ import java.io.Serializable;
 public class RolePermission implements Serializable {
     @EmbeddedId
     private RolePermissionPK rolePermissionPK;
+
+    @ManyToOne
+    @MapsId("roleId")
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private Role role;
+
+    @ManyToOne
+    @MapsId("permissionId")
+    @JoinColumn(name = "permission_id", referencedColumnName = "id")
+    private Permission permission;
+
+
 }

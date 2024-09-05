@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @SpringBootTest
+//check
 public class ExpenseRepositoryTest {
 
     @Autowired

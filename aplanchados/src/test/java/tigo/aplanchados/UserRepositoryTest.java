@@ -11,6 +11,7 @@ import tigo.aplanchados.repositories.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+//check
 
 @SpringBootTest
 class UserRepositoryTest {
@@ -22,7 +23,7 @@ class UserRepositoryTest {
     void testSaveAndFindById() {
         User user = new User();
         user.setName("ProUser");
-
+        user.setId(1L);
         User savedUser = userRepository.save(user);
 
         Optional<User> foundUser = userRepository.findById(savedUser.getId());
@@ -35,12 +36,17 @@ class UserRepositoryTest {
     void testDelete() {
         User user = new User();
         user.setName("Pro2");
-
+        user.setId(1L);
         User savedUser = userRepository.save(user);
+
         userRepository.deleteById(savedUser.getId());
 
         Optional<User> foundUser = userRepository.findById(savedUser.getId());
 
         assertTrue(foundUser.isEmpty());
     }
+
+
+
+
 }
