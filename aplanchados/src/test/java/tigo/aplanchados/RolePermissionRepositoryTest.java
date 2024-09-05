@@ -33,7 +33,6 @@ public class RolePermissionRepositoryTest {
 
 
         Permission permission = new Permission();
-        permission.setId(1L);
         permission.setName("SAVE USER");
 
         permissionRepository.save(permission);
@@ -58,7 +57,6 @@ public class RolePermissionRepositoryTest {
     @Test
     void testDelete() {
         Permission permission = new Permission();
-        permission.setId(1L);
         permission.setName("SAVE USER");
 
         permissionRepository.save(permission);
