@@ -38,8 +38,6 @@ public class Expense implements Serializable {
     @JoinColumn(name = "expense_concept_code")
     private ExpenseConcept expenseConcept;
 
-
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

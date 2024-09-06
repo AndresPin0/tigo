@@ -6,7 +6,7 @@
 
 ### Registro de Entradas
 
-Los empleados deben poder registrar todas las transacciones que resultan en ingresos para la empresa. Cada empleado tiene una cuenta, con un usuario y una contresa (mas adelante se especifica este requerimiento). Las entradas pueden ser ventas de productos o ingresos adicionales como comisiones o alquiler de equipos. Cada entrada tiene un conjunto de datos específicos que deben ser capturados para garantizar un seguimiento preciso y detallado de los ingresos.
+Los empleados deben poder registrar todas las transacciones que resultan en ingresos para la empresa. Cada empleado tiene una cuenta, con un usuario y una contraseña (mas adelante se especifica este requerimiento). Las entradas pueden ser ventas de productos o ingresos adicionales como comisiones o alquiler de equipos. Cada entrada tiene un conjunto de datos específicos que deben ser capturados para garantizar un seguimiento preciso y detallado de los ingresos.
 
 - **Ingreso**:
   - Tipo de documento del cliente (opcional)
@@ -17,7 +17,7 @@ Los empleados deben poder registrar todas las transacciones que resultan en ingr
   - Valor de la transacción
   - Detalles adicionales relevantes (opcional)
   - Concepto del ingreso (de venta u otros conceptos))
-  - id del empleado que realiza los registros (se deduce del empleado que hallqa iniciado sesion en else)
+  - id del empleado que realiza los registros (se deduce del empleado que haya iniciado sesion en else)
 
 ### Registro de Salidas
 
