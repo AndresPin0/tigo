@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.Role;
 import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.services.impl.RoleServiceImpl;
@@ -14,6 +15,7 @@ import static org.mockito.Mockito.*;
 import org.springframework.boot.test.context.SpringBootTest;
 //check
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class RoleServiceImplTest {
 
     @Mock

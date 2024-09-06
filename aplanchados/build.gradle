@@ -42,12 +42,13 @@ jacocoTestReport {
 
 jacoco {
 	toolVersion = "0.8.12"
-	reportsDirectory = layout.buildDirectory.dir('reports/jacoco')
+	reportsDirectory = layout.buildDirectory.dir('jacoco')
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
 jacocoTestReport {
 	reports {
 		xml.required = false

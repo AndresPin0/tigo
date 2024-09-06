@@ -1,4 +1,17 @@
 set schema PUBLIC;
+DELETE FROM "payment_method";
+DELETE FROM "payment_type";
+DELETE FROM "permission";
+DELETE FROM "role_permission";
+DELETE FROM "role";
+DELETE FROM "income_concept";
+DELETE FROM "expense_concept";
+DELETE FROM "income";
+DELETE FROM "expense";
+DELETE FROM "user";
+DELETE FROM "person";
+DELETE FROM "document_type";
+
 
 -- Uso de MERGE INTO para insertar datos en tablas base o maestras
     -- Ya que tiene manejo de conflictos:

@@ -3,6 +3,7 @@ package tigo.aplanchados;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.DocumentType;
 import tigo.aplanchados.model.Person;
 import tigo.aplanchados.model.PersonPK;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class PersonRepositoryTest {
 
     @Autowired
@@ -32,6 +34,7 @@ class PersonRepositoryTest {
         personPK.setDocumentNumber("11");
         Person person = new Person();
         person.setPersonPK(personPK);
+        person.setName("test");
         personRepository.save(person);
         if (personRepository.findById(person.getPersonPK()).isEmpty()) {
             fail();
@@ -49,6 +52,7 @@ class PersonRepositoryTest {
         personPK.setDocumentType(documentType);
         personPK.setDocumentNumber("11");
         Person person = new Person();
+        person.setName("test");
         person.setPersonPK(personPK);
         personRepository.save(person);
         if (personRepository.findById(person.getPersonPK()).isEmpty()) {

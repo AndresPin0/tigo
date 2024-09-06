@@ -99,12 +99,12 @@ CREATE TABLE IF NOT EXISTS "expense" (
 -- ON DELETE CASCADE -> Si se borra un usuario, se borran todos sus ingresos y egresos
 -- ON UPDATE CASCADE -> Si se actualiza el documento de una persona, se actualiza en todos sus ingresos y egresos
 
--- ALTER TABLE "document_type" ADD CONSTRAINT "document_type_ name_unique" UNIQUE ("name");
--- ALTER TABLE "role" ADD CONSTRAINT "role_name_unique" UNIQUE ("name");
--- ALTER TABLE "permission" ADD CONSTRAINT "permission_name_unique" UNIQUE ("name");
--- ALTER TABLE "income_concept" ADD CONSTRAINT "income_concept_description_unique" UNIQUE ("description");
--- ALTER TABLE "payment_method" ADD CONSTRAINT "payment_method_description_unique" UNIQUE ("description");
--- ALTER TABLE "payment_type" ADD CONSTRAINT "payment_type_description_unique" UNIQUE ("description");
+--ALTER TABLE "document_type" ADD CONSTRAINT "document_type_ name_unique" UNIQUE ("name");
+--ALTER TABLE "role" ADD CONSTRAINT "role_name_unique" UNIQUE ("name");
+--ALTER TABLE "permission" ADD CONSTRAINT "permission_name_unique" UNIQUE ("name");
+--ALTER TABLE "income_concept" ADD CONSTRAINT "income_concept_description_unique" UNIQUE ("description");
+--ALTER TABLE "payment_method" ADD CONSTRAINT "payment_method_description_unique" UNIQUE ("description");
+--ALTER TABLE "payment_type" ADD CONSTRAINT "payment_type_description_unique" UNIQUE ("description");
 
 -- ALTER TABLE para el uso de claves únicas, para prevenir duplicados
 -- Así que se definen estas restricciones de unicidad en las columnas de nombre de documento, nombre de rol y nombre de permiso.

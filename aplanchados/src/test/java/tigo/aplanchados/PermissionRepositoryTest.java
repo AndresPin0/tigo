@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.Permission;
 
 import java.util.Optional;
@@ -13,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import tigo.aplanchados.repositories.PermissionRepository;
 
 @SpringBootTest
-
 //check
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class PermissionRepositoryTest {
 
     @Autowired

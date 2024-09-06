@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.Permission;
 import tigo.aplanchados.repositories.PermissionRepository;
 import tigo.aplanchados.services.impl.PermissionServiceImpl;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.*;
 
 
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class PermissionServiceImplTest {
 
     @Mock

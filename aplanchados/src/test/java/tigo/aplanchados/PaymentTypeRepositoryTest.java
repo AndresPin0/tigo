@@ -3,6 +3,7 @@ package tigo.aplanchados;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.PaymentType;
 import tigo.aplanchados.repositories.PaymentTypeRepository;
 
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 //check
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class PaymentTypeRepositoryTest {
 
     @Autowired
