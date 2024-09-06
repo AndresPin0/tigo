@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bced03d-a9eb-4ad7-bb47-e3ef8e769f5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/aplanchados/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/resources/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/resources/sql/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/DocumentTypeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/DocumentTypeRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/ExpenseConceptRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/ExpenseConceptRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/ExpenseRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/ExpenseRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/IncomeConceptRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/IncomeConceptRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/IncomeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/IncomeRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PaymentMethodRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PaymentMethodRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PaymentTypeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PaymentTypeRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PermissionRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PermissionRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PermissionServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PermissionServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PersonRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/PersonRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/RolePermissionRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/RolePermissionRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/RoleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/RoleRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/RoleServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/RoleServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/UserRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/test/java/tigo/aplanchados/UserServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/testdb.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/testdb.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdb.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/testdb.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdb.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/testdb.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +256,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725568012778</updated>
-      <workItem from="1725568014085" duration="27303000" />
+      <workItem from="1725568014085" duration="27702000" />
     </task>
     <servers />
   </component>
