@@ -71,3 +71,6 @@ El sistema debe generar un resumen diario que consolide toda la actividad financ
 
 Este sistema de gestión y registro de ventas no solo servirá como una herramienta invaluable para el control financiero interno de AplanchadosConAmor, sino que también demostrará su compromiso continuo con la calidad, la transparencia y la eficiencia en todas sus operaciones comerciales.
 
+### Intrucciones de ejecucion
+- Ejecutar el comando: gradle build
+- Usa tu editor preferido para correr AplanchadosApplication.java
