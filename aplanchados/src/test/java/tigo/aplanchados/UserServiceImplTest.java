@@ -53,7 +53,7 @@ class UserServiceImplTest {
         User user = new User();
         when(userRepository.save(user)).thenReturn(user);
 
-        User savedUser = userService.saveUser(user);
+        User savedUser = userService.createUser(user);
 
         verify(userRepository, times(1)).save(user);
         assertNotNull(savedUser);

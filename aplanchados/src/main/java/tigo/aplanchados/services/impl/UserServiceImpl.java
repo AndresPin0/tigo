@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.UserService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public List<User> findAllUsers() {
@@ -26,9 +29,12 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Override
-    public User saveUser(User user) {
+    public User createUser(User user) {
+        user.setPasword(passwordEncoder.encode(user.getPasword()));
+        if (user.getRole() == null) {
+            // not defined yet 
+        }
         return userRepository.save(user);
     }
 
