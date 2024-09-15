@@ -3,6 +3,7 @@ package tigo.aplanchados.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tigo.aplanchados.model.User;
+import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -33,7 +37,7 @@ public class UserServiceImpl implements UserService {
     public User createUser(User user) {
         user.setPasword(passwordEncoder.encode(user.getPasword()));
         if (user.getRole() == null) {
-            // not defined yet 
+            user.setRole(roleRepository.findByName("EMPLOYEE"));
         }
         return userRepository.save(user);
     }
