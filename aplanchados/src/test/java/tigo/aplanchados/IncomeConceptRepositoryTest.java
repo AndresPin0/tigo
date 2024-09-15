@@ -8,14 +8,6 @@ import tigo.aplanchados.model.IncomeConcept;
 import tigo.aplanchados.repositories.IncomeConceptRepository;
 
 import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import tigo.aplanchados.model.Expense;
-import tigo.aplanchados.repositories.ExpenseRepository;
-import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest

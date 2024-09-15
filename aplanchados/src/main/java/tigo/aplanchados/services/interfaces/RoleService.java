@@ -5,6 +5,9 @@ import tigo.aplanchados.model.Role;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public interface RoleService {
 
     List<Role> findAllRoles();

@@ -12,8 +12,6 @@ import tigo.aplanchados.repositories.PermissionRepository;
 import tigo.aplanchados.repositories.RolePermissionRepository;
 import tigo.aplanchados.repositories.RoleRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.fail;
 

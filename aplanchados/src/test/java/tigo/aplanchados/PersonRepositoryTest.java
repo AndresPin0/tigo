@@ -10,8 +10,6 @@ import tigo.aplanchados.model.PersonPK;
 import tigo.aplanchados.repositories.DocumentTypeRepository;
 import tigo.aplanchados.repositories.PersonRepository;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
