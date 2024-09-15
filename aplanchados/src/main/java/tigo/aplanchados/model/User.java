@@ -14,7 +14,7 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private String lastName;
-    private String pasword;
+    private String password;
 
     @ManyToOne
     @JoinColumn(name="role_id")

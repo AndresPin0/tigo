@@ -1,4 +1,4 @@
-package tigo.aplanchados;
+package tigo.aplanchados.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,10 +10,13 @@ import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.impl.UserServiceImpl;
 import java.util.Optional;
+import tigo.aplanchados.repositories.RoleRepository;
+
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //check
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -24,6 +27,11 @@ class UserServiceImplTest {
 
     @InjectMocks
     private UserServiceImpl userService;
+
+    @Mock
+    private RoleRepository roleRepository;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @BeforeEach
     void setUp() {
@@ -40,6 +48,7 @@ class UserServiceImplTest {
     void findUserById() {
         User user = new User();
         user.setId(1L);
+        user.setPassword(passwordEncoder.encode("password"));
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
         Optional<User> result = userService.findUserById(1L);
@@ -49,10 +58,11 @@ class UserServiceImplTest {
     }
 
     @Test
-    void saveUser() {
+    void createUser() {
+        
         User user = new User();
+        user.setPassword(passwordEncoder.encode("password"));
         when(userRepository.save(user)).thenReturn(user);
-
         User savedUser = userService.createUser(user);
 
         verify(userRepository, times(1)).save(user);

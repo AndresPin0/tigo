@@ -1,11 +1,11 @@
-package tigo.aplanchados;
+package tigo.aplanchados.repositories;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.*;
-import tigo.aplanchados.repositories.*;
+
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,18 +18,6 @@ class IncomeRepositoryTest {
 
     @Autowired
     private IncomeRepository incomeRepository;
-
-    @Autowired
-    private PersonRepository personRepository;
-
-    @Autowired
-    private PaymentMethodRepository paymentMethodRepository;
-
-    @Autowired
-    private IncomeConceptRepository incomeConceptRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Test
     void testSaveAndFindById() {

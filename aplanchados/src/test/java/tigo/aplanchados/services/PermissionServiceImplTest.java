@@ -1,4 +1,4 @@
-package tigo.aplanchados;
+package tigo.aplanchados.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package tigo.aplanchados;
+package tigo.aplanchados.repositories;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.DocumentType;
 import tigo.aplanchados.model.Person;
 import tigo.aplanchados.model.PersonPK;
-import tigo.aplanchados.repositories.DocumentTypeRepository;
-import tigo.aplanchados.repositories.PersonRepository;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 

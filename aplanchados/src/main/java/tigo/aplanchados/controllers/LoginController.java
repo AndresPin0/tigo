@@ -26,7 +26,7 @@ public class LoginController {
     @PostMapping
     public ResponseEntity<Object> login(@RequestParam Long id, @RequestParam String password) {
         User user = userRepository.findById(id).get();
-        if(user != null && passwordEncoder.matches(password, user.getPasword())) {
+        if(user != null && passwordEncoder.matches(password, user.getPassword())) {
             Role role = user.getRole();
             Long userId = user.getId();
             return new ResponseEntity<>(Map.of("role", role, "userId", userId),HttpStatus.OK);

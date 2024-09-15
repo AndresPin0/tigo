@@ -7,7 +7,7 @@ import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
+import tigo.aplanchados.model.Role;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,9 +35,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
-        user.setPasword(passwordEncoder.encode(user.getPasword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         if (user.getRole() == null) {
-            user.setRole(roleRepository.findByName("EMPLOYEE"));
+            Role defaultRole = roleRepository.findByName("EMPLOYEE");
+            if (defaultRole == null) {
+                defaultRole = new Role();
+                defaultRole.setName("EMPLOYEE");
+                roleRepository.save(defaultRole);
+            }
+            user.setRole(defaultRole);
         }
         return userRepository.save(user);
     }

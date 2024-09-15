@@ -1,4 +1,4 @@
-package tigo.aplanchados;
+package tigo.aplanchados.repositories;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +8,6 @@ import tigo.aplanchados.model.Permission;
 import tigo.aplanchados.model.Role;
 import tigo.aplanchados.model.RolePermission;
 import tigo.aplanchados.model.RolePermissionPK;
-import tigo.aplanchados.repositories.PermissionRepository;
-import tigo.aplanchados.repositories.RolePermissionRepository;
-import tigo.aplanchados.repositories.RoleRepository;
-
 
 import static org.junit.jupiter.api.Assertions.fail;
 

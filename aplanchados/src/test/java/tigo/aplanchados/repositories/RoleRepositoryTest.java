@@ -1,4 +1,4 @@
-package tigo.aplanchados;
+package tigo.aplanchados.repositories;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.Role;
 
 import java.util.Optional;
-import tigo.aplanchados.repositories.RoleRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

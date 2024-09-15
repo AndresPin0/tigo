@@ -1,11 +1,10 @@
-package tigo.aplanchados;
+package tigo.aplanchados.repositories;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import tigo.aplanchados.model.IncomeConcept;
-import tigo.aplanchados.repositories.IncomeConceptRepository;
 
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
