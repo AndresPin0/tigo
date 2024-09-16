@@ -10,15 +10,15 @@ import tigo.aplanchados.model.User;
 import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import tigo.aplanchados.services.interfaces.UserService;
 
-import tigo.aplanchados.repositories.UserRepository;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -30,22 +30,23 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<User> createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return ResponseEntity.ok(userRepository.save(user));
+        User createdUser = userService.createUser(user);
+        return ResponseEntity.ok(createdUser);
     }
 
     @GetMapping
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userService.findAllUsers();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(Long id) {
-        return ResponseEntity.ok(userRepository.findById(id).get());
+        return ResponseEntity.ok(userService.findUserById(id).get());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(Long id) {
-        userRepository.deleteById(id);
+        userService.deleteUser(id);
         return ResponseEntity.ok().build();
     }
 
