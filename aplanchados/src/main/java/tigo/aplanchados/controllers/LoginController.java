@@ -1,9 +1,9 @@
 package tigo.aplanchados.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.model.User;
@@ -12,9 +12,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestParam;
 import tigo.aplanchados.model.Role;
 import java.util.Map;
+import org.springframework.stereotype.Controller;
 
 
-@RestController
+
+@Controller
 @RequestMapping("/login")
 public class LoginController {
 
@@ -22,6 +24,11 @@ public class LoginController {
     private UserRepository userRepository;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    @GetMapping
+    public String loginPage() {
+        return "login";
+    }
 
     @PostMapping
     public ResponseEntity<Object> login(@RequestParam Long id, @RequestParam String password) {
