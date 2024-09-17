@@ -10,11 +10,8 @@ import tigo.aplanchados.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestParam;
-import tigo.aplanchados.model.Role;
-import java.util.Map;
 import org.springframework.stereotype.Controller;
-
-
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/login")
@@ -31,15 +28,20 @@ public class LoginController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> login(@RequestParam Long id, @RequestParam String password) {
-        User user = userRepository.findById(id).get();
-        if(user != null && passwordEncoder.matches(password, user.getPassword())) {
-            Role role = user.getRole();
-            Long userId = user.getId();
-            return new ResponseEntity<>(Map.of("role", role, "userId", userId),HttpStatus.OK);
+    public String login(@RequestParam Long id, @RequestParam String password) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (passwordEncoder.matches(password, user.getPassword())) {
+                System.out.println("User authenticated successfully.");
+                return "redirect:/dashboard";
+            } else {
+                System.out.println("Password does not match.");
+            }
         } else {
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+            System.out.println("User not found.");
         }
+        return "redirect:/login?error";
     }
-    
+
 }

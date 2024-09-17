@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Landing Page</title>
+    <link rel="stylesheet" th:href="@{./css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Aplanchados</h1>
+        <p>Accounting and Registration System</p>
+        <div>
+            <a th:href="@{/login}" class="button">Login</a>
+            <a th:href="@{/user/create}" class="button">Register</a>
+        </div>
+    </div>
+</body>
+</html>

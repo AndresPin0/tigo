@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <h1>Register</h1>
-        <form action="#" th:action="@{/user/create}" method="post">
+        <form id="registerForm" action="#" th:action="@{/user/create}" method="post">
             <div class="form-group">
                 <label for="id">ID</label>
                 <input type="text" id="id" name="id" required>
@@ -34,5 +34,27 @@
         </form>
         <p class="link">Already have an account? <a th:href="@{/login}">Login here</a></p>
     </div>
+
+    <script>
+        document.getElementById('registerForm').onsubmit = function(event) {
+            event.preventDefault(); 
+            
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/login'; 
+                } else {
+                    alert('Error during registration');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -24,7 +25,9 @@ public class Expense implements Serializable {
     })
     private Person person;
 
-    private Date date;
+    @Column(columnDefinition = "DATETIME")
+    private LocalDateTime date;
+
 
     @ManyToOne
     @JoinColumn(name = "payment_method_code")
