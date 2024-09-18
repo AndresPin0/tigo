@@ -7,4 +7,5 @@ import tigo.aplanchados.model.Permission;
 
 @Repository
 public interface PermissionRepository extends JpaRepository<Permission, Long> {
+    Permission findByName(String name);
 }
