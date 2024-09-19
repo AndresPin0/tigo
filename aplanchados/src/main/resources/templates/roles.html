@@ -17,7 +17,7 @@
             <thead>
                 <tr>
                     <th>Role</th>
-                    <th th:each="permission: ${permissions}" th:value="${permission.name}" th:text="${permission.name}">
+                    <th th:each="permission: ${permissions} ">
                     </th>
                     <th></th>
                 </tr>
@@ -33,7 +33,7 @@
                             <input type="checkbox" th:checked="${#sets.contains(rolePermissionSet,role.name+'-'+permission.name)}" th:name="${permission.name}">
                             <p th:text="${permission.name}"> </p>
                         </td>
-                        <input type="text" th:name="roleName" th:value="${role.name}"hidden><input/>
+                        <input type="text" th:name="roleName" th:value="${role.name}"hidden>
                         <td><button type="submit"> Save </button></td>
 
                     </form>
@@ -44,6 +44,8 @@
 
 
         </table>
-        <button> Hello</button>
+ <a th:href="@{/manager}" class="boton">
+    <button type="button">Manage users</button>
+    </a>
     </div>
 </body>
