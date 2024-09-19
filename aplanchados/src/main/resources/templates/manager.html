@@ -8,8 +8,8 @@
 
 <body>
 
-    <div >
-        <h1>Users</h1>
+    <div>
+        <h1>Roles</h1>
 
         <table class="table">
 
@@ -50,8 +50,11 @@
                             <td>
 
 
-                                
-                                <input type="text" name="role.name" th:value="${user.role.name}" readonly>
+                                <select name="role.name">
+                                    <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}" th:selected="${user.role.name}"></option>
+                                </select>
+
+                               
                             </td>
                             <td>
                                 <button type="submit">save</button>
@@ -64,5 +67,6 @@
 
 
         </table>
+        <button> Hello</button>
     </div>
 </body>

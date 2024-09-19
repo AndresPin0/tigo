@@ -1,5 +1,7 @@
 package tigo.aplanchados.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +13,6 @@ import tigo.aplanchados.model.RolePermissionPK;
 @Repository
 public interface RolePermissionRepository extends JpaRepository<RolePermission, RolePermissionPK> {
     RolePermission findByRoleAndPermission(Role role, Permission permission);
+    List<RolePermission> findByRole(Role role);
 
 }

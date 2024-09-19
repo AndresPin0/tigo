@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Manager dashboard</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+
+<body>
+
+    <div>
+        <h1>Permissions</h1>
+
+        <table class="table">
+
+            <!-- Table Header -->
+            <thead>
+                <tr >
+                    <th>Role</th>
+                    <th th:each="permission: ${permissions}" th:value="${permission.name}" th:text="${permission.name}"></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+                <!-- Table Body -->
+                <tbody>
+                    
+                    <tr th:each="role:${roles}" >
+                        <td th:value="${role.name}" th:text="${role.name}"> </td>
+                        <td th:each="permission: ${permissions}" th:value="${permission.name}" th:text="1"></td>
+                    </tr>
+             
+                   
+                </tbody>
+
+
+        </table>
+        <button> Hello</button>
+    </div>
+</body>

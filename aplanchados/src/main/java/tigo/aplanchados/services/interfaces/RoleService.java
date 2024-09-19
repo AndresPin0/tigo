@@ -5,7 +5,9 @@ import tigo.aplanchados.model.Role;
 import tigo.aplanchados.model.User;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Repository;
 
@@ -23,6 +25,8 @@ public interface RoleService {
     Optional<Role> findRoleByName(String name);
 
     boolean addPermissionToRole(Role role, Permission permission);
+
+    Map<String,List<Permission>> getRolesPermissions();
 
     boolean removePermissionToRole(Role role, Permission permission);
 

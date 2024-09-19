@@ -14,8 +14,11 @@ import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.RoleService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Service
@@ -156,6 +159,22 @@ public class RoleServiceImpl implements RoleService {
         user.setRole( roleRepository.findByName("EMPLOYEE") );
         userRepository.save(user);
         return true;
+    }
+
+    @Override
+    public Map<String,List<Permission>> getRolesPermissions( ){
+        Map<String,List<Permission>> map= new HashMap<>();
+
+        List<Role> roles= roleRepository.findAll();
+
+        for(Role role: roles){
+            map.put(role.getName(),role.getRolePermissions().stream().map(rolePemission->rolePemission.getPermission()).toList());
+        }
+
+
+
+      return map;
+       
     }
 
 
