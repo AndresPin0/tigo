@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form action="#" th:action="@{/login}" method="post">
+        <form id="loginForm" action="#" method="post">
             <div class="form-group">
                 <label for="id">User ID</label>
                 <input type="text" id="id" name="id" required>
@@ -19,9 +19,36 @@
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
-            <p th:if="${param.error}" class="error">Invalid credentials, please try again.</p>
+            <p class="error" id="errorMessage" style="display:none;">Invalid credentials, please try again.</p>
         </form>
         <p class="link">Don't have an account? <a th:href="@{/user/create}">Register here</a></p>
     </div>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = {
+                id: document.getElementById('id').value,
+                password: document.getElementById('password').value
+            };
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/dashboard'; 
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
 </body>
 </html>

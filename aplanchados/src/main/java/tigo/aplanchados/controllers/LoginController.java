@@ -1,16 +1,17 @@
 package tigo.aplanchados.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.stereotype.Controller;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.stereotype.Controller;
 import java.util.Optional;
 
 @Controller
@@ -24,24 +25,46 @@ public class LoginController {
 
     @GetMapping
     public String loginPage() {
-        return "login";
+        return "login"; 
     }
 
     @PostMapping
-    public String login(@RequestParam Long id, @RequestParam String password) {
-        Optional<User> optionalUser = userRepository.findById(id);
+    @ResponseBody
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        Optional<User> optionalUser = userRepository.findById(loginRequest.getId());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            if (passwordEncoder.matches(password, user.getPassword())) {
+            if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
                 System.out.println("User authenticated successfully.");
-                return "redirect:/dashboard";
+                return ResponseEntity.ok("Login successful");
             } else {
                 System.out.println("Password does not match.");
             }
         } else {
             System.out.println("User not found.");
         }
-        return "redirect:/login?error";
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
 
+    // LoginRequest class to handle the incoming JSON data
+    public static class LoginRequest {
+        private Long id;
+        private String password;
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+    }
 }
