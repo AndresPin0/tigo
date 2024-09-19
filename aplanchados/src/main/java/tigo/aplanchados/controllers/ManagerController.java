@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import tigo.aplanchados.model.Permission;
+import tigo.aplanchados.model.Role;
 import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.PermissionService;
@@ -37,7 +38,8 @@ public class ManagerController {
    private PermissionService permissionService;
 
    @GetMapping
-   public String managerPage(Model model) {
+   public String managerPage(Model model) { 
+      userService.deleteUser(1L);
       model.addAttribute("users", userService.findAllUsers());
       model.addAttribute("roles", roleService.findAllRoles());
       return "manager";
@@ -47,6 +49,18 @@ public class ManagerController {
    @RequestMapping(value="/edit-user-role",method=RequestMethod.POST)
 
    public String editUserRole(@ModelAttribute User user, Model model){
+      try {
+
+         User foundUser=userService.findUserById(  user.getId() ).get();
+         Role foundRole=roleService.findRoleByName(user.getRole().getName()).get();
+
+         foundUser.setRole(foundRole);
+         userService.updateUser(foundUser);
+         
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+
       return "redirect:/manager";
    }
 
@@ -99,6 +113,22 @@ public String updateFoos(@RequestParam Map<String,String> allParams) {
 
 }
 
+@PostMapping("/add-role")
+public String addRole(@RequestParam Map<String,String> allParams) {
+   
+   String roleName=allParams.get("newRoleName"); 
+   System.out.println(roleName);
+   if(!roleService.findRoleByName(roleName).isPresent()){
+      Role role=new Role();
+      
+      role.setName(roleName);
+      roleService.saveRole(role);
+   }
 
+
+
+   return "redirect:/manager/roles";
+
+}
 
 }

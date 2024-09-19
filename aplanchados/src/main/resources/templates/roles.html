@@ -4,6 +4,12 @@
 <head>
     <title>Manager dashboard</title>
     <link rel="stylesheet" th:href="@{../css/styles.css}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -16,7 +22,7 @@
             <!-- Table Header -->
             <thead>
                 <tr>
-                    <th>Role</th>
+                    <th>Users</th>
                     <th th:each="permission: ${permissions} ">
                     </th>
                     <th></th>
@@ -29,11 +35,13 @@
                 <tr th:each="role:${roles}">
                     <form th:action="@{/manager/update-roles}" method="post">
                         <td th:value="${role.name}" th:text="${role.name}"> </td>
-                        <td th:each="permission: ${permissions}" >
-                            <input type="checkbox" th:checked="${#sets.contains(rolePermissionSet,role.name+'-'+permission.name)}" th:name="${permission.name}">
+                        <td th:each="permission: ${permissions}">
+                            <input type="checkbox"
+                                th:checked="${#sets.contains(rolePermissionSet,role.name+'-'+permission.name)}"
+                                th:name="${permission.name}">
                             <p th:text="${permission.name}"> </p>
                         </td>
-                        <input type="text" th:name="roleName" th:value="${role.name}"hidden>
+                        <input type="text" th:name="roleName" th:value="${role.name}" hidden>
                         <td><button type="submit"> Save </button></td>
 
                     </form>
@@ -44,8 +52,39 @@
 
 
         </table>
- <a th:href="@{/manager}" class="boton">
-    <button type="button">Manage users</button>
-    </a>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add role
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form th:action="@{/manager/add-role}" method="post">
+                        <div class="modal-body">
+                            <label for="newRoleName">New Role Name</label>
+                            <input type="text" name="newRoleName" class="form-control" placeholder="Enter new role name">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Understood</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <a th:href="@{/manager}" class="boton">
+            <button type="button">Manage users</button>
+        </a>
     </div>
 </body>

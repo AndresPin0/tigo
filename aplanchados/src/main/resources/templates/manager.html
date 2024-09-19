@@ -12,7 +12,6 @@
         <h1>Roles</h1>
 
         <table class="table">
-
             <!-- Table Header -->
             <thead>
                 <tr>
@@ -23,54 +22,37 @@
                     <th> </th>
                 </tr>
             </thead>
-            <form th:action>
-
-                <!-- Table Body -->
-                <tbody>
-                    <tr th:each="user : ${users}">
-
+            <!-- Table Body -->
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td>
                         <form th:action="@{manager/edit-user-role}" method="post" th:object="${user}">
-
-                            <td>
-                                <input type="text" name="id" th:value="${user.id}" readonly>
-
-                            </td>
-
-                            <td>
-
-
-                                <input type="text" name="name" th:value="${user.name}" readonly>
-
-                            </td>
-                            <td>
-
-                                <input type="text" name="lastName" th:value="${user.lastName}" readonly>
-                            </td>
-
-                            <td>
-
-
-                                <select name="role.name">
-                                    <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}" th:selected="${user.role.name}"></option>
-                                </select>
-
-                               
-                            </td>
-                            <td>
-                                <button type="submit">save</button>
-                            </td>
-
+                            <input type="text" name="id" th:value="${user.id}" readonly>
+                    </td>
+                    <td>
+                        <input type="text" name="name" th:value="${user.name}" readonly>
+                    </td>
+                    <td>
+                        <input type="text" name="lastName" th:value="${user.lastName}" readonly>
+                    </td>
+                    <td>
+                        <select name="role.name">
+                            <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}"
+                                th:selected="${role.name} == ${user.role.name}"></option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit">save</button>
                         </form>
-
-                    </tr>
-                </tbody>
-
-
+                    </td>
+                </tr>
+            </tbody>
         </table>
-    <a th:href="@{/manager/roles}" class="boton">
-    <button type="button">Manage roles</button>
-    </a>
 
-    
+        <a th:href="@{/manager/roles}" class="boton">
+            <button type="button">Manage roles</button>
+        </a>
+
+
     </div>
 </body>
