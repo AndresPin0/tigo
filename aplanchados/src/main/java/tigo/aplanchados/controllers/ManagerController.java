@@ -2,6 +2,11 @@ package tigo.aplanchados.controllers;
 
 
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -51,7 +56,16 @@ public class ManagerController {
       System.out.println(roleService.findAllRoles().size());
       model.addAttribute("roles", roleService.findAllRoles());
 
-      model.addAttribute("rolesPermissions", roleService.getRolesPermissions());
+      Map<String,List<String>> map=roleService.getRolesPermissions();
+
+      
+      map.forEach((role,permissions)->{
+         model.addAttribute(role, permissions);
+      });
+      
+      
+
+
      /* 
       Permission permission1=new Permission();
       Permission permission2=new Permission();

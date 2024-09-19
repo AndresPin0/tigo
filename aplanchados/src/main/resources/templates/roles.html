@@ -27,7 +27,10 @@
                     
                     <tr th:each="role:${roles}" >
                         <td th:value="${role.name}" th:text="${role.name}"> </td>
-                        <td th:each="permission: ${permissions}" th:value="${permission.name}" th:text="1"></td>
+                        <td th:each="permission: ${permissions}" th:value="${permission.name}">
+                            <input type="checkbox" th:checked="  ${#lists.contains(role.name, permission.name)} ">
+                        </td>
+                        <td><button type="save"> Save </button></td>
                     </tr>
              
                    

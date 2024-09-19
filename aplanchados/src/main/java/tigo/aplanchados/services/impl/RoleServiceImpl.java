@@ -162,13 +162,13 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Map<String,List<Permission>> getRolesPermissions( ){
-        Map<String,List<Permission>> map= new HashMap<>();
+    public Map<String,List<String>> getRolesPermissions( ){
+        Map<String,List<String>> map= new HashMap<>();
 
         List<Role> roles= roleRepository.findAll();
 
         for(Role role: roles){
-            map.put(role.getName(),role.getRolePermissions().stream().map(rolePemission->rolePemission.getPermission()).toList());
+            map.put(role.getName(),role.getRolePermissions().stream().map(rolePemission->rolePemission.getPermission().getName()).toList());
         }
 
 

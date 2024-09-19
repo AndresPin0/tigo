@@ -26,7 +26,7 @@ public interface RoleService {
 
     boolean addPermissionToRole(Role role, Permission permission);
 
-    Map<String,List<Permission>> getRolesPermissions();
+    Map<String,List<String>> getRolesPermissions();
 
     boolean removePermissionToRole(Role role, Permission permission);
 
