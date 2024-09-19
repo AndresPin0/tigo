@@ -15,26 +15,31 @@
 
             <!-- Table Header -->
             <thead>
-                <tr >
+                <tr>
                     <th>Role</th>
-                    <th th:each="permission: ${permissions}" th:value="${permission.name}" th:text="${permission.name}"></th>
+                    <th th:each="permission: ${permissions}" th:value="${permission.name}" th:text="${permission.name}">
+                    </th>
                     <th></th>
                 </tr>
             </thead>
 
-                <!-- Table Body -->
-                <tbody>
-                    
-                    <tr th:each="role:${roles}" >
+            <!-- Table Body -->
+            <tbody>
+
+                <tr th:each="role:${roles}">
+                    <form th:action="@{/manager/update-roles}" method="post">
                         <td th:value="${role.name}" th:text="${role.name}"> </td>
-                        <td th:each="permission: ${permissions}" th:value="${permission.name}">
-                            <input type="checkbox" th:checked="  ${#lists.contains(role.name, permission.name)} ">
+                        <td th:each="permission: ${permissions}" >
+                            <input type="checkbox" th:checked="  ${#lists.contains(role.name, permission.name)}" name="permission.name">
+                            <p th:text="${permission.name}"> </p>
                         </td>
-                        <td><button type="save"> Save </button></td>
-                    </tr>
-             
-                   
-                </tbody>
+                        <td><button type="submit"> Save </button></td>
+
+                    </form>
+                </tr>
+
+
+            </tbody>
 
 
         </table>

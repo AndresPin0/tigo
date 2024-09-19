@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import tigo.aplanchados.model.Permission;
 import tigo.aplanchados.model.User;
@@ -84,6 +86,12 @@ public class ManagerController {
 */
       return "roles";
    }
+
+@PostMapping("/update-roles")
+@ResponseBody
+public String updateFoos(@RequestParam Map<String,String> allParams) {
+    return "Parameters are " + allParams.entrySet();
+}
 
 
 
