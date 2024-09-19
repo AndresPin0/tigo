@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Manager dashboard</title>
+    <link rel="stylesheet" th:href="@{./css/styles.css}">
+</head>
+
+<body>
+
+    <div >
+        <h1>Users</h1>
+
+        <table class="table">
+
+            <!-- Table Header -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <form th:action>
+
+                <!-- Table Body -->
+                <tbody>
+                    <tr th:each="user : ${users}">
+
+                        <form th:action="@{manager/edit-user-role}" method="post" th:object="${user}">
+
+                            <td>
+                                <input type="text" name="id" th:value="${user.id}" readonly>
+
+                            </td>
+
+                            <td>
+
+
+                                <input type="text" name="name" th:value="${user.name}" readonly>
+
+                            </td>
+                            <td>
+
+                                <input type="text" name="lastName" th:value="${user.lastName}" readonly>
+                            </td>
+
+                            <td>
+
+
+                                
+                                <input type="text" name="role.name" th:value="${user.role.name}" readonly>
+                            </td>
+                            <td>
+                                <button type="submit">save</button>
+                            </td>
+
+                        </form>
+
+                    </tr>
+                </tbody>
+
+
+        </table>
+    </div>
+</body>

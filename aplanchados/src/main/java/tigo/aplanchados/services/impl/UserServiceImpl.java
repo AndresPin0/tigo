@@ -60,6 +60,21 @@ public class UserServiceImpl implements UserService {
                 .findFirst();
     }
 
+    @Override
+    public boolean updateUser(User user){
+        User userToUpdate= userRepository.findById(user.getId()).orElse(null);
+        if(userToUpdate==null){
+            return false;
+        }
+        userToUpdate.setId(user.getId());
+        userToUpdate.setName(user.getName());
+        userToUpdate.setLastName(user.getLastName());
+        userToUpdate.setRole(user.getRole());
+        userRepository.save(userToUpdate);
+        return true;
+        
+    }
+
 
     
 }

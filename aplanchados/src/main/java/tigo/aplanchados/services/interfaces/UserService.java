@@ -20,4 +20,6 @@ public interface UserService {
 
     Optional<User> findUserByUsername(String username);
 
+    boolean updateUser(User user);
+
 }
