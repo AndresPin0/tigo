@@ -1,6 +1,12 @@
 package tigo.aplanchados.controllers;
 
 
+<<<<<<< Updated upstream
+=======
+
+import java.util.ArrayList;
+import java.util.HashSet;
+>>>>>>> Stashed changes
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,27 +45,28 @@ public class ManagerController {
    @RequestMapping(value="/edit-user-role",method=RequestMethod.POST)
 
    public String editUserRole(@ModelAttribute User user, Model model){
-      System.out.println(user.getName());
-      System.out.println(user.getName());
-      System.out.println(user.getRole().getName());
       return "redirect:/manager";
    }
 
    @GetMapping("/roles")
    public String manageRoles(Model model){
       model.addAttribute("permissions", permissionService.findAllPermissions());
-      System.out.println(roleService.findAllRoles().size());
       model.addAttribute("roles", roleService.findAllRoles());
 
       Map<String,List<String>> map=roleService.getRolesPermissions();
+      Set<String> set=new HashSet<>();
+      for(Map.Entry<String,List<String>> entry: map.entrySet()){
+         String role= entry.getKey();
+         for (String permission : entry.getValue()) {
+            set.add(role+"-"+permission);
+         }
+
+
+      }
+      model.addAttribute("rolePermissionSet", set);
 
       
-      map.forEach((role,permissions)->{
-         model.addAttribute(role, permissions);
-      });
       
-      
-
 
      /* 
       Permission permission1=new Permission();
@@ -81,9 +88,13 @@ public class ManagerController {
    }
 
 @PostMapping("/update-roles")
-@ResponseBody
 public String updateFoos(@RequestParam Map<String,String> allParams) {
-    return "Parameters are " + allParams.entrySet();
+   
+   allParams.get("roleName"); 
+   roleService.updateRoleServices(allParams);
+
+   return "redirect:/manager/roles";
+
 }
 
 

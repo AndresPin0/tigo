@@ -15,6 +15,7 @@ import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.RoleService;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -36,6 +37,7 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RolePermissionRepository rolePermissionRepository;
 
+    
 
     @Override
     public List<Role> findAllRoles() {
@@ -175,7 +177,54 @@ public class RoleServiceImpl implements RoleService {
 
       return map;
        
+
     }
+
+
+    @Override
+    public boolean updateRoleServices(Map<String,String> roleServices){
+
+        String foundRoleName=null;
+        Role role=null;
+
+        foundRoleName=roleServices.get("roleName");
+        
+        if(foundRoleName==null){
+            return false;
+        }
+        if(!roleRepository.existsByName(foundRoleName)){
+            return false;
+        }
+
+        Set<String> roleServicesSet=new HashSet<>();
+        
+        for( Map.Entry<String, String> entry: roleServices.entrySet()){
+            if(entry.getKey().equals("roleName")){
+                continue;
+            }
+            roleServicesSet.add(entry.getKey());
+        }
+        role=new Role();
+        role.setName(foundRoleName);
+        for(Permission permission: permissionRepository.findAll()){
+
+            String permissionName=permission.getName();
+            if(roleServicesSet.contains(permissionName)){
+                if(addPermissionToRole(role, permission)){
+                }
+            }else{
+                if(  removePermissionToRole(role, permissionRepository.findByName(permissionName)) ){
+                    
+                }
+            }
+
+
+        }
+
+
+        return true;
+    }
+
 
 
     

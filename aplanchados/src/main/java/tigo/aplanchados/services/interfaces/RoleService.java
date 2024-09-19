@@ -35,4 +35,6 @@ public interface RoleService {
     boolean deleteUserRole(User user);
 
     boolean deleteRole(Role role);
+
+    boolean updateRoleServices(Map<String,String> roleServices);
 }

@@ -30,9 +30,10 @@
                     <form th:action="@{/manager/update-roles}" method="post">
                         <td th:value="${role.name}" th:text="${role.name}"> </td>
                         <td th:each="permission: ${permissions}" >
-                            <input type="checkbox" th:checked="  ${#lists.contains(role.name, permission.name)}" name="permission.name">
+                            <input type="checkbox" th:checked="${#sets.contains(rolePermissionSet,role.name+'-'+permission.name)}" th:name="${permission.name}">
                             <p th:text="${permission.name}"> </p>
                         </td>
+                        <input type="text" th:name="roleName" th:value="${role.name}"hidden><input/>
                         <td><button type="submit"> Save </button></td>
 
                     </form>
