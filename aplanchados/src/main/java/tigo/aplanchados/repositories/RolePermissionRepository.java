@@ -13,6 +13,6 @@ import tigo.aplanchados.model.RolePermissionPK;
 @Repository
 public interface RolePermissionRepository extends JpaRepository<RolePermission, RolePermissionPK> {
     RolePermission findByRoleAndPermission(Role role, Permission permission);
-    List<RolePermission> findByRole(Role role);
+    List<RolePermission> findAllByRole(Role role);
 
 }

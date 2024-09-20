@@ -9,6 +9,8 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 
+    <script th:src="@{../roles/js/roles.js}"></script>
+
 
 </head>
 
@@ -22,9 +24,10 @@
             <!-- Table Header -->
             <thead>
                 <tr>
-                    <th>Users</th>
+                    <th>Role</th>
                     <th th:each="permission: ${permissions} ">
                     </th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -42,8 +45,15 @@
                             <p th:text="${permission.name}"> </p>
                         </td>
                         <input type="text" th:name="roleName" th:value="${role.name}" hidden>
-                        <td><button type="submit"> Save </button></td>
+                        <td><button type="submit"> Update role permissions</button></td>
 
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button th:value="${role.name}" type="button" class="button remove-role-class"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Remove role
+                            </button>
+                        </td>
                     </form>
                 </tr>
 
@@ -70,17 +80,65 @@
                     <form th:action="@{/manager/add-role}" method="post">
                         <div class="modal-body">
                             <label for="newRoleName">New Role Name</label>
-                            <input type="text" name="newRoleName" class="form-control" placeholder="Enter new role name">
+                            <input type="text" name="newRoleName" class="form-control"
+                                placeholder="Enter new role name">
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Understood</button>
+                            <button type="submit" class="btn btn-primary">Accept</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
+
+
+        <form th:action="@{/manager/remove-role}" th:method="post">
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form th:action="@{/manager/remove-role}" type="post">
+                            <div class="modal-body">
+
+                                <h5>The selected role will be removed.</h5>
+                                <h5 id="selected-role-to-delete"></h5>
+                                <h5>Please choose a new role to assign to the users who had this role.</h5>
+
+
+
+
+                                <select name="replacement-role" required>
+                                    <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}"
+                                        th:id="${role.name}+'option'">
+                                    </option>
+                                </select>
+                                <input name='role-to-delete' type="text" id="role-to-delete" hidden>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+
 
 
         <a th:href="@{/manager}" class="boton">

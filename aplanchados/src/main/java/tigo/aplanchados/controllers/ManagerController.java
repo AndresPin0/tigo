@@ -125,10 +125,22 @@ public String addRole(@RequestParam Map<String,String> allParams) {
       roleService.saveRole(role);
    }
 
-
-
    return "redirect:/manager/roles";
 
+}
+
+@PostMapping("/remove-role")
+public String removeRole(@RequestParam Map<String,String> allparams){
+
+
+   String replacementRole=allparams.get("replacement-role");
+   String roleToDelete=allparams.get("role-to-delete");
+//   System.out.println(replacementRole);
+ //  System.out.println(roleToDelete);
+
+   roleService.removeRole(roleToDelete, replacementRole);
+
+   return "redirect:/manager/roles";
 }
 
 }

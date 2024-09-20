@@ -34,7 +34,7 @@ public interface RoleService {
 
     boolean deleteUserRole(User user);
 
-    boolean deleteRole(Role role);
+    boolean removeRole(String roleToRemove,String replacemenRole);
 
     boolean updateRoleServices(Map<String,String> roleServices);
 }
