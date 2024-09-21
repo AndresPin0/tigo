@@ -1,0 +1,64 @@
+package tigo.aplanchados.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import tigo.aplanchados.model.Expense;
+import tigo.aplanchados.repositories.RoleRepository;
+import tigo.aplanchados.repositories.ExpenseService;
+import tigo.aplanchados.services.interfaces.ExpenseService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import tigo.aplanchados.model.Role;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ExpenseServiceImpl implements ExpenseService {
+
+    @Autowired
+    private ExpenseRepository ExpenseService;
+
+
+    @Override
+    public List<Expense> findAllExpense() {
+        return ExpenseService.findAll();
+    }
+
+    @Override
+    public Optional<Expense> findExpenseById(Long id) {
+        return ExpenseService.findById(id);
+    }
+
+
+    @Override
+    public Expense createExpense(Expense expense) {
+        return ExpenseService.save(expense);
+    }
+
+    @Override
+    public void deleteExpense(Long id) {
+        ExpenseService.deleteById(id);
+    }
+
+    @Override
+    public boolean updateExpense(Expense expense){
+        Expense expenseToUpdate= ExpenseService.findById(expense.getId()).orElse(null);
+        if(expenseToUpdate==null){
+            return false;
+        }
+        expenseToUpdate.setId(expense.getId());
+        expenseToUpdate.setDate(expense.getDate());
+        expenseToUpdate.setExpenseConcept(expense.getExpenseConcept());
+        expenseToUpdate.setPaymentMethod(expense.getPaymentMethod());
+        expenseToUpdate.setAdditionalDetail(expense.getAdditionalDetail());
+        expenseToUpdate.setPaymentType(expense.getPaymentType());
+        expenseToUpdate.setPerson(expense.getPerson());
+        expenseToUpdate.setUser(expense.getUser());
+        expenseToUpdate.setValue(expense.getValue());
+        ExpenseService.save(expenseToUpdate);
+        return true;
+        
+    }
+
+
+    
+}

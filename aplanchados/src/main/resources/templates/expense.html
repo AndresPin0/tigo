@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro de Salidas</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Salida de Fondos</h1>
+        <form id="expenseForm" action="#" th:action="@{/expense/create}" method="post">
+            <div class="form-group">
+                <label for="expenseConcept">Concepto de egreso</label>
+                <select id="expenseConcept" name="expenseConcept" required>
+                    <option value="insumo">Insumo</option>
+                    <option value="gerencia">Salida Gerencia</option>
+                    <option value="gastosOperativos">Gastos Operativos Cotidianos</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="recipientType">Tipo de documento (a quien va dirigida la salida)</label>
+                <input type="text" id="recipientType" name="recipientType" required>
+            </div>
+            <div class="form-group">
+                <label for="recipientDocument">Número de documento específico (a quien va dirigida la salida)</label>
+                <input type="text" id="recipientDocument" name="recipientDocument" required>
+            </div>
+            <div class="form-group">
+                <label for="expenseDetails">Detalle adicional (opcional)</label>
+                <textarea id="expenseDetails" name="expenseDetails"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="expenseValue">Valor correspondiente</label>
+                <input type="number" id="expenseValue" name="expenseValue" required>
+            </div>
+            <div class="form-group">
+                <label for="employeeId">ID del empleado</label>
+                <input type="text" id="employeeId" name="employeeId" value="{usuario_logueado_id}" readonly>
+            </div>
+            <div class="form-group">
+                <button type="submit">Registrar Salida</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('expenseForm').onsubmit = function(event) {
+            event.preventDefault(); 
+            
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Salida registrada con éxito');
+                    window.location.href = '/expense'; 
+                } else {
+                    alert('Error durante el registro');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>
+ 

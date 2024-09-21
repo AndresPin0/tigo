@@ -18,7 +18,7 @@ import tigo.aplanchados.services.interfaces.IncomeService;
 public class IncomeController {
 
     @Autowired
-    private IncomeService IncomeService;
+    private IncomeService incomeService;
 
     @GetMapping("/create")
     public String addPage() {
@@ -27,23 +27,23 @@ public class IncomeController {
     
     @PostMapping("/create")
     public ResponseEntity<Income> createIncome(Income income) {
-        Income createdIncome = IncomeService.createIncome(income);
+        Income createdIncome = incomeService.createIncome(income);
         return ResponseEntity.ok(createdIncome);
     }
 
     @GetMapping
     public List<Income> getAllIncomes() {
-        return IncomeService.findAllIncomes();
+        return incomeService.findAllIncomes();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Income> getIncomeById(Long id) {
-        return ResponseEntity.ok(IncomeService.findIncomeById(id).get());
+        return ResponseEntity.ok(incomeService.findIncomeById(id).get());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteIncome(Long id) {
-        IncomeService.deleteIncome(id);
+        incomeService.deleteIncome(id);
         return ResponseEntity.ok().build();
     }
 

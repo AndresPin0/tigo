@@ -3,11 +3,8 @@ package tigo.aplanchados.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tigo.aplanchados.model.Income;
-import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.IncomeRepository;
 import tigo.aplanchados.services.interfaces.IncomeService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import tigo.aplanchados.model.Role;
 import java.util.List;
 import java.util.Optional;
 
