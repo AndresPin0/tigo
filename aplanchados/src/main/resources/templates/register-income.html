@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro de Transacciones</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Ingreso</h1>
+        <form id="incomeForm" action="#" th:action="@{/income/create}" method="post">
+            <div class="form-group">
+                <label for="clientType">Tipo de documento del cliente (opcional)</label>
+                <input type="text" id="clientType" name="clientType">
+            </div>
+            <div class="form-group">
+                <label for="clientDocument">Documento del cliente (opcional)</label>
+                <input type="text" id="clientDocument" name="clientDocument">
+            </div>
+            <div class="form-group">
+                <label for="clientName">Nombre del cliente</label>
+                <input type="text" id="clientName" name="clientName" required>
+            </div>
+            <div class="form-group">
+                <label for="paymentType">Tipo de pago</label>
+                <select id="paymentType" name="paymentType" required>
+                    <option value="contado">Contado</option>
+                    <option value="credito">Crédito</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="paymentMethod">Medio de pago utilizado</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="tarjeta">Tarjeta</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="transactionValue">Valor de la transacción</label>
+                <input type="number" id="transactionValue" name="transactionValue" required>
+            </div>
+            <div class="form-group">
+                <label for="additionalDetails">Detalles adicionales relevantes (opcional)</label>
+                <textarea id="additionalDetails" name="additionalDetails"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="incomeConcept">Concepto del ingreso</label>
+                <select id="incomeConcept" name="incomeConcept" required>
+                    <option value="venta">Venta</option>
+                    <option value="otros">Otros conceptos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="employeeId">ID del empleado</label>
+                <input type="text" id="employeeId" name="employeeId" value="{usuario_logueado_id}" readonly>
+            </div>
+            <div class="form-group">
+                <button type="submit">Registrar Ingreso</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('incomeForm').onsubmit = function(event) {
+            event.preventDefault(); 
+            
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Ingreso registrado con éxito');
+                    window.location.href = '/dashboard'; 
+                } else {
+                    alert('Error durante el registro');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>
