@@ -12,6 +12,8 @@ public interface ExpenseService {
 
     List<Expense> findAllExpenses();
 
+    List<Expense> findAllExpensesToday();
+
     Optional<Expense> findExpenseById(Long id);
 
     Expense createExpense(Expense expense);

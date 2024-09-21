@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tigo.aplanchados.model.Expense;
 import tigo.aplanchados.repositories.RoleRepository;
-import tigo.aplanchados.repositories.ExpenseService;
+import tigo.aplanchados.repositories.ExpenseRepository;
 import tigo.aplanchados.services.interfaces.ExpenseService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import tigo.aplanchados.model.Role;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Date;
+import java.time.LocalDate;
 
 @Service
 public class ExpenseServiceImpl implements ExpenseService {
@@ -19,7 +22,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
 
     @Override
-    public List<Expense> findAllExpense() {
+    public List<Expense> findAllExpenses() {
         return ExpenseService.findAll();
     }
 
@@ -57,6 +60,18 @@ public class ExpenseServiceImpl implements ExpenseService {
         ExpenseService.save(expenseToUpdate);
         return true;
         
+    }
+
+    @Override
+    public List<Expense> findAllExpensesToday() {
+        List<Expense> expenses = ExpenseService.findAll();
+        List<Expense> expensesToday = new ArrayList<Expense>();
+        LocalDate today = LocalDate.now();
+        for(Expense e: expenses){
+            if(e.getDate().getDayOfYear() == today.getDayOfYear() && e.getDate().getYear()== today.getYear())
+            expensesToday.add(e);
+        }
+        return expensesToday;
     }
 
 
