@@ -2,11 +2,14 @@ package tigo.aplanchados.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import tigo.aplanchados.model.Income;
 import tigo.aplanchados.repositories.IncomeRepository;
 import tigo.aplanchados.services.interfaces.IncomeService;
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
+import java.time.LocalDate;
 
 @Service
 public class IncomeServiceImpl implements IncomeService {
@@ -54,6 +57,17 @@ public class IncomeServiceImpl implements IncomeService {
         incomeRepository.save(incomeToUpdate);
         return true;
         
+    }
+
+     @Override
+    public List<Income> findAllIncomesForDate(LocalDate date) {
+        List<Income> income = incomeRepository.findAll();
+        List<Income> incomeByDate= new ArrayList<Income>();
+        for(Income e: income){
+            if(e.getDate().getDayOfYear() == date.getDayOfYear() && e.getDate().getYear()== date.getYear())
+            incomeByDate.add(e);
+        }
+        return incomeByDate;
     }
 
 
