@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Load Data</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Excel File</h1>
+        <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select Excel file</label>
+                <input type="file" id="file" name="file" accept=".xls,.xlsx" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Upload</button>
+            </div>
+            <p class="error" id="errorMessage" style="display:none;">File upload failed, please try again.</p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('file', document.getElementById('file').files[0]);
+
+            fetch('/upload-excel', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('File uploaded successfully!');
+                    // Hacer redirect a otra pagina
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>
