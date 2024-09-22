@@ -112,6 +112,7 @@ public class ReportServiceImpl implements ReportService {
         try (ServletOutputStream ops = response.getOutputStream()) {
             workbook.write(ops);
             ops.close();
+            workbook.close();
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

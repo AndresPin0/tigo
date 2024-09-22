@@ -45,7 +45,9 @@ public class ReportRestController {
             OutputStream os = new FileOutputStream(fileConv);
             os.write(file.getBytes());
             readService.ReadExcel(fileConv);
+            os.close();
             return ResponseEntity.ok("File uploaded and processed successfully!");
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body("File upload failed");

@@ -1,15 +1,11 @@
 package tigo.aplanchados.controllers;
 
-
-
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import tigo.aplanchados.model.Permission;
 import tigo.aplanchados.model.Role;
 import tigo.aplanchados.model.User;
-import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.PermissionService;
 import tigo.aplanchados.services.interfaces.RoleService;
 import tigo.aplanchados.services.interfaces.UserService;

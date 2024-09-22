@@ -1,6 +1,5 @@
 package tigo.aplanchados.services.interfaces;
 
-import tigo.aplanchados.model.Expense;
 import tigo.aplanchados.model.Income;
 
 import java.util.List;
