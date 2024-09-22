@@ -1,6 +1,7 @@
 package tigo.aplanchados.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/login")
+@PreAuthorize("permitAll()")
 public class LoginController {
 
     @Autowired
@@ -23,12 +25,12 @@ public class LoginController {
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @GetMapping
+    @GetMapping()
     public String loginPage() {
         return "login"; 
     }
 
-    @PostMapping
+    @PostMapping("/authenticate")
     @ResponseBody
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
         Optional<User> optionalUser = userRepository.findById(loginRequest.getId());
