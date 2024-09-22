@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.io.File;
 
 import jakarta.servlet.http.HttpServletResponse;
+import tigo.aplanchados.services.interfaces.ReadExcelService;
 import tigo.aplanchados.services.interfaces.ReportService;
 import java.time.LocalDate;
 
@@ -17,6 +21,9 @@ public class ReportRestController {
     
     @Autowired
     private ReportService reportService;
+
+    @Autowired
+    private ReadExcelService readService;
 
     @GetMapping("/excel")
     public void generateExcelReport(HttpServletResponse response) throws Exception{
@@ -34,8 +41,10 @@ public class ReportRestController {
      @PostMapping("/upload-excel")
     public ResponseEntity<String> uploadExcelFile(@RequestParam("file") MultipartFile file) {
         try {
-            // Call the ReplaceForName method to handle the Excel reading logic
-            // reportService.ReplaceForMethodName(file);
+            File fileConv = new File("src/main/resources/targetFile.tmp");
+            OutputStream os = new FileOutputStream(fileConv);
+            os.write(file.getBytes());
+            readService.ReadExcel(fileConv);
             return ResponseEntity.ok("File uploaded and processed successfully!");
         } catch (Exception e) {
             e.printStackTrace();

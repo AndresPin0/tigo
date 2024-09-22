@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Data
@@ -14,6 +13,23 @@ public class Income implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Income(Long id, Integer value, String additionalDetail, Person person, LocalDateTime date,
+            PaymentMethod paymentMethod, PaymentType paymentType, IncomeConcept incomeConcept, User user) {
+        this.id = id;
+        this.value = value;
+        this.additionalDetail = additionalDetail;
+        this.person = person;
+        this.date = date;
+        this.paymentMethod = paymentMethod;
+        this.paymentType = paymentType;
+        this.incomeConcept = incomeConcept;
+        this.user = user;
+    }
+
+    public Income() {
+        //TODO Auto-generated constructor stub
+    }
 
     private Integer value;
     private String additionalDetail;

@@ -3,29 +3,23 @@ package tigo.aplanchados.services.impl;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import tigo.aplanchados.model.Expense;
 import tigo.aplanchados.model.Income;
-import tigo.aplanchados.repositories.ExpenseRepository;
-import tigo.aplanchados.repositories.IncomeRepository;
-import tigo.aplanchados.services.interfaces.IncomeService;
 import tigo.aplanchados.services.interfaces.ReportService;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.time.LocalDate;
 
 @Service
 public class ReportServiceImpl implements ReportService {
 
-    @Autowired
-    private ExpenseRepository expenseRepository;
+    /*@Autowired
+    private ExpenseRepository expenseRepository;*/
 
     private ExpenseServiceImpl expenseServiceImpl;
     private IncomeServiceImpl incomeServiceImpl;
@@ -128,7 +122,6 @@ public class ReportServiceImpl implements ReportService {
 
 
     private int calculateByDate(LocalDate date) {
-        LocalDate currentDate = LocalDate.now();  
         
         List<Income> income =  incomeServiceImpl.findAllIncomesForDate(  date );
         List<Expense> expense = expenseServiceImpl.findAllExpenseForDate( date );

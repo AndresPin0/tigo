@@ -5,15 +5,33 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Data
 @Table(name="expense")
 public class Expense implements Serializable {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Expense(Long id, Integer value, String additionalDetail, Person person, LocalDateTime date,
+            PaymentMethod paymentMethod, PaymentType paymentType, ExpenseConcept expenseConcept, User user) {
+        this.id = id;
+        this.value = value;
+        this.additionalDetail = additionalDetail;
+        this.person = person;
+        this.date = date;
+        this.paymentMethod = paymentMethod;
+        this.paymentType = paymentType;
+        this.expenseConcept = expenseConcept;
+        this.user = user;
+    }
+
+    public Expense() {
+        //TODO Auto-generated constructor stub
+    }
 
     private Integer value;
     private String additionalDetail;
