@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{./css/styles.css}">
 </head>
 <body>
-    <div sec:authorize="isAuthenticated()">
+    <div sec:authorize="hasAnyRole(''ADMIN', ''DEVELOPER'', ''TEST'')">
         <h1>Aplanchados Coming Soon</h1>
         <p>Pronto tendremos más funcionalidades disponibles.</p>
         <a href="/manager">Manager settings</a>
