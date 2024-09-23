@@ -2,11 +2,15 @@ package tigo.aplanchados.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "user")
 @Data
 public class User implements Serializable {

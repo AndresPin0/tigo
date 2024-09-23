@@ -1,5 +1,6 @@
 package tigo.aplanchados.controllers;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class UserController {
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @GetMapping("/create")
+    @PreAuthorize("permitAll()")
     public String registerPage() {
         return "register";
     }
@@ -35,6 +37,7 @@ public class UserController {
     }
 
     @GetMapping
+
     public List<User> getAllUsers() {
         return userService.findAllUsers();
     }
