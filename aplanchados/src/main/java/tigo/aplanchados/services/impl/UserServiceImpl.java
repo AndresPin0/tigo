@@ -6,7 +6,6 @@ import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.UserService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import tigo.aplanchados.model.Role;

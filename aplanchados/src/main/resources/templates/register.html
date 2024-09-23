@@ -1,57 +1,63 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Register</title>
-    <link rel="stylesheet" th:href="@{../css/styles.css}">
-</head>
-<body>
-    <div class="container">
-        <h1>Register</h1>
-        <form id="registerForm" action="#" th:action="@{/user/create}" method="post">
-            <div class="form-group">
-                <label for="id">ID</label>
-                <input type="text" id="id" name="id" required>
-            </div>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Register</button>
-            </div>
-        </form>
-        <p class="link">Already have an account? <a th:href="@{/login}">Login here</a></p>
+<form action="/expense/createPost" method="post">
+    <div class="form-group">
+        <label for="value">Valor</label>
+        <input type="number" id="value" name="value" required>
     </div>
 
-    <script>
-        document.getElementById('registerForm').onsubmit = function(event) {
-            event.preventDefault(); 
-            
-            const form = event.target;
-            const formData = new FormData(form);
+    <div class="form-group">
+        <label for="additionalDetail">Detalles adicionales</label>
+        <textarea id="additionalDetail" name="additionalDetail"></textarea>
+    </div>
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Registration successful!');
-                    window.location.href = '/login'; 
-                } else {
-                    alert('Error during registration');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        };
-    </script>
-</body>
-</html>
+    <div class="form-group">
+        <label for="person_document_type">Tipo de documento</label>
+        <input type="text" id="person_document_type" name="person.documentType" required>
+    </div>
+
+    <div class="form-group">
+        <label for="person_document_number">Número de documento</label>
+        <input type="text" id="person_document_number" name="person.documentNumber" required>
+        <label for="person_document_number">Número de documento</label>
+        <input type="text" id="person_document_number" name="personDocumentNumber" required>
+
+    </div>
+
+    <div class="form-group">
+        <label for="date">Fecha</label>
+        <input type="datetime-local" id="date" name="date" required>
+    </div>
+
+    <div class="form-group">
+        <label for="paymentMethod">Método de pago</label>
+        <select id="paymentMethod" name="paymentMethod.code">
+            <option value="1">Tarjeta de Crédito</option>
+            <option value="2">Efectivo</option>
+            <!-- Otros métodos de pago -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="paymentType">Tipo de pago</label>
+        <select id="paymentType" name="paymentType.code">
+            <option value="1">Contado</option>
+            <option value="2">Crédito</option>
+            <!-- Otros tipos de pago -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="expenseConcept">Concepto de egreso</label>
+        <select id="expenseConcept" name="expenseConcept.code">
+            <option value="1">Insumos</option>
+            <option value="2">Gastos operativos</option>
+            <!-- Otros conceptos -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="user_id">ID del usuario</label>
+        <input type="text" id="user_id" name="user.id" value="[[${#authentication.principal.username}]]" readonly>
+    </div>
+
+    <button type="submit">Registrar Gasto</button>
+</form>

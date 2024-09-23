@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" th:href="@{./css/styles.css}">
 </head>
 <body>
-    <div class="container">
+    <div sec:authorize="isAuthenticated()">
         <h1>Aplanchados Coming Soon</h1>
         <p>Pronto tendremos más funcionalidades disponibles.</p>
         <a href="/manager">Manager settings</a>
