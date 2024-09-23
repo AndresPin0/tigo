@@ -30,26 +30,6 @@ public class LoginController {
         return "login"; 
     }
 
-    /* @PostMapping()
-    @ResponseBody
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        System.out.println("Login attempt with ID: " + loginRequest.getId());
-        Optional<User> optionalUser = userRepository.findById(loginRequest.getId());
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-                System.out.println("User authenticated successfully.");
-                return ResponseEntity.ok("Login successful");
-            } else {
-                System.out.println("Password does not match.");
-            }
-        } else {
-            System.out.println("User not found.");
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-    } */
-    
-
     // LoginRequest class to handle the incoming JSON data
     public static class LoginRequest {
         private Long id;

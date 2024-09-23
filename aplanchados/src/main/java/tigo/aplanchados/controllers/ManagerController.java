@@ -37,7 +37,6 @@ public class ManagerController {
       return "manager";
    }
 
-   
    @RequestMapping(value="/edit-user-role",method=RequestMethod.POST)
 
    public String editUserRole(@ModelAttribute User user, Model model){
@@ -73,25 +72,6 @@ public class ManagerController {
       }
       model.addAttribute("rolePermissionSet", set);
 
-      
-      
-
-     /* 
-      Permission permission1=new Permission();
-      Permission permission2=new Permission();
-      Permission permission3=new Permission();
-      Permission permission4=new Permission();
-      permission1.setName("Add expense");
-      permission2.setName("Add income");
-      permission3.setName("Generate report");
-      permission4.setName("Manage system");
-      permissionService.savePermission(permission1);
-      permissionService.savePermission(permission2);
-      
-      permissionService.savePermission(permission3);
-      permissionService.savePermission(permission4);
-
-*/
       return "roles";
    }
 
