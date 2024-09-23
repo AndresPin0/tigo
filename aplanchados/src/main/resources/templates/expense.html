@@ -9,13 +9,8 @@
         <h1>Registrar Salida de Fondos</h1>
         <form id="expenseForm" action="#" th:action="@{/expense/create}" method="post">
             <div class="form-group">
-                <label for="expenseConcept">Concepto de egreso</label>
-                <select id="expenseConcept" name="expenseConcept" required>
-                    <option value="insumo">Insumo</option>
-                    <option value="gerencia">Salida Gerencia</option>
-                    <option value="gastosOperativos">Gastos Operativos Cotidianos</option>
-                    <option value="otros">Otros</option>
-                </select>
+                <label for="expenseConceptCode">Código del concepto de egreso</label>
+                <input type="number" id="expenseConceptCode" name="expenseConcept.code" required>
             </div>
             <div class="form-group">
                 <label for="recipientType">Tipo de documento (a quien va dirigida la salida)</label>
@@ -31,11 +26,11 @@
             </div>
             <div class="form-group">
                 <label for="expenseValue">Valor correspondiente</label>
-                <input type="number" id="expenseValue" name="expenseValue" required>
+                <input type="number" id="expenseValue" name="expenseValue" step="0.01" required>
             </div>
             <div class="form-group">
                 <label for="employeeId">ID del empleado</label>
-                <input type="text" id="employeeId" name="employeeId" value="{usuario_logueado_id}" readonly>
+                <input type="text" id="employeeId" name="employeeId" value="[[${#authentication.principal.username}]]" readonly>
             </div>
             <div class="form-group">
                 <button type="submit">Registrar Salida</button>
@@ -57,9 +52,9 @@
             .then(response => {
                 if (response.ok) {
                     alert('Salida registrada con éxito');
-                    window.location.href = '/expense'; 
+                    window.location.href = '/dashboard'; 
                 } else {
-                    alert('Error durante el registro');
+                    response.text().then(text => alert('Error durante el registro: ' + text));
                 }
             })
             .catch(error => console.error('Error:', error));
@@ -67,4 +62,3 @@
     </script>
 </body>
 </html>
- 

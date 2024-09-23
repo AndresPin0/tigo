@@ -38,7 +38,7 @@ public class ReportRestController {
         reportService.generateDailyExcel(response);
     }
 
-     @PostMapping("/upload-excel")
+     @GetMapping("/upload-excel")
     public ResponseEntity<String> uploadExcelFile(@RequestParam("file") MultipartFile file) {
         try {
             File fileConv = new File("src/main/resources/targetFile.tmp");
