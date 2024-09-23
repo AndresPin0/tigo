@@ -22,22 +22,21 @@ public class SecurityConfig {
 
     @Autowired
     private UserDetailServiceImpl userDetailsService; 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/login", "/user/create", "/css/**", "/js/**","/expense","/upload-excel","/income")
-                permitAll()
-                .requestMatchers("/expense/createPost", "/income/create")
-                    .hasAnyAuthority("EMPLOYEE", "TEST", "ADMIN", "DEVELOPER")
-                .requestMatchers("/manager", "/manager/roles", "/manager/add-role", "/manager/remove-role", "/manager/update-roles", "/manager/edit-user-role")
-                    .hasAnyAuthority("ADMIN", "DEVELOPER", "TEST")
-                .requestMatchers("/excel", "/upload-excel")
-                    .hasAnyAuthority("ADMIN", "DEVELOPER", "TEST")
-                    .requestMatchers("/income", "/income/create").hasAnyAuthority("ADMIN", "DEVELOPER", "TEST", "EMPLOYEE")
-                    .anyRequest().authenticated())
+            .requestMatchers("/login", "/user/create", "/css/**", "/js/**", "/dashboard","/expense","/upload-excel","/income")
+            .permitAll()
+        .requestMatchers("/expense/createPost", "/income/create")
+            .hasAnyAuthority("EMPLOYEE", "TEST", "ADMIN", "DEVELOPER")
+        .requestMatchers("/manager", "/manager/roles", "/manager/add-role", "/manager/remove-role", "/manager/update-roles", "/manager/edit-user-role")
+            .hasAnyAuthority("ADMIN", "DEVELOPER", "TEST")
+        .requestMatchers("/excel", "/upload-excel")
+            .hasAnyAuthority("ADMIN", "DEVELOPER", "TEST")
+            .requestMatchers("/income", "/income/create").hasAnyAuthority("ADMIN", "DEVELOPER", "TEST", "EMPLOYEE")
+            .anyRequest().authenticated())
 
             .formLogin(form -> form
                 .loginPage("/login")
