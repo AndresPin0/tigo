@@ -28,17 +28,25 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/login", "/user/create", "/css/**", "/js/**")
-                .permitAll()
-                .requestMatchers("/dashboard", "/manager", "/roles").authenticated()
-                .anyRequest().authenticated())
+                .requestMatchers("/login", "/user/create", "/css/**", "/js/**", "/dashboard")
+                    .permitAll()
+                .requestMatchers("/expense/createPost", "/income/create")
+                    .hasAnyAuthority("EMPLOYEE", "TEST", "ADMIN", "DEVELOPER")
+                .requestMatchers("/manager", "/manager/roles", "/manager/add-role", "/manager/remove-role", "/manager/update-roles", "/manager/edit-user-role")
+                    .hasAnyAuthority("ADMIN", "DEVELOPER", "TEST")
+                .requestMatchers("/excel", "/upload-excel")
+                    .hasAnyAuthority("ADMIN", "DEVELOPER", "TEST")
+                    .requestMatchers("/income", "/income/create").hasAnyAuthority("ADMIN", "DEVELOPER", "TEST", "EMPLOYEE")
+                    .anyRequest().authenticated())
+
+
             .formLogin(form -> form
                 .loginPage("/login")
                 .loginProcessingUrl("/login")  
                 .defaultSuccessUrl("/dashboard", true)
                 .permitAll())
             .logout(logout -> logout
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/home")
                 .permitAll());
     
         return http.build();

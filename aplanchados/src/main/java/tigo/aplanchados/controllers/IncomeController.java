@@ -31,9 +31,10 @@ public class IncomeController {
         return ResponseEntity.ok(createdIncome);
     }
 
-    @GetMapping
-    public List<Income> getAllIncomes() {
-        return incomeService.findAllIncomes();
+    @GetMapping("/all")
+    public ResponseEntity<List<Income>> getAllIncomes() {
+        List<Income> incomes = incomeService.findAllIncomes();
+        return ResponseEntity.ok(incomes);
     }
 
     @GetMapping("/{id}")

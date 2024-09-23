@@ -20,12 +20,12 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
-    @GetMapping("/create")
+    @GetMapping("/createGet")
     public String addPage() {
         return "register-expense";
     }
-    
-    @PostMapping("/create")
+
+    @PostMapping("/createPost")
     public ResponseEntity<Expense> createExpense(Expense expense) {
         Expense createdExpense = expenseService.createExpense(expense);
         return ResponseEntity.ok(createdExpense);
@@ -47,5 +47,5 @@ public class ExpenseController {
         return ResponseEntity.ok().build();
     }
 
-    
+
 }
