@@ -30,9 +30,10 @@ public class LoginController {
         return "login"; 
     }
 
-    @PostMapping("/authenticate")
+    /* @PostMapping()
     @ResponseBody
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        System.out.println("Login attempt with ID: " + loginRequest.getId());
         Optional<User> optionalUser = userRepository.findById(loginRequest.getId());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
@@ -46,7 +47,8 @@ public class LoginController {
             System.out.println("User not found.");
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-    }
+    } */
+    
 
     // LoginRequest class to handle the incoming JSON data
     public static class LoginRequest {

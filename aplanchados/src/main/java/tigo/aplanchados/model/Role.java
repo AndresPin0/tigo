@@ -19,6 +19,6 @@ public class Role implements Serializable {
     @OneToMany(mappedBy = "role")
     private List<User> users;
 
-    @OneToMany(fetch=FetchType.LAZY ,mappedBy = "role")
+    @OneToMany(fetch=FetchType.EAGER ,mappedBy = "role")
     private List<RolePermission> rolePermissions;
 }

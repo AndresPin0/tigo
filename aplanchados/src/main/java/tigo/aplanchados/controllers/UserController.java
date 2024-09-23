@@ -32,8 +32,11 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<User> createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        System.out.println("Creating user with password: " + user.getPassword());
         User createdUser = userService.createUser(user);
         return ResponseEntity.ok(createdUser);
+        
+        
     }
 
     @GetMapping

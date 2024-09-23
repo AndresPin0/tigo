@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{./css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form id="loginForm" action="/login/authenticate" method="post">
+        <form id="loginForm" action="/login" method="post">
             <div class="form-group">
                 <label for="id">User ID</label>
-                <input type="text" id="id" name="id" required>
+                <input type="text" id="id" name="username" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -20,35 +20,8 @@
                 <button type="submit">Login</button>
             </div>
             <p class="error" id="errorMessage" style="display:none;">Invalid credentials, please try again.</p>
-        </form>
+        </form>        
         <p class="link">Don't have an account? <a th:href="@{/user/create}">Register here</a></p>
     </div>
-
-    <script>
-        document.getElementById('loginForm').onsubmit = function(event) {
-            event.preventDefault();
-            
-            const formData = {
-                id: document.getElementById('id').value,
-                password: document.getElementById('password').value
-            };
-
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = '/dashboard'; 
-                } else {
-                    document.getElementById('errorMessage').style.display = 'block';
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        };
-    </script>
 </body>
 </html>
