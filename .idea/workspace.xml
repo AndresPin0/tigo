@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8bced03d-a9eb-4ad7-bb47-e3ef8e769f5a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/ExpenseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/IncomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/IncomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/java/tigo/aplanchados/controllers/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplanchados/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/aplanchados/src/main/resources/templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +94,7 @@
     &quot;Spring Boot.AplanchadosApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/andres/Desktop/Universidad/CompuNet2/proyecto-del-curso-tigo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/andres/proyecto-del-curso-tigo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -253,6 +248,8 @@
       </method>
     </configuration>
     <configuration name="AplanchadosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="22" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="aplanchados.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="tigo.aplanchados.AplanchadosApplication" />
@@ -260,6 +257,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Gradle.IncomeConceptRepositoryTest" />
+      <item itemvalue="Gradle.PersonRepositoryTest" />
+      <item itemvalue="Gradle.Tests in 'tigo.aplanchados'" />
+      <item itemvalue="Gradle.UserRepositoryTest" />
+      <item itemvalue="Gradle.UserServiceImplTest" />
+      <item itemvalue="Spring Boot.AplanchadosApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'tigo.aplanchados'" />
@@ -290,6 +295,7 @@
       <workItem from="1726845801967" duration="55000" />
       <workItem from="1726845880230" duration="4897000" />
       <workItem from="1726864644843" duration="33972000" />
+      <workItem from="1727127211147" duration="1784000" />
     </task>
     <servers />
   </component>
