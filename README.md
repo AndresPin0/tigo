@@ -74,3 +74,5 @@ Este sistema de gestión y registro de ventas no solo servirá como una herramie
 ### Intrucciones de ejecucion
 - Ejecutar el comando: gradle build
 - Usa tu editor preferido para correr AplanchadosApplication.java
+- Entra a `localhost:8081`
+- Para entrar con un usuario con autoridad `MANAGE SYSTEM`, ingresa con las credenciales `123`, `123`
