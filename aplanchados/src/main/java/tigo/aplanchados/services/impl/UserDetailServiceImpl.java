@@ -31,9 +31,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
        User user = userRepository.findById(id)
                .orElseThrow(() -> new UsernameNotFoundException("User not found with id: " + username));
        List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
-       // Assuming user roles and permissions setup is correct
-       user.getRole().getRolePermissions().forEach(role ->
-               authorityList.add(new SimpleGrantedAuthority("ROLE_".concat(role.getRole().getName()))));
+
+       user.getRole().getRolePermissions().forEach(permission -> 
+                authorityList.add(new SimpleGrantedAuthority(permission.getPermission().getName())));
 
        System.out.println("User found with id: " + username);
        System.out.println("And password: " + user.getPassword());

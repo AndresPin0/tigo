@@ -17,7 +17,7 @@ import tigo.aplanchados.services.impl.UserDetailServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
     @Autowired
@@ -27,15 +27,14 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-            .requestMatchers("/login", "/user/create", "/css/**", "/js/**", "/dashboard","/expense","/upload-excel","/income")
+            .requestMatchers("/login", "/user/create", "/css/**", "/js/**")
             .permitAll()
-        .requestMatchers("/expense/createPost", "/income/create")
-            .hasAnyRole("EMPLOYEE", "TEST", "ADMIN", "DEVELOPER")
+        .requestMatchers("/expense/createPost", "/income/create", "/dashboard","/expense","/income")
+            .hasAnyAuthority("ADD EXPENSE", "ADD INCOME")
         .requestMatchers("/manager", "/manager/roles", "/manager/add-role", "/manager/remove-role", "/manager/update-roles", "/manager/edit-user-role")
-            .hasAnyRole("ADMIN", "DEVELOPER", "TEST")
+            .hasAnyAuthority("MANAGE SYSTEM")
         .requestMatchers("/excel", "/upload-excel")
-            .hasAnyRole("ADMIN", "DEVELOPER", "TEST")
-            .requestMatchers("/income", "/income/create").hasAnyRole("ADMIN", "DEVELOPER", "TEST", "EMPLOYEE")
+            .hasAnyAuthority("GENERATE REPORT")
             .anyRequest().authenticated())
 
             .formLogin(form -> form

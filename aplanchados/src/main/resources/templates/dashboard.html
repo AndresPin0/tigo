@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml">
+      xmlns:sec="http://www.thymeleaf.org/extras/springsecurity5">
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" th:href="@{./css/styles.css}">
 </head>
 <body>
-    <div sec:authorize="hasAnyRole(''ADMIN', ''DEVELOPER'', ''TEST'')">
+    
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
         <h1>Aplanchados Coming Soon</h1>
         <p>Pronto tendremos más funcionalidades disponibles.</p>
-        <a href="/manager">Manager settings</a>
+        
+        <!-- Mostrar solo si tiene la autoridad 'MANAGE SYSTEM' -->
+        <div sec:authorize="hasAuthority('MANAGE SYSTEM')" style="margin-top: 20px;">
+            <a th:href="@{/manager}" class="button">Manager Settings</a>
+        </div>
     </div>
 </body>
 </html>
