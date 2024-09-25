@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
@@ -14,8 +13,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import tigo.aplanchados.services.interfaces.ReadExcelService;
 import tigo.aplanchados.services.interfaces.ReportService;
 import java.time.LocalDate;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@RequestMapping("/report")
+@Controller
 public class ReportRestController {
     
     @Autowired
@@ -24,7 +27,12 @@ public class ReportRestController {
     @Autowired
     private ReadExcelService readService;
 
-    @GetMapping("/excel")
+    @GetMapping("/upload-excel")
+    public String excelPage() {
+        return "upload-excel";
+    }
+
+    @PostMapping("/generate-excel")
     public void generateExcelReport(HttpServletResponse response) throws Exception{
 
         response.setContentType("application/octet-stream");
@@ -37,7 +45,7 @@ public class ReportRestController {
         reportService.generateDailyExcel(response);
     }
 
-     @GetMapping("/upload-excel")
+     @PostMapping("/upload-excel")
     public ResponseEntity<String> uploadExcelFile(@RequestParam("file") MultipartFile file) {
         try {
             File fileConv = new File("src/main/resources/targetFile.tmp");

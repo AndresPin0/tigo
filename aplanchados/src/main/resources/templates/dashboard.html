@@ -6,12 +6,16 @@
     <link rel="stylesheet" th:href="@{./css/styles.css}">
 </head>
 <body>
+
+    <header class="banner">
+        <img src="./images/logo.jpeg" alt="Aplanchados Logo" class="logo">
+        <h1 class="banner-title">Dashboard - Aplanchados</h1>
+    </header>
     
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
         <h1>Aplanchados Coming Soon</h1>
         <p>Pronto tendremos más funcionalidades disponibles.</p>
         
-        <!-- Mostrar solo si tiene la autoridad 'MANAGE SYSTEM' -->
         <div sec:authorize="hasAuthority('MANAGE SYSTEM')" style="margin-top: 20px;">
             <a th:href="@{/manager}" class="button">Manager Settings</a>
         </div>
@@ -19,10 +23,10 @@
             <a th:href="@{/expense}" class="button">Agregar Salida</a>
         </div>
         <div sec:authorize="hasAuthority('ADD INCOME')" style="margin-top: 20px;">
-            <a th:href="@{/income}" class="button">Agregar Entrada</a>
+            <a th:href="@{/income/create}" class="button">Agregar Entrada</a>
         </div>
         <div sec:authorize="hasAuthority('GENERATE REPORT')" style="margin-top: 20px;">
-            <a th:href="@{/excel}" class="button">Generar Reporte Diario</a>
+            <a th:href="@{/report/upload-excel}" class="button">Generar Reporte Diario</a>
         </div>
     </div>
 </body>
