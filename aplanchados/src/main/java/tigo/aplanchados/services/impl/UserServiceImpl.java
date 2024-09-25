@@ -6,7 +6,6 @@ import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.UserService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import tigo.aplanchados.model.Role;
 import java.util.List;
@@ -20,9 +19,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RoleRepository roleRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<User> findAllUsers() {

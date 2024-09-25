@@ -27,7 +27,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-            .requestMatchers("/login", "/user/create", "/css/**", "/js/**")
+            .requestMatchers("/login", "/user/create", "/css/**", "/js/**","/", "images/**")
             .permitAll()
         .requestMatchers("/expense/createPost", "/income/create", "/dashboard","/expense","/income")
             .hasAnyAuthority("ADD EXPENSE", "ADD INCOME")
