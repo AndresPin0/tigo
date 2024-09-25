@@ -1,6 +1,13 @@
-<form action="/expense/createPost" method="post">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+<form action="/expense/create" method="post">
     <div class="form-group">
-        <label for="value">Valor</label>
+        <label for="value">Valoooor</label>
         <input type="number" id="value" name="value" required>
     </div>
 
@@ -8,17 +15,12 @@
         <label for="additionalDetail">Detalles adicionales</label>
         <textarea id="additionalDetail" name="additionalDetail"></textarea>
     </div>
-
-    <div class="form-group">
-        <label for="person_document_type">Tipo de documento</label>
-        <input type="text" id="person_document_type" name="person.documentType" required>
     </div>
 
     <div class="form-group">
-        <label for="person_document_number">Número de documento</label>
-        <input type="text" id="person_document_number" name="person.documentNumber" required>
-        <label for="person_document_number">Número de documento</label>
-        <input type="text" id="person_document_number" name="personDocumentNumber" required>
+        <label for="recipientDocument">Número de documento específico (a quien va dirigida la salida)</label>
+            <input type="text" id="personID" name="personID" required>
+
 
     </div>
 
@@ -29,7 +31,7 @@
 
     <div class="form-group">
         <label for="paymentMethod">Método de pago</label>
-        <select id="paymentMethod" name="paymentMethod.code">
+        <select id="paymentMethod" name="paymentMet" required>
             <option value="1">Tarjeta de Crédito</option>
             <option value="2">Efectivo</option>
             <!-- Otros métodos de pago -->
@@ -38,7 +40,7 @@
 
     <div class="form-group">
         <label for="paymentType">Tipo de pago</label>
-        <select id="paymentType" name="paymentType.code">
+        <select id="paymentType" name="paymentTyp" required>
             <option value="1">Contado</option>
             <option value="2">Crédito</option>
             <!-- Otros tipos de pago -->
@@ -46,18 +48,36 @@
     </div>
 
     <div class="form-group">
-        <label for="expenseConcept">Concepto de egreso</label>
-        <select id="expenseConcept" name="expenseConcept.code">
-            <option value="1">Insumos</option>
-            <option value="2">Gastos operativos</option>
+        <label for="expenseConceptCode">Código del concepto de egreso</label>
+                <input type="number" id="expenseConceptCode" name="expenseConcept.code" required>
             <!-- Otros conceptos -->
         </select>
     </div>
 
-    <div class="form-group">
-        <label for="user_id">ID del usuario</label>
-        <input type="text" id="user_id" name="user.id" value="[[${#authentication.principal.username}]]" readonly>
-    </div>
-
     <button type="submit">Registrar Gasto</button>
 </form>
+
+<script>
+    document.getElementById('expenseForm').onsubmit = function(event) {
+        event.preventDefault(); 
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Salida registrada con éxito');
+                window.location.href = '/dashboard'; 
+            } else {
+                response.text().then(text => alert('Error durante el registro: ' + text));
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    };
+</script>
+</body>
+</html>

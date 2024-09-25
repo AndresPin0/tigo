@@ -2,7 +2,6 @@ package tigo.aplanchados.controllers;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,10 +47,10 @@ public class ExpenseController {
     public ResponseEntity<Expense> createExpense(@RequestParam String personID, @RequestParam String paymentMet, @RequestParam String paymentTyp,Expense expense) {
         Person person = new Person();
         LocalDateTime dateTime = LocalDateTime.now();
-        for(Person p : personRepository.findAll())
+        for(Person p : personRepository.findAll()){
         if (p.getPersonPK().getDocumentNumber().equals(personID)) {
             person = p;
-        }
+        }}
         expense.setPerson(person);
         expense.setDate(dateTime);
         PaymentMethod paymentMethod = paymentMethodRepository.findById(Long.valueOf(paymentMet)).orElse(null);

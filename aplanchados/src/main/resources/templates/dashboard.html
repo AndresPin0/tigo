@@ -15,6 +15,15 @@
         <div sec:authorize="hasAuthority('MANAGE SYSTEM')" style="margin-top: 20px;">
             <a th:href="@{/manager}" class="button">Manager Settings</a>
         </div>
+        <div sec:authorize="hasAuthority('ADD EXPENSE')" style="margin-top: 20px;">
+            <a th:href="@{/expense}" class="button">Agregar Salida</a>
+        </div>
+        <div sec:authorize="hasAuthority('ADD INCOME')" style="margin-top: 20px;">
+            <a th:href="@{/income}" class="button">Agregar Entrada</a>
+        </div>
+        <div sec:authorize="hasAuthority('GENERATE REPORT')" style="margin-top: 20px;">
+            <a th:href="@{/excel}" class="button">Generar Reporte Diario</a>
+        </div>
     </div>
 </body>
 </html>
