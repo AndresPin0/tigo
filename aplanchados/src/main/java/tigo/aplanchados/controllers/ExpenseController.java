@@ -40,23 +40,23 @@ public class ExpenseController {
 
     @GetMapping("/create")
     public String addPage() {
-        return "register-expense";
+        return "expense";
     }
 
     @PostMapping("/create")
     public ResponseEntity<Expense> createExpense(@RequestParam String personID, @RequestParam String paymentMet, @RequestParam String paymentTyp,Expense expense) {
         Person person = new Person();
         LocalDateTime dateTime = LocalDateTime.now();
-        for(Person p : personRepository.findAll()){
-        if (p.getPersonPK().getDocumentNumber().equals(personID)) {
-            person = p;
-        }}
-        expense.setPerson(person);
         expense.setDate(dateTime);
         PaymentMethod paymentMethod = paymentMethodRepository.findById(Long.valueOf(paymentMet)).orElse(null);
         PaymentType paymentType = paymentTypeRepository.findById(Long.valueOf(paymentTyp)).orElse(null);
         expense.setPaymentMethod(paymentMethod);
         expense.setPaymentType(paymentType);
+        for(Person p : personRepository.findAll()){
+        if (p.getPersonPK().getDocumentNumber().equals(personID)) {
+            person = p;
+        }}
+        expense.setPerson(person);
         Expense createdExpense = expenseService.createExpense(expense);
         return ResponseEntity.ok(createdExpense);
     }

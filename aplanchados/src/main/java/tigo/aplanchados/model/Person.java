@@ -1,10 +1,13 @@
 package tigo.aplanchados.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
-
 import java.io.Serializable;
 import java.util.List;
+
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Data
