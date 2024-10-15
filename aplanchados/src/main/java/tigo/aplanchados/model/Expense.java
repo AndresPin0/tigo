@@ -2,7 +2,6 @@ package tigo.aplanchados.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -11,13 +10,12 @@ import java.time.LocalDateTime;
 @Table(name="expense")
 public class Expense implements Serializable {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Expense(Long id, Integer value, String additionalDetail, Person person, LocalDateTime date,
-            PaymentMethod paymentMethod, PaymentType paymentType, ExpenseConcept expenseConcept, User user) {
+                   PaymentMethod paymentMethod, PaymentType paymentType, ExpenseConcept expenseConcept, User user) {
         this.id = id;
         this.value = value;
         this.additionalDetail = additionalDetail;
@@ -30,7 +28,7 @@ public class Expense implements Serializable {
     }
 
     public Expense() {
-        //TODO Auto-generated constructor stub
+        // Auto-generated constructor stub
     }
 
     private Integer value;
@@ -43,9 +41,8 @@ public class Expense implements Serializable {
     })
     private Person person;
 
-    @Column(columnDefinition = "DATETIME")
+    @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime date;
-
 
     @ManyToOne
     @JoinColumn(name = "payment_method_code")
