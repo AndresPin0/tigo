@@ -31,7 +31,6 @@ public class ManagerController {
 
    @GetMapping
    public String managerPage(Model model) { 
-      userService.deleteUser(1L);
       model.addAttribute("users", userService.findAllUsers());
       model.addAttribute("roles", roleService.findAllRoles());
       return "manager";
