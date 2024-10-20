@@ -32,7 +32,7 @@ public class ReportRestController {
         return "upload-excel";
     }
 
-    @PostMapping("/generate-excel")
+    @GetMapping("/generate-excel")
     public void generateExcelReport(HttpServletResponse response) throws Exception{
 
         response.setContentType("application/octet-stream");

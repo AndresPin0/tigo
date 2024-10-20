@@ -3,6 +3,7 @@ package tigo.aplanchados.services.impl;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.ServletOutputStream;
@@ -20,13 +21,14 @@ public class ReportServiceImpl implements ReportService {
 
     /*@Autowired
     private ExpenseRepository expenseRepository;*/
-
+    @Autowired
     private ExpenseServiceImpl expenseServiceImpl;
+    @Autowired
     private IncomeServiceImpl incomeServiceImpl;
 
 
     @Override
-    public void generateDailyExcel(HttpServletResponse response) {
+    public void generateDailyExcel(HttpServletResponse response) throws IOException {
      
         List<Expense> expense =  expenseServiceImpl.findAllExpenseForDate( LocalDate.now() );
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -49,7 +51,9 @@ public class ReportServiceImpl implements ReportService {
             HSSFRow dataRow = sheetExpense.createRow(dataRowIndex);
             dataRow.createCell(0).setCellValue(e.getId());
             dataRow.createCell(1).setCellValue(e.getPerson().getName());
-            dataRow.createCell(2).setCellValue(e.getUser().getName());
+            String name = "";
+            if(e.getUser()!=null){name = e.getUser().getName();}
+            dataRow.createCell(2).setCellValue(name);
             dataRow.createCell(3).setCellValue(e.getValue());
             dataRow.createCell(4).setCellValue(e.getPaymentMethod().getCode());
             dataRow.createCell(5).setCellValue(e.getPaymentType().getCode());
@@ -69,7 +73,7 @@ public class ReportServiceImpl implements ReportService {
         rowIncome.createCell(3).setCellValue("Value");
         rowIncome.createCell(4).setCellValue("Payment Method");
         rowIncome.createCell(5).setCellValue("Payment Type");
-        rowIncome.createCell(6).setCellValue("income Concept");
+        rowIncome.createCell(6).setCellValue("Income Concept");
         rowIncome.createCell(7).setCellValue("Date");
         rowIncome.createCell(8).setCellValue("Additional Detail");
 
@@ -79,11 +83,15 @@ public class ReportServiceImpl implements ReportService {
             HSSFRow dataRow = sheetIncome.createRow(dataRowIndex);
             dataRow.createCell(0).setCellValue(e.getId());
             dataRow.createCell(1).setCellValue(e.getPerson().getName());
-            dataRow.createCell(2).setCellValue(e.getUser().getName());
+            String name = "";
+            if(e.getUser()!=null){name = e.getUser().getName();}
+            dataRow.createCell(2).setCellValue(name);
             dataRow.createCell(3).setCellValue(e.getValue());
             dataRow.createCell(4).setCellValue(e.getPaymentMethod().getCode());
             dataRow.createCell(5).setCellValue(e.getPaymentType().getCode());
-            dataRow.createCell(6).setCellValue(e.getIncomeConcept().getDescription());
+            String concept = "";
+            if(e.getIncomeConcept()!=null){concept = e.getIncomeConcept().getDescription();}
+            dataRow.createCell(6).setCellValue(concept);
             dataRow.createCell(7).setCellValue(e.getDate().toString());
             dataRow.createCell(8).setCellValue(e.getAdditionalDetail());
             dataRowIndex++;
@@ -109,14 +117,11 @@ public class ReportServiceImpl implements ReportService {
         dataRow.createCell(5).setCellValue(calculateEarnings(LocalDate.now()));
     
 
-        try (ServletOutputStream ops = response.getOutputStream()) {
-            workbook.write(ops);
-            ops.close();
-            workbook.close();
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+        ServletOutputStream ops = response.getOutputStream();
+        workbook.write(ops);
+        ops.close();
+        workbook.close();
+      
 
         
     }

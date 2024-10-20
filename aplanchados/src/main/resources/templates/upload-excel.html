@@ -17,6 +17,12 @@
             </div>
             <p class="error" id="errorMessage" style="display:none;">File upload failed, please try again.</p>
         </form>
+        <form id="downloadForm" action="/generate-excel" method="get">
+            <div class="form-group">
+                <button type="submit">Download</button>
+            </div>
+            <p class="error" id="errorMessage" style="display:none;">File download failed, please try again.</p>
+        </form>
     </div>
 
     <script>
@@ -40,6 +46,7 @@
             })
             .catch(error => console.error('Error:', error));
         };
+
     </script>
 </body>
 </html>

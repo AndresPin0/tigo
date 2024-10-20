@@ -33,7 +33,7 @@ public class SecurityConfig {
             .hasAnyAuthority("ADD EXPENSE", "ADD INCOME")
         .requestMatchers("/manager", "/manager/roles", "/manager/add-role", "/manager/remove-role", "/manager/update-roles", "/manager/edit-user-role")
             .hasAnyAuthority("MANAGE SYSTEM")
-        .requestMatchers("/excel", "/upload-excel")
+        .requestMatchers("/excel", "/upload-excel","/generate-excel")
             .hasAnyAuthority("GENERATE REPORT")
             .anyRequest().authenticated())
 

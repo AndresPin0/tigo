@@ -69,14 +69,14 @@ public class ReadExcelServiceImpl implements ReadExcelService {
 
         int numRows = sheet.getPhysicalNumberOfRows();
             
-            for (int i = 0; i < numRows; i++) {
+            for (int i = 1; i < numRows; i++) {
                 XSSFRow row = sheet.getRow(i);
 
                 String id = getCellValue(row.getCell(0));
                 String person = getCellValue(row.getCell(1));
                 String user = getCellValue(row.getCell(2));
                 String value = getCellValue(row.getCell(3));
-                String paymMet = getCellValue(row.getCell(4));
+                String paymMet = getCellValue(row.getCell(4));  
                 String paymMTyp = getCellValue(row.getCell(5));
                 String concept = getCellValue(row.getCell(6));
                 String date = getCellValue(row.getCell(7));

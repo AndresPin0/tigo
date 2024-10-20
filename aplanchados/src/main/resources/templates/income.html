@@ -49,12 +49,18 @@
 
     <div class="form-group">
         <label for="incomeConceptCode">Código del concepto de egreso</label>
-                <input type="number" id="incomeConceptCode" name="incomeConcept.code" required>
-            <!-- Otros conceptos -->
+            <select id="incomeConceptCode" name="incomeConceptCode.code" required>
+                <option value="1">Venta</option>
+                <option value="2">Comision</option>
+                <option value="3">Ingreso por servicio</option>
+                <option value="4">Reembolso</option>
+    
+                <!-- Otros conceptos de pago -->
+            </select>
         </select>
     </div>
 
-    <button type="submit">Registrar Gasto</button>
+    <button type="submit">Registrar Entrada</button>
 </form>
 
 <script>

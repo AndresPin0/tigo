@@ -1,6 +1,8 @@
 package tigo.aplanchados.services.interfaces;
 
 
+import java.io.IOException;
+
 import org.springframework.stereotype.Repository;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 public interface ReportService {
 
 
-    void generateDailyExcel(HttpServletResponse response);
+    void generateDailyExcel(HttpServletResponse response) throws IOException;
 
 }
