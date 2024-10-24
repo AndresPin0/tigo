@@ -57,7 +57,7 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public String getUsername() {
-        return "Hola";
+        return id.toString();
     }
     
     public boolean isAccountNonLocked() {
