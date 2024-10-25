@@ -18,7 +18,5 @@ public class AuthenticationResponse {
     @JsonProperty("access_token")
     private String accessToken;
 
-    @JsonProperty("authorities")
-    private List<String> authorities;
     
 }

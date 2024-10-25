@@ -66,8 +66,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 System.out.println("Authrorities: " + user.getAuthorities().stream().map(Object::toString).toList());
 
                 return AuthenticationResponse.builder()
-                                .accessToken(token)
-                                .authorities(user.getAuthorities().stream().map(Object::toString).toList())
+                                .accessToken(token)          
                                 .build();
 
         }
