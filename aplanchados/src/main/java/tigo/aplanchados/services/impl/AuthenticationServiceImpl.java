@@ -47,7 +47,7 @@ public class AuthenticationServiceImpl {
                 new UsernamePasswordAuthenticationToken(
                         request.getUsername(),
                         request.getPassword()));
-        User user = userService.findByUserByUsername(request.getUsername()).orElseThrow();
+        User user = userService.findUserByUsername(request.getUsername()).orElseThrow();
         var token = jwtService.generateToken((UserDetails)user);
 
         return AuthenticationResponse.builder()

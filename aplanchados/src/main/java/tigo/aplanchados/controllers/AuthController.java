@@ -6,19 +6,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.services.impl.AuthenticationService;
-
 import lombok.RequiredArgsConstructor;
 import tigo.aplanchados.config.AuthenticationRequest;
 import tigo.aplanchados.config.AuthenticationResponse;
 import tigo.aplanchados.config.RegisterRequest;
+import tigo.aplanchados.services.interfaces.AuthenticationService;
 
 
 @RequiredArgsConstructor
 @RestController
 public class AuthController {
     @Autowired
-
     private  AuthenticationService service;
 
 
