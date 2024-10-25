@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import tigo.aplanchados.dtos.IncomeDTO;
+import tigo.aplanchados.mappers.IncomeMapper;
 import tigo.aplanchados.model.Income;
 import tigo.aplanchados.model.PaymentMethod;
 import tigo.aplanchados.model.PaymentType;
@@ -68,8 +70,9 @@ public class IncomeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Income> getIncomeById(Long id) {
-        return ResponseEntity.ok(incomeService.findIncomeById(id).get());
+    public ResponseEntity<IncomeDTO> getIncomeById(Long id) {
+        IncomeDTO incomeDTO = IncomeMapper.INSTANCE.toDTO(incomeService.findIncomeById(id).get());
+        return ResponseEntity.ok(incomeDTO);
     }
 
     @DeleteMapping("/{id}")
