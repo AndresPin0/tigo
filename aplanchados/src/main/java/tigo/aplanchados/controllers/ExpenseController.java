@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import tigo.aplanchados.dtos.ExpenseDTO;
+import tigo.aplanchados.mappers.ExpenseMapper;
 import tigo.aplanchados.model.Expense;
 import tigo.aplanchados.model.PaymentMethod;
 import tigo.aplanchados.model.PaymentType;
@@ -67,8 +69,9 @@ public class ExpenseController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Expense> getExpenseById(Long id) {
-        return ResponseEntity.ok(expenseService.findExpenseById(id).get());
+    public ResponseEntity<ExpenseDTO> getExpenseById(Long id) {
+        ExpenseDTO expenseDTO =  ExpenseMapper.INSTANCE.toDTO(expenseService.findExpenseById(id).get());
+        return ResponseEntity.ok(expenseDTO);
     }
 
     @DeleteMapping("/{id}")
