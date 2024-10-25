@@ -28,7 +28,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
     http
         .csrf(csrf -> csrf.disable())  // Deshabilitar CSRF para APIs
         .authorizeHttpRequests(authz -> authz
-            .requestMatchers("/login", "/user/create", "/css/**", "/js/**", "/", "images/**")
+            .requestMatchers("/login", "/user/create", "/css/**", "/js/**", "/", "images/**", "/income","/expense")
                 .permitAll()  // Rutas públicas
             .anyRequest().permitAll())  // Permitir todas las solicitudes temporalmente
 
