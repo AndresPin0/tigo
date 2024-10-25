@@ -12,12 +12,13 @@ import tigo.aplanchados.config.AuthenticationRequest;
 import tigo.aplanchados.config.AuthenticationResponse;
 import tigo.aplanchados.config.RegisterRequest;
 import tigo.aplanchados.model.User;
+import tigo.aplanchados.services.interfaces.AuthenticationService;
 import tigo.aplanchados.services.interfaces.JwtService;
 import tigo.aplanchados.services.interfaces.UserService;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticationServiceImpl {
+public class AuthenticationServiceImpl implements AuthenticationService {
     @Autowired
     private UserService userService;
 

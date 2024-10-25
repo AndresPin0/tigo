@@ -15,9 +15,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-
+import tigo.aplanchados.services.interfaces.JwtService;
 @Service
-public class JwtServiceImpl {
+public class JwtServiceImpl implements JwtService {
 
 	@Value("${application.security.jwt.secret-key}")
 	private String secretKey;

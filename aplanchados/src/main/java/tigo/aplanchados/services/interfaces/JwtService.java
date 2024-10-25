@@ -1,15 +1,9 @@
 package tigo.aplanchados.services.interfaces;
 
-import java.security.Key;
-import java.util.Date;
 import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.security.core.userdetails.UserDetails;
-
-
-
-
 
 import io.jsonwebtoken.Claims;
 
@@ -27,11 +21,4 @@ public interface JwtService {
 
     boolean isTokenValid(String token, UserDetails userDetails);
 
-    boolean isTokenExpired(String token);
-
-    Date extractExpiration(String token);
-
-    Claims extractAllClaims(String token);
-
-    Key getSignInKey();
 }
