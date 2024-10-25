@@ -22,4 +22,6 @@ public interface UserService {
 
     boolean updateUser(User user);
 
+    void save(User user);
+
 }
