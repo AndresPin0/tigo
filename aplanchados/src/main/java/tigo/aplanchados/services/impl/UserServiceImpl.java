@@ -1,15 +1,16 @@
 package tigo.aplanchados.services.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tigo.aplanchados.model.Role;
 import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.RoleRepository;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.UserService;
-
-import tigo.aplanchados.model.Role;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -75,7 +76,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-        createUser(user);
+        
+        
+         if (user.getRole() == null) {
+            Role defaultRole = roleRepository.findByName("EMPLOYEE");
+            if (defaultRole == null) {
+                defaultRole = new Role();
+                defaultRole.setName("EMPLOYEE");
+                roleRepository.save(defaultRole);
+            }
+            user.setRole(defaultRole);
+        }
+        userRepository.save(user);
+
+
+        
     }
 
 

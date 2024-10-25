@@ -4,6 +4,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,7 +27,7 @@ public class SecurityConfiguration {
                 http
                                 .csrf(AbstractHttpConfigurer::disable)
                                 .authorizeHttpRequests(authz -> authz
-                                                .requestMatchers("/login", "/user/create", "/css/**", "/js/**", "/",
+                                                .requestMatchers(HttpMethod.POST,"/login", "/user/create", "/css/**", "/js/**", "/","/auth/register","/auth/authenticate",
                                                                 "images/**")
                                                 .permitAll()
                                                 .requestMatchers("/expense/createPost", "/income/create", "/dashboard",

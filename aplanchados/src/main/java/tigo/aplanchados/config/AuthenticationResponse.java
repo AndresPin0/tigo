@@ -1,5 +1,7 @@
 package tigo.aplanchados.config;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -16,4 +18,7 @@ public class AuthenticationResponse {
     @JsonProperty("access_token")
     private String accessToken;
 
+    @JsonProperty("authorities")
+    private List<String> authorities;
+    
 }

@@ -19,43 +19,57 @@ import tigo.aplanchados.services.interfaces.UserService;
 @Service
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
-    @Autowired
-    private UserService userService;
+        @Autowired
+        private UserService userService;
 
+        private final PasswordEncoder passwordEncoder;
 
+        private final JwtService jwtService;
 
-    private final PasswordEncoder passwordEncoder;
+        private final AuthenticationManager authenticationManager;
 
-    private final JwtService jwtService;
+        public AuthenticationResponse register(RegisterRequest request) {
+                if (request.getId() == null || request.getPassword() == null ||
+                                request.getName() == null || request.getLastName() == null) {
+                        return AuthenticationResponse.builder()
+                                        .accessToken("Request is incomplete. Missing required fields.")
+                                        .build();
+                }
 
-    private final AuthenticationManager authenticationManager;
+                User user = User.builder()
+                                .id(Long.parseLong(request.getId()))
+                                .password(passwordEncoder.encode(request.getPassword()))
+                                .name(request.getName())
+                                .lastName(request.getLastName())
+                                .build();
+                if (userService.findUserById(user.getId()).isPresent()) {
+                        System.out.println("User already exists");
+                        return AuthenticationResponse.builder()
+                                        .accessToken("User already exists")
+                                        .build();
+                }
+                userService.save(user);
+                var token = jwtService.generateToken(user);
+                return AuthenticationResponse.builder()
+                                .accessToken(token)
+                                .build();
+        }
 
+        public AuthenticationResponse authenticate(AuthenticationRequest request) {
+                authenticationManager.authenticate(
+                                new UsernamePasswordAuthenticationToken(
+                                                request.getId().toString(),
+                                                request.getPassword()));
+                User user = userService.findUserById(Long.parseLong(request.getId())).orElseThrow();
+                var token = jwtService.generateToken((UserDetails) user);
+                System.out.println("User authenticated");
+                System.out.println("Authrorities: " + user.getAuthorities().stream().map(Object::toString).toList());
 
-    public AuthenticationResponse register(RegisterRequest request) {
-        var user = User.builder()
-                .id(Long.parseLong(request.getUsername()) )
-                .password(passwordEncoder.encode(request.getPassword()))
-                .build();
-        userService.save(user);
-        var token = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .accessToken(token)
-                .build();
-    }
+                return AuthenticationResponse.builder()
+                                .accessToken(token)
+                                .authorities(user.getAuthorities().stream().map(Object::toString).toList())
+                                .build();
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()));
-        User user = userService.findUserByUsername(request.getUsername()).orElseThrow();
-        var token = jwtService.generateToken((UserDetails)user);
-
-        return AuthenticationResponse.builder()
-                .accessToken(token)
-                .build();
-
-    }
-
+        }
 
 }
