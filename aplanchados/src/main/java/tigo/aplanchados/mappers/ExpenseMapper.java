@@ -1,5 +1,7 @@
 package tigo.aplanchados.mappers;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -23,4 +25,6 @@ public interface ExpenseMapper {
     @Mapping(source = "expenseConceptCode", target = "expenseConcept.code")
     @Mapping(source = "userId", target = "user.id")
     Expense toEntity(ExpenseDTO expenseDTO);
+
+    List<ExpenseDTO> toDTOs(List<Expense> expenses);
 }

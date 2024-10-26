@@ -1,13 +1,8 @@
 package tigo.aplanchados.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
 import tigo.aplanchados.dtos.IncomeDTO;
 import tigo.aplanchados.mappers.IncomeMapper;
 import tigo.aplanchados.model.Income;
@@ -17,14 +12,16 @@ import tigo.aplanchados.model.Person;
 import tigo.aplanchados.repositories.PaymentMethodRepository;
 import tigo.aplanchados.repositories.PaymentTypeRepository;
 import tigo.aplanchados.repositories.PersonRepository;
-
-import java.util.List;
-import org.springframework.stereotype.Controller;
+import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.services.interfaces.IncomeService;
+import tigo.aplanchados.model.IncomeConcept;
+import tigo.aplanchados.repositories.IncomeConceptRepository;
+import tigo.aplanchados.model.User;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
-
-@Controller
+@RestController
 @RequestMapping("/income")
 public class IncomeController {
 
@@ -40,46 +37,67 @@ public class IncomeController {
     @Autowired
     private PaymentTypeRepository paymentTypeRepository;
 
-    @GetMapping("/create")
-    public String addPage() {
-        return "income";
-    }
-    
+    @Autowired
+    private IncomeConceptRepository incomeConceptRepository;
+
+    @Autowired
+    private UserRepository userRepository; 
+
     @PostMapping("/create")
-    public ResponseEntity<Income> createIncome(@RequestParam String personID, @RequestParam String paymentMet, @RequestParam String paymentTyp,Income income) {
-        Person person = new Person();
-        LocalDateTime dateTime = LocalDateTime.now();
-        income.setDate(dateTime);
-        PaymentMethod paymentMethod = paymentMethodRepository.findById(Long.valueOf(paymentMet)).orElse(null);
-        PaymentType paymentType = paymentTypeRepository.findById(Long.valueOf(paymentTyp)).orElse(null);
+    public ResponseEntity<IncomeDTO> createIncome(@RequestBody IncomeDTO incomeDTO) {
+        System.out.println("Creating income: with concept: " + incomeDTO.getIncomeConceptCode() + " and person: " + incomeDTO.getPersonDocumentNumber());
+
+        Income income = IncomeMapper.INSTANCE.toEntity(incomeDTO);
+        income.setDate(LocalDateTime.now());
+
+        // Retrieve Person from the database
+        Person person = personRepository.findAll().stream()
+            .filter(p -> p.getPersonPK().getDocumentNumber().equals(incomeDTO.getPersonDocumentNumber()))
+            .findFirst()
+            .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
+        income.setPerson(person);
+
+        // Retrieve PaymentMethod and PaymentType the database
+        PaymentMethod paymentMethod = paymentMethodRepository.findById(incomeDTO.getPaymentMethodCode()).orElse(null);
+        PaymentType paymentType = paymentTypeRepository.findById(incomeDTO.getPaymentTypeCode()).orElse(null);
         income.setPaymentMethod(paymentMethod);
         income.setPaymentType(paymentType);
-        for(Person p : personRepository.findAll()){
-            if (p.getPersonPK().getDocumentNumber().equals(personID)) {
-                person = p;
-        }}
-        income.setPerson(person);
+
+        // Retrieve IncomeConcept from the database
+        IncomeConcept incomeConcept = incomeConceptRepository.findById(incomeDTO.getIncomeConceptCode()).orElse(null);
+        income.setIncomeConcept(incomeConcept);
+
+        // Retrieve User from the database
+        User user = userRepository.findById(incomeDTO.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));
+        income.setUser(user);
+
+        // Save Income entity
         Income createdIncome = incomeService.createIncome(income);
-        return ResponseEntity.ok(createdIncome);
+        IncomeDTO createdIncomeDTO = IncomeMapper.INSTANCE.toDTO(createdIncome);
+
+        return ResponseEntity.ok(createdIncomeDTO);
     }
 
+
     @GetMapping("/all")
-    public ResponseEntity<List<Income>> getAllIncomes() {
+    public ResponseEntity<List<IncomeDTO>> getAllIncomes() {
         List<Income> incomes = incomeService.findAllIncomes();
-        return ResponseEntity.ok(incomes);
+        List<IncomeDTO> incomeDTOs = IncomeMapper.INSTANCE.toDTOs(incomes);
+        return ResponseEntity.ok(incomeDTOs);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<IncomeDTO> getIncomeById(Long id) {
-        IncomeDTO incomeDTO = IncomeMapper.INSTANCE.toDTO(incomeService.findIncomeById(id).get());
+    public ResponseEntity<IncomeDTO> getIncomeById(@PathVariable("id") Long id) {
+        Income income = incomeService.findIncomeById(id)
+            .orElseThrow(() -> new RuntimeException("Ingreso no encontrado"));
+        IncomeDTO incomeDTO = IncomeMapper.INSTANCE.toDTO(income);
         return ResponseEntity.ok(incomeDTO);
     }
 
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteIncome(Long id) {
+    public ResponseEntity<Void> deleteIncome(@PathVariable Long id) {
         incomeService.deleteIncome(id);
         return ResponseEntity.ok().build();
     }
-
-    
 }

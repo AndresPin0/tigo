@@ -8,17 +8,16 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
 import java.io.File;
-
 import jakarta.servlet.http.HttpServletResponse;
 import tigo.aplanchados.services.interfaces.ReadExcelService;
 import tigo.aplanchados.services.interfaces.ReportService;
 import java.time.LocalDate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 @RequestMapping("/report")
-@Controller
 public class ReportRestController {
     
     @Autowired
@@ -33,22 +32,18 @@ public class ReportRestController {
     }
 
     @GetMapping("/generate-excel")
-    public void generateExcelReport(HttpServletResponse response) throws Exception{
-
+    public void generateExcelReport(HttpServletResponse response) throws Exception {
         response.setContentType("application/octet-stream");
-     
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment;filename=dailyReport"+ LocalDate.now() +".xls";
-
+        String headerValue = "attachment;filename=dailyReport" + LocalDate.now() + ".xls";
         response.setHeader(headerKey, headerValue);
-
         reportService.generateDailyExcel(response);
     }
 
-     @PostMapping("/upload-excel")
+    @PostMapping("/upload-excel")
     public ResponseEntity<String> uploadExcelFile(@RequestParam("file") MultipartFile file) {
         try {
-            File fileConv = new File("src/main/resources/targetFile.tmp");
+            File fileConv = File.createTempFile("targetFile", ".tmp");
             OutputStream os = new FileOutputStream(fileConv);
             os.write(file.getBytes());
             readService.ReadExcel(fileConv);

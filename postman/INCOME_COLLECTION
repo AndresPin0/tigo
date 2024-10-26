@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "c1a92cdc-a698-4335-b283-234b0ee6b7e8",
+		"name": "IncomeController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35084485"
+	},
+	"item": [
+		{
+			"name": "CreateIncome",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validar respuesta de creación y guardar el ID del ingreso creado\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var responseData = pm.response.json();\r",
+							"pm.environment.set(\"income_id\", responseData.id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personDocumentNumber\": \"{{personDocumentNumber}}\",\r\n    \"paymentMethodCode\": {{paymentMethodCode}},\r\n    \"paymentTypeCode\": {{paymentTypeCode}},\r\n    \"incomeConceptCode\": {{incomeConceptCode}},\r\n    \"value\": {{amount}},\r\n    \"additionalDetail\": \"{{description}}\",\r\n    \"userId\": {{userID}}\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/income/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"income",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllIncomes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validar respuesta y asegurar que contiene lista de ingresos\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/income/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"income",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetIncomeByID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Verificar si el ID de ingreso existe antes de la solicitud\r",
+							"if (!pm.environment.get(\"income_id\")) {\r",
+							"    pm.environment.set(\"income_id\", \"1\"); // Usar ID predeterminado si no existe\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validar que el ingreso específico fue encontrado\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El ingreso tiene un ID válido\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/income/{{income_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"income",
+						"{{income_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "personDocumentNumber",
+			"value": "1006201821",
+			"type": "string"
+		},
+		{
+			"key": "paymentMethodCode",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "paymentTypeCode",
+			"value": "2",
+			"type": "string"
+		},
+		{
+			"key": "amount",
+			"value": "1000",
+			"type": "string"
+		},
+		{
+			"key": "description",
+			"value": "Ingreso mensual",
+			"type": "string"
+		},
+		{
+			"key": "incomeConceptCode",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "userID",
+			"value": "0",
+			"type": "string"
+		}
+	]
+}

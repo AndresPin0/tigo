@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import tigo.aplanchados.dtos.IncomeDTO;
 import tigo.aplanchados.model.Income;
+import java.util.List;
 
 @Mapper
 public interface IncomeMapper {
@@ -23,4 +24,6 @@ public interface IncomeMapper {
     @Mapping(source = "incomeConceptCode", target = "incomeConcept.id")
     @Mapping(source = "userId", target = "user.id")
     Income toEntity(IncomeDTO incomeDTO);
+
+    List<IncomeDTO> toDTOs(List<Income> incomes); 
 }

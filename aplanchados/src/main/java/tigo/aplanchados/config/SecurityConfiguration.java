@@ -30,14 +30,14 @@ public class SecurityConfiguration {
                                                 .requestMatchers(HttpMethod.POST,"/login", "/user/create", "/css/**", "/js/**", "/","/auth/register","/auth/authenticate",
                                                                 "images/**")
                                                 .permitAll()
-                                                .requestMatchers("/expense/createPost", "/income/create", "/dashboard",
+                                                .requestMatchers(HttpMethod.POST,"/expense/create", "/income/create", "/dashboard",
                                                                 "/expense", "/income")
                                                 .hasAnyAuthority("ADD EXPENSE", "ADD INCOME")
                                                 .requestMatchers("/manager", "/manager/roles", "/manager/add-role",
                                                                 "/manager/remove-role", "/manager/update-roles",
                                                                 "/manager/edit-user-role")
                                                 .hasAnyAuthority("MANAGE SYSTEM")
-                                                .requestMatchers("/excel", "/upload-excel", "/generate-excel")
+                                                .requestMatchers(HttpMethod.POST, "/excel", "/upload-excel", "/generate-excel")
                                                 .hasAnyAuthority("GENERATE REPORT")
                                                 .anyRequest().authenticated())
                                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))

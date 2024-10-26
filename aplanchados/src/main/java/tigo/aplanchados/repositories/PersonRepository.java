@@ -8,4 +8,5 @@ import tigo.aplanchados.model.PersonPK;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, PersonPK> {
 
+    
 }

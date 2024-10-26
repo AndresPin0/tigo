@@ -1,30 +1,27 @@
 package tigo.aplanchados.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
 import tigo.aplanchados.dtos.ExpenseDTO;
 import tigo.aplanchados.mappers.ExpenseMapper;
 import tigo.aplanchados.model.Expense;
 import tigo.aplanchados.model.PaymentMethod;
 import tigo.aplanchados.model.PaymentType;
 import tigo.aplanchados.model.Person;
+import tigo.aplanchados.model.User;
 import tigo.aplanchados.repositories.PaymentMethodRepository;
 import tigo.aplanchados.repositories.PaymentTypeRepository;
 import tigo.aplanchados.repositories.PersonRepository;
+import tigo.aplanchados.services.interfaces.ExpenseService;
+import tigo.aplanchados.repositories.UserRepository;
+import tigo.aplanchados.repositories.ExpenseConceptRepository;
+import tigo.aplanchados.model.ExpenseConcept;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import org.springframework.stereotype.Controller;
-import tigo.aplanchados.services.interfaces.ExpenseService;
 
-
-@Controller
+@RestController
 @RequestMapping("/expense")
 public class ExpenseController {
 
@@ -40,45 +37,63 @@ public class ExpenseController {
     @Autowired
     private PaymentTypeRepository paymentTypeRepository;
 
-    @GetMapping("/create")
-    public String addPage() {
-        return "expense";
-    }
+    @Autowired
+    private ExpenseConceptRepository expenseConceptRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/create")
-    public ResponseEntity<Expense> createExpense(@RequestParam String personID, @RequestParam String paymentMet, @RequestParam String paymentTyp,Expense expense) {
-        Person person = new Person();
-        LocalDateTime dateTime = LocalDateTime.now();
-        expense.setDate(dateTime);
-        PaymentMethod paymentMethod = paymentMethodRepository.findById(Long.valueOf(paymentMet)).orElse(null);
-        PaymentType paymentType = paymentTypeRepository.findById(Long.valueOf(paymentTyp)).orElse(null);
+    public ResponseEntity<ExpenseDTO> createExpense(@RequestBody ExpenseDTO expenseDTO) {
+        System.out.println("Creating expense with person: " + expenseDTO.getPersonDocumentNumber());
+
+        // Convert DTO to entity and set current date
+        Expense expense = ExpenseMapper.INSTANCE.toEntity(expenseDTO);
+        expense.setDate(LocalDateTime.now());
+
+        // Retrieve related entities and set to expense
+        Person person = personRepository.findAll().stream()
+            .filter(p -> p.getPersonPK().getDocumentNumber().equals(expenseDTO.getPersonDocumentNumber()))
+            .findFirst()
+            .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
+        expense.setPerson(person);
+
+        PaymentMethod paymentMethod = paymentMethodRepository.findById(expenseDTO.getPaymentMethodCode()).orElse(null);
+        PaymentType paymentType = paymentTypeRepository.findById(expenseDTO.getPaymentTypeCode()).orElse(null);
         expense.setPaymentMethod(paymentMethod);
         expense.setPaymentType(paymentType);
-        for(Person p : personRepository.findAll()){
-        if (p.getPersonPK().getDocumentNumber().equals(personID)) {
-            person = p;
-        }}
-        expense.setPerson(person);
+
+        ExpenseConcept expenseConcept = expenseConceptRepository.findById(expenseDTO.getExpenseConceptCode()).orElse(null);
+        expense.setExpenseConcept(expenseConcept);
+
+        User user = userRepository.findById(expenseDTO.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));
+        expense.setUser(user);
+
+        // Save expense and convert to DTO for response
         Expense createdExpense = expenseService.createExpense(expense);
-        return ResponseEntity.ok(createdExpense);
+        ExpenseDTO createdExpenseDTO = ExpenseMapper.INSTANCE.toDTO(createdExpense);
+
+        return ResponseEntity.ok(createdExpenseDTO);
     }
 
-    @GetMapping
-    public List<Expense> getAllExpense() {
-        return expenseService.findAllExpenses();
+    @GetMapping("/all")
+    public ResponseEntity<List<ExpenseDTO>> getAllExpenses() {
+        List<Expense> expenses = expenseService.findAllExpenses();
+        List<ExpenseDTO> expenseDTOs = ExpenseMapper.INSTANCE.toDTOs(expenses);
+        return ResponseEntity.ok(expenseDTOs);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ExpenseDTO> getExpenseById(Long id) {
-        ExpenseDTO expenseDTO =  ExpenseMapper.INSTANCE.toDTO(expenseService.findExpenseById(id).get());
+    public ResponseEntity<ExpenseDTO> getExpenseById(@PathVariable("id") Long id) {
+        Expense expense = expenseService.findExpenseById(id)
+            .orElseThrow(() -> new RuntimeException("Expense not found"));
+        ExpenseDTO expenseDTO = ExpenseMapper.INSTANCE.toDTO(expense);
         return ResponseEntity.ok(expenseDTO);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteExpense(Long id) {
+    public ResponseEntity<Void> deleteExpense(@PathVariable Long id) {
         expenseService.deleteExpense(id);
         return ResponseEntity.ok().build();
     }
-
-
 }

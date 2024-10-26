@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "eefe929c-2aef-4788-81f8-05e2f4416b8a",
+		"name": "ExpenseController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35084485"
+	},
+	"item": [
+		{
+			"name": "CreateExpense",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"pm.environment.set(\"expense_id\", responseData.id);\r",
+							"pm.test(\"El gasto fue creado y tiene un ID\", function () {\r",
+							"    pm.expect(responseData).to.have.property(\"id\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personDocumentNumber\": \"{{personDocumentNumber}}\",\r\n    \"paymentMethodCode\": {{paymentMethodCode}},\r\n    \"paymentTypeCode\": {{paymentTypeCode}},\r\n    \"expenseConceptCode\": {{expenseConceptCode}},\r\n    \"value\": {{amount}},\r\n    \"additionalDetail\": \"{{description}}\",\r\n    \"userId\": {{userID}}\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/expense/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"expense",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllExpenses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/expense/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"expense",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetExpenseByID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (!pm.environment.get(\"expense_id\")) {\r",
+							"    pm.environment.set(\"expense_id\", \"1\"); // Usar ID predeterminado si no existe\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"El gasto tiene un ID válido\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/expense/{{expense_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"expense",
+						"{{expense_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "personDocumentNumber",
+			"value": "1006201821",
+			"type": "string"
+		},
+		{
+			"key": "paymentMethodCode",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "paymentTypeCode",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "amount",
+			"value": "1000",
+			"type": "string"
+		},
+		{
+			"key": "description",
+			"value": "Gastos de produccion",
+			"type": "string"
+		},
+		{
+			"key": "userID",
+			"value": "0",
+			"type": "string"
+		},
+		{
+			"key": "expenseConceptCode",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}

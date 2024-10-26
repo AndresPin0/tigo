@@ -14,4 +14,5 @@ public class ExpenseDTO {
     private Long paymentMethodCode;
     private Long paymentTypeCode;
     private Long expenseConceptCode;
+    
 }

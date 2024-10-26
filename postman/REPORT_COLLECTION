@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "3e6931c7-6c91-42a8-9cd4-da2dd406344f",
+		"name": "ReportController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35084485"
+	},
+	"item": [
+		{
+			"name": "ProcessFile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Archivo subido y procesado correctamente\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(pm.response.text()).to.include(\"File uploaded and processed successfully!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1ef93d19-d3e5-42d0-8933-68e307215b7e"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/report/upload-excel",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"report",
+						"upload-excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GenerateReport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const today = new Date().toISOString().split(\"T\")[0];\r",
+							"pm.collectionVariables.set(\"todayDate\", today);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/report/generate-excel",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"report",
+						"generate-excel"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "todayDate",
+			"value": "2024/10/26",
+			"type": "string"
+		},
+		{
+			"key": "fileUploadPath",
+			"value": "C:\\Users\\agaza\\Downloads\\testfileforpostman.xls",
+			"type": "string"
+		}
+	]
+}
