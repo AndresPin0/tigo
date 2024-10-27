@@ -1,3 +1,4 @@
+# Usa una imagen compatible con Java 22
 FROM eclipse-temurin:22-jdk-alpine
 
 WORKDIR /app
@@ -5,8 +6,7 @@ WORKDIR /app
 COPY . .
 
 RUN chmod +x ./gradlew
-
-RUN ./gradlew build
+RUN ./gradlew clean build
 
 EXPOSE 8080
 
