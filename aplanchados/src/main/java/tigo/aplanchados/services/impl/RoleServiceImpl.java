@@ -104,13 +104,19 @@ public class RoleServiceImpl implements RoleService {
         Permission foundPermission = permissionRepository.findByName(permission.getName());
 
         if (foundRole == null) {
+            System.out.println("ROLE NOT FOUND");
             return false;
         }
         if (foundPermission == null) {
+            System.out.println("PERMISSION NOT FOUND");
             return false;
         }
 
         if (rolePermissionRepository.findByRoleAndPermission(foundRole, foundPermission) != null) {
+            System.out.println("-------");
+            System.out.println(foundRole.getName());
+            System.out.println(foundPermission.getName());
+            System.out.println("PERMISSION ALREADY EXISTS");
             return false;
         }
 
@@ -131,12 +137,15 @@ public class RoleServiceImpl implements RoleService {
         Permission foundPermission = permissionRepository.findByName(permission.getName());
 
         if (foundRole == null) {
+            System.out.println("ROLE NOT FOUND");
             return false;
         }
         if (foundPermission == null) {
+            System.out.println("PERMISSION NOT FOUND");
             return false;
         }
         if (rolePermissionRepository.findByRoleAndPermission(foundRole, foundPermission) == null) {
+        
             return false;
         }
         rolePermissionRepository.deleteById(
@@ -189,6 +198,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    //receives a map whose keys are the role name and the permissions that the role must have
+    //if the id exists the permission is added otherwise it is removed
     public boolean updateRoleServices(Map<String, String> roleServices) {
 
         String foundRoleName = null;
@@ -206,22 +217,29 @@ public class RoleServiceImpl implements RoleService {
         Set<String> roleServicesSet = new HashSet<>();
 
         for (Map.Entry<String, String> entry : roleServices.entrySet()) {
+            System.out.println(entry.getKey());
             if (entry.getKey().equals("roleName")) {
                 continue;
             }
+            System.out.println("HOLA");
             roleServicesSet.add(entry.getKey());
         }
         role = new Role();
         role.setName(foundRoleName);
+        System.out.println("NOMBRE DEL ROL");
+        System.out.println(role.getName());
         for (Permission permission : permissionRepository.findAll()) {
-
+            
+            System.out.println(permission.getName());
             String permissionName = permission.getName();
             if (roleServicesSet.contains(permissionName)) {
+                System.out.println("TIENE EL PERMISO");
                 if (addPermissionToRole(role, permission)) {
+                    System.out.println("PERMISO AGREGADO");
                 }
             } else {
                 if (removePermissionToRole(role, permissionRepository.findByName(permissionName))) {
-
+                    System.out.println("PERMISO REMOVIDO");
                 }
             }
 
