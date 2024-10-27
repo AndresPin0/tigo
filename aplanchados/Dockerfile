@@ -1,12 +1,13 @@
-# Usa una imagen compatible con Java 22
 FROM eclipse-temurin:22-jdk-alpine
 
-WORKDIR /
+WORKDIR /app
 
 COPY . .
 
+RUN chmod +x ./gradlew
+
 RUN ./gradlew build
 
-EXPOSE 8081
+EXPOSE 8080
 
 CMD ["java", "-jar", "build/libs/aplanchados-0.0.1-SNAPSHOT.jar"]
