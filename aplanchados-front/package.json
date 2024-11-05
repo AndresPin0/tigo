@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
-    "prepare": "cd .. && husky install aplanchados-front/.husky"
+    "prepare": "cd .. && husky install .husky"
   },
   "eslintConfig": {
     "extends": [
