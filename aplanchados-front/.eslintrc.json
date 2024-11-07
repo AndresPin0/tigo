@@ -1,35 +1,51 @@
 {
-    "extends": [
-      "eslint:recommended",
-      "plugin:import/errors",
-      "plugin:react/recommended",
-      "plugin:jsx-a11y/recommended",
-      "plugin:jest/recommended"
-
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "react",
+    "import",
+    "jsx-a11y",
+    "jest"
+  ],
+  "rules": {
+    "no-unused-vars": "warn",
+    "semi": [
+      "error",
+      "always"
     ],
-    "plugins": ["react", "import", "jsx-a11y","jest"],
-    "rules": {
-      "no-unused-vars": "warn",
-      "semi": ["error", "always"],
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     },
-    "parserOptions": {
-      "ecmaVersion": 2021,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "env": {
-      "es6": true,
-      "browser": true,
-      "node": true
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   }
-  
+}
