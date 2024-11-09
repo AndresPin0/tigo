@@ -5,7 +5,9 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 function Register() {
+    const navigate=useNavigate();
     return (
 
         <div>
@@ -41,7 +43,9 @@ function Register() {
 
 
 
-                    <Button variant="contained"> Registrarse</Button>
+                    <Button variant="outlined"> Registrarse</Button>
+
+                    <Button variant="contained" onClick={()=>navigate('/')}> Iniciar sesion</Button>
                 </Stack>
 
             </Container>
