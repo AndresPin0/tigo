@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
-import { authenticate } from "../services/authService";
+import { authenticate,getPermissions } from "../services/authService";
 
 
 export default function Home() {
@@ -27,10 +27,11 @@ export default function Home() {
         try {
             await authenticate(inputs);
             alert("CREDENCIALES CORRECTAS");
+            alert("PERMISOS DEL TOKEN"+getPermissions());
             //CONTINUAR AL LA PAGINA PRINCIPAL
         }catch{
             alert("CREDENCIALES INCORRRECTAS");
-            //CONTINUAR A LA OTRA PAGINA
+            //NO HACER NADA
         }finally{
             setInputs({ id: '', password: ''});
         }
