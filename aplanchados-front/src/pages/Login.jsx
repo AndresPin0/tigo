@@ -20,8 +20,10 @@ export default function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await authenticate(inputs);
-            alert("PERMISOS DEL TOKEN: " + getPermissions());
+            const token = await authenticate(inputs);
+            // Asegúrate de que los permisos se actualicen después de la autenticación
+            const permissionsFromToken = getPermissions();
+            alert("PERMISOS DEL TOKEN: " + permissionsFromToken);
             navigate('home');
         } catch {
             alert("CREDENCIALES INCORRECTAS");
@@ -29,6 +31,7 @@ export default function Login() {
             setInputs({ id: '', password: '' });
         }
     }
+    
 
     return (
         <Box

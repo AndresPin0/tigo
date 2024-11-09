@@ -17,11 +17,16 @@ function decodeToken(token) {
     }
 }
 
+// authService.js
+
 const getPermissions = () => {
     const token = localStorage.getItem('access_token');
-    if (!token) return [];
-    return decodeToken(token)?.permissions || [];
+    if (!token) return [];  // Si no hay token, devolvemos un arreglo vacío
+    const decoded = decodeToken(token);
+    // Asegurarnos de que decoded.permissions sea un arreglo
+    return Array.isArray(decoded?.permissions) ? decoded.permissions : [];
 };
+
 
 const authenticate = async function (data) {
     localStorage.setItem('access_token', ''); 

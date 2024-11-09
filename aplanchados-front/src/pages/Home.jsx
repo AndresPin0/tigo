@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { usePermissions } from '../context/PermissionsContext';
+import { usePermissions } from '../context/PermissionsContext'; // Usa el contexto de permisos
 
 export default function Home() {
     const navigate = useNavigate();
-    const permissions = usePermissions(); 
+    const permissions = usePermissions();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -16,8 +16,20 @@ export default function Home() {
             navigate('/'); // Redirigir al login si no hay token
             return;
         }
-        setIsLoading(false); // Terminar la carga cuando el token esté disponible
-    }, [navigate]);
+
+        // Verifica si la página ya se recargó antes usando localStorage
+        const hasReloaded = localStorage.getItem('hasReloaded');
+        if (!hasReloaded) {
+            localStorage.setItem('hasReloaded', 'true');  // Marca que la recarga ha ocurrido
+            window.location.reload();  // Recargar la página
+            return; // Salir para evitar continuar con el código después de la recarga
+        }
+
+        // Terminar la carga cuando los permisos estén disponibles
+        if (permissions.length > 0) {
+            setIsLoading(false); // Terminar la carga cuando los permisos estén disponibles
+        }
+    }, [permissions, navigate]); // Dependencias para ejecutar correctamente
 
     if (isLoading) {
         return <Typography variant="h6">Cargando...</Typography>;
@@ -99,16 +111,14 @@ export default function Home() {
     );
 }
 
-// Estilos de los botones
 const buttonStyle = {
-    backgroundColor: '#f57c00', 
-    color: 'white',
+    backgroundColor: '#f57c00',
+    color: '#fff',
     border: 'none',
+    fontSize: '16px',
     padding: '10px 20px',
-    fontSize: '1rem',
     cursor: 'pointer',
-    marginTop: '10px',
-    borderRadius: '25px',
+    margin: '10px',
+    borderRadius: '5px',
     transition: 'background-color 0.3s',
-    marginBottom: '20px', 
 };
