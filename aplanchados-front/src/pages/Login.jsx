@@ -8,37 +8,63 @@ import Container from '@mui/material/Container';
 
 import { useNavigate } from "react-router-dom";
 
-
+import { useState } from "react";
+import { authenticate } from "../services/authService";
 
 
 export default function Home() {
     const navigate = useNavigate();
-    
+    const [inputs, setInputs] = useState({});
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setInputs(values => ({ ...values, [name]: value }));
+    };
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        try {
+            await authenticate(inputs);
+            alert("CREDENCIALES CORRECTAS");
+            //CONTINUAR AL LA PAGINA PRINCIPAL
+        }catch{
+            alert("CREDENCIALES INCORRRECTAS");
+            //CONTINUAR A LA OTRA PAGINA
+        }finally{
+            setInputs({ id: '', password: ''});
+        }
+    }
+
     return (
         <div>
             <Container maxWidth="sm">
                 <Stack spacing={2}>
 
+                    <form onSubmit={handleSubmit}>
+                        <TextField
 
-                    <TextField
+                            id="outlined-required"
+                            label="ID"
+                            required
+                            name="id"
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            id="filled-password-input"
+                            label="Password"
+                            type="password"
+                            autoComplete="current-password"
+                            variant="filled"
+                            name="password"
+                            required
+                            onChange={handleChange}
+                        />
 
-                        id="outlined-required"
-                        label="ID"
-                        required
-                    />
-                    <TextField
-                        id="filled-password-input"
-                        label="Password"
-                        type="password"
-                        autoComplete="current-password"
-                        variant="filled"
-                        required
-                    />
-
-                    <Button variant="contained"> Iniciar sesion</Button>
-
+                        <Button variant="contained" type="submit" > Iniciar sesion</Button>
+                    </form>
                     <Button variant="outlined" onClick={() => navigate('register')}> Registrarse</Button>
-                       
+
 
                 </Stack>
 

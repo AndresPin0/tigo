@@ -13,9 +13,6 @@ import Modal from "../components/Modal";
 function Register() {
 
     const nav = useNavigate();
-    const navigate = (path) => {
-        nav(path);
-    };
 
     const MODAL_TITLE_SUCESS = "Registrado exitosamente";
     const MODAL_BODY_SUCCES = "Bienvenido a aplanchados";
@@ -38,7 +35,7 @@ function Register() {
 
             setModal(prev => ({ ...prev, isOpen: true}));
             setTimeout(() => {   setModal(prev => ({ ...prev, isOpen: false})); }, 3000);
-            setTimeout(() => {  navigate('/'); }, 3000);
+            //setTimeout(() => {  navigate('/'); }, 3000);
           //  nav('/');
 
         } catch (error) {
