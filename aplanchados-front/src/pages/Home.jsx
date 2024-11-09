@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { usePermissions } from '../context/PermissionsContext'; // Obtener permisos desde el contexto
+import { usePermissions } from '../context/PermissionsContext';
 
 export default function Home() {
     const navigate = useNavigate();
-    const permissions = usePermissions(); // Obtener permisos del contexto
+    const permissions = usePermissions(); 
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -23,10 +23,9 @@ export default function Home() {
         return <Typography variant="h6">Cargando...</Typography>;
     }
 
-    // Verificar si el usuario tiene un permiso específico
     const hasPermission = (permission) => permissions.includes(permission);
 
-    console.log('Permisos del usuario:', permissions);
+    console.log('Permisos del usuario:', permissions); 
 
     return (
         <Container
@@ -102,7 +101,7 @@ export default function Home() {
 
 // Estilos de los botones
 const buttonStyle = {
-    backgroundColor: '#f57c00', // Naranja
+    backgroundColor: '#f57c00', 
     color: 'white',
     border: 'none',
     padding: '10px 20px',
@@ -111,5 +110,5 @@ const buttonStyle = {
     marginTop: '10px',
     borderRadius: '25px',
     transition: 'background-color 0.3s',
-    marginBottom: '20px', // Espacio entre los botones
+    marginBottom: '20px', 
 };

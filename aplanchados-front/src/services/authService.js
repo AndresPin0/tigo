@@ -4,7 +4,7 @@ const REGISTER_URL = 'auth/register';
 const AUTHENTICATE_URL = 'auth/authenticate';
 
 const register = async function (data) {
-    localStorage.setItem('access_token','');
+    localStorage.setItem('access_token', ''); 
     return axiosInstance.post(REGISTER_URL, data);
 };
 
@@ -17,16 +17,18 @@ function decodeToken(token) {
     }
 }
 
-const  getPermissions=()=> {
-    return decodeToken(localStorage.getItem('access_token')).permissions || '';
+const getPermissions = () => {
+    const token = localStorage.getItem('access_token');
+    if (!token) return [];
+    return decodeToken(token)?.permissions || [];
 };
 
 const authenticate = async function (data) {
-    localStorage.setItem('access_token','');
+    localStorage.setItem('access_token', ''); 
     const response = await axiosInstance.post(AUTHENTICATE_URL, data);
     const token = response.data.access_token;
-    localStorage.setItem('access_token', token);
+    localStorage.setItem('access_token', token); 
+    return token; 
 };
-
 
 export { register, authenticate, getPermissions };
