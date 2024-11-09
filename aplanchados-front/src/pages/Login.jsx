@@ -21,7 +21,6 @@ export default function Login() {
         e.preventDefault();
         try {
             await authenticate(inputs);
-            alert("CREDENCIALES CORRECTAS");
             alert("PERMISOS DEL TOKEN: " + getPermissions());
             navigate('home');
         } catch {

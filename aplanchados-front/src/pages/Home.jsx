@@ -26,6 +26,8 @@ export default function Home() {
     // Verificar si el usuario tiene un permiso específico
     const hasPermission = (permission) => permissions.includes(permission);
 
+    console.log('Permisos del usuario:', permissions);
+
     return (
         <Container
             sx={{
@@ -35,14 +37,14 @@ export default function Home() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '2rem',
-                backgroundImage: 'url(/path/to/your/image.jpg)', // Reemplazar con la ruta de tu imagen
+                backgroundImage: 'url(/images/aplanchado2.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
         >
             <Box
                 sx={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo oscuro semi-transparente para el texto
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
                     padding: '2rem',
                     borderRadius: '8px',
                     textAlign: 'center',

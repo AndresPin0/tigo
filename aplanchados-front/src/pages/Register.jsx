@@ -35,91 +35,101 @@ export default function Register() {
     }
 
     return (
-        <Container
-            maxWidth="xs"
+        <Box
             sx={{
-                mt: 8,
-                backgroundImage: 'url("/path/to/background-image.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                padding: '2rem',
-                borderRadius: '8px',
+                height: '100vh', // Ocupa todo el alto de la ventana
+                backgroundImage: 'url("/images/aplanchado.jpg")', // Fondo de la imagen
+                backgroundSize: 'cover', // La imagen cubre todo el fondo
+                backgroundPosition: 'center', // Centrado de la imagen
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
             }}
         >
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
-                <Typography variant="h4" component="h1" sx={{ color: '#f57c00', fontWeight: 'bold' }}>
-                    Registro en Aplanchados
-                </Typography>
-            </Box>
-            <Stack spacing={2}>
-                <form onSubmit={onSubmitRegister}>
-                    <TextField
-                        fullWidth
-                        label="Nombre"
-                        required
-                        name="name"
-                        variant="outlined"
-                        onChange={handleChange}
-                        sx={{ mb: 2 }}
-                    />
-                    <TextField
-                        fullWidth
-                        label="Apellido"
-                        required
-                        name="lastName"
-                        variant="outlined"
-                        onChange={handleChange}
-                        sx={{ mb: 2 }}
-                    />
-                    <TextField
-                        fullWidth
-                        label="ID"
-                        required
-                        name="id"
-                        variant="outlined"
-                        onChange={handleChange}
-                        sx={{ mb: 2 }}
-                    />
-                    <TextField
-                        fullWidth
-                        label="Password"
-                        type="password"
-                        required
-                        name="password"
-                        variant="outlined"
-                        onChange={handleChange}
-                        sx={{ mb: 2 }}
-                    />
+            <Container
+                maxWidth="xs"
+                sx={{
+                    backgroundColor: 'white', // Color de fondo blanco para el formulario
+                    padding: '2rem',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Sombras para el cuadro del formulario
+                }}
+            >
+                <Box sx={{ textAlign: 'center', mb: 3 }}>
+                    <Typography variant="h4" component="h1" sx={{ color: '#f57c00', fontWeight: 'bold' }}>
+                        Registro en Aplanchados
+                    </Typography>
+                </Box>
+                <Stack spacing={2}>
+                    <form onSubmit={onSubmitRegister}>
+                        <TextField
+                            fullWidth
+                            label="Nombre"
+                            required
+                            name="name"
+                            variant="outlined"
+                            onChange={handleChange}
+                            sx={{ mb: 2 }}
+                        />
+                        <TextField
+                            fullWidth
+                            label="Apellido"
+                            required
+                            name="lastName"
+                            variant="outlined"
+                            onChange={handleChange}
+                            sx={{ mb: 2 }}
+                        />
+                        <TextField
+                            fullWidth
+                            label="ID"
+                            required
+                            name="id"
+                            variant="outlined"
+                            onChange={handleChange}
+                            sx={{ mb: 2 }}
+                        />
+                        <TextField
+                            fullWidth
+                            label="Password"
+                            type="password"
+                            required
+                            name="password"
+                            variant="outlined"
+                            onChange={handleChange}
+                            sx={{ mb: 2 }}
+                        />
+                        <Button
+                            variant="contained"
+                            fullWidth
+                            type="submit"
+                            sx={{
+                                backgroundColor: '#f57c00',
+                                color: '#fff',
+                                '&:hover': { backgroundColor: '#e64a19' },
+                                fontWeight: 'bold',
+                                fontSize: '1rem',
+                            }}
+                        >
+                            Registrarse
+                        </Button>
+                    </form>
+                    <Modal title={modal.title} body={modal.body} handleClose={modal.handleClose} isOpen={modal.isOpen} />
                     <Button
-                        variant="contained"
+                        variant="outlined"
                         fullWidth
-                        type="submit"
+                        onClick={() => nav('/')}
                         sx={{
-                            backgroundColor: '#f57c00',
-                            color: '#fff',
-                            '&:hover': { backgroundColor: '#e64a19' },
+                            color: '#f57c00',
+                            borderColor: '#f57c00',
                             fontWeight: 'bold',
-                            fontSize: '1rem',
+                            '&:hover': { borderColor: '#e64a19', color: '#e64a19' },
                         }}
                     >
-                        Registrarse
+                        Iniciar sesión
                     </Button>
-                </form>
-                <Modal title={modal.title} body={modal.body} handleClose={modal.handleClose} isOpen={modal.isOpen} />
-                <Button
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => nav('/')}
-                    sx={{
-                        color: '#f57c00',
-                        borderColor: '#f57c00',
-                        fontWeight: 'bold',
-                        '&:hover': { borderColor: '#e64a19', color: '#e64a19' },
-                    }}
-                >
-                    Iniciar sesión
-                </Button>
-            </Stack>
-        </Container>
+                </Stack>
+            </Container>
+        </Box>
     );
 }
