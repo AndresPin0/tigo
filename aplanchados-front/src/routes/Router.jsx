@@ -1,7 +1,6 @@
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import HomeHeader from "../components/HomeHeader";
 import Landing from "../pages/Landing";
 const routes = createRoutesFromElements(
     <>
