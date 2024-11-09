@@ -1,40 +1,41 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+import { Box, Typography, Button, Modal as MuiModal } from '@mui/material';
 
-export default function BasicModal(props) {
-  
-
-
-  return (
-    <div>
-      
-      <Modal
-        open={props.isOpen}
-        onClose={props.handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {props.title}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {props.body}
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
-  );
+export default function Modal({ title, body, handleClose, isOpen }) {
+    return (
+        <MuiModal open={isOpen} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Box
+                sx={{
+                    bgcolor: 'background.paper',
+                    borderRadius: 2,
+                    boxShadow: 24,
+                    p: 4,
+                    maxWidth: 400,
+                    width: '90%',
+                    border: '2px solid #f57c00',
+                    textAlign: 'center',
+                }}
+            >
+                <Typography variant="h6" component="h2" sx={{ color: '#f57c00', fontWeight: 'bold', mb: 2 }}>
+                    {title}
+                </Typography>
+                <Typography sx={{ mb: 3 }}>
+                    {body}
+                </Typography>
+                <Button
+                    variant="contained"
+                    onClick={handleClose}
+                    sx={{
+                        backgroundColor: '#f57c00',
+                        color: '#fff',
+                        '&:hover': { backgroundColor: '#e64a19' },
+                        fontWeight: 'bold',
+                        mt: 2,
+                        borderRadius: 2,
+                    }}
+                >
+                    Cerrar
+                </Button>
+            </Box>
+        </MuiModal>
+    );
 }
