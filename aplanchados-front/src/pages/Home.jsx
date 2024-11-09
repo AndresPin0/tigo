@@ -4,7 +4,11 @@ import Stack from '@mui/material/Stack';
 
 import Container from '@mui/material/Container';
 
-import {Outlet} from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import React from "react";
+
+import { BottomNavigation, BottomNavigationAction } from "@mui/material";
+
 export default function Home() {
     return (
         <div>
@@ -14,7 +18,7 @@ export default function Home() {
 
 
                     <TextField
-                        
+
                         id="outlined-required"
                         label="ID"
                         required
@@ -29,7 +33,7 @@ export default function Home() {
                     />
 
                     <Button variant="contained"> Iniciar sesion</Button>
-                    <Button variant="outlined">Registrarse</Button>
+
                 </Stack>
 
             </Container>

@@ -6,9 +6,9 @@ const routes = createRoutesFromElements(
     <>
     <Route path="/" element={<Home />} >
     <Route index element={<HomeHeader />} />
+    <Route path="/register" element={<Register />} />
     </Route>
 
-    <Route path="/register" element={<Register />} />
     </>
 );
 
