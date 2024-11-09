@@ -16,7 +16,6 @@ export default function Home() {
     const navigate = useNavigate();
     return (
         <div>
-            <Outlet />
             <Container maxWidth="sm">
                 <Stack spacing={2}>
 

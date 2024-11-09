@@ -2,10 +2,11 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import HomeHeader from "../components/HomeHeader";
+import Landing from "../pages/Landing";
 const routes = createRoutesFromElements(
     <>
-    <Route path="/" element={<Home />} >
-    <Route index element={<HomeHeader />} />
+    <Route path="/" element={<Landing />} >
+    <Route index element={<Home />} />
     <Route path="/register" element={<Register />} />
     </Route>
 
