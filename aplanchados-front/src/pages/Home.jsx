@@ -4,12 +4,17 @@ import Stack from '@mui/material/Stack';
 
 import Container from '@mui/material/Container';
 
-import { Outlet, useNavigate } from 'react-router-dom';
-import React from "react";
+import { Outlet } from 'react-router-dom';
 
-import { BottomNavigation, BottomNavigationAction } from "@mui/material";
+
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 export default function Home() {
+    const navigate = useNavigate();
     return (
         <div>
             <Outlet />
@@ -33,6 +38,9 @@ export default function Home() {
                     />
 
                     <Button variant="contained"> Iniciar sesion</Button>
+
+                    <Button variant="outlined" onClick={() => navigate('register')}> Registrarse</Button>
+                       
 
                 </Stack>
 
