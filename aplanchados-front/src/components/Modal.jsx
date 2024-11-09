@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
+import useEffect from 'react';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -15,18 +15,15 @@ const style = {
 };
 
 export default function BasicModal(props) {
-  const handleClose = () => {
-    props.handleClose();
-    alert(props.handleClose);
-    //setOpen(false);
-  };
+  
+
 
   return (
     <div>
       
       <Modal
         open={props.isOpen}
-        onClose={handleClose}
+        onClose={props.handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

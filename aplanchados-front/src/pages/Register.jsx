@@ -11,26 +11,45 @@ import Modal from "../components/Modal";
 
 
 function Register() {
+
+    const nav = useNavigate();
+    const navigate = (path) => {
+        nav(path);
+    };
+
+    const MODAL_TITLE_SUCESS = "Registrado exitosamente";
+    const MODAL_BODY_SUCCES = "Bienvenido a aplanchados";
+ 
+    const MODAL_TITLE_FAILURE = "Registro no exitoso";
+    const MODAL_BODY_FAILURE = "Parece que el id ya fue usado por otra persona";
+   
+
     const [inputs, setInputs] = useState({});
-    const [modal,setModal]= useState({isOpen:false});
-
-    const navigate = useNavigate();
-
+    const [modal, setModal] = useState({ isOpen: false, handleClose: () => { } });
+   
     async function onSubmitRegister(e) {
         e.preventDefault();
-        setModal(prev => ({...prev,title:"Titulo actualizado"}));
-
-        setModal(prev => ({...prev,body:"Cuerpo actualizado"}));
-        
-        setModal(prev=>({...prev,isOpen:true}) );
-
         try {
             await register(inputs);
+            setModal(prev => ({ ...prev, title: MODAL_TITLE_SUCESS }));
+            setModal(prev => ({ ...prev, body: MODAL_BODY_SUCCES }));
+            
+            setModal(prev => ({ ...prev, handleClose: ()=>{} }));
+
+            setModal(prev => ({ ...prev, isOpen: true}));
+            setTimeout(() => {   setModal(prev => ({ ...prev, isOpen: false})); }, 3000);
+            setTimeout(() => {  navigate('/'); }, 3000);
+          //  nav('/');
+
         } catch (error) {
-            alert(error);
-        } finally {
-            navigate('/');
+            setModal(prev => ({ ...prev, title: MODAL_TITLE_FAILURE }));
+            setModal(prev => ({ ...prev, body: MODAL_BODY_FAILURE }));
+            setModal(prev => ({ ...prev, handleClose:()=> { }}));
+            setModal(prev => ({ ...prev, isOpen: true}));
+           setTimeout(() => {   setModal(prev => ({ ...prev, isOpen: false })); }, 3000);
+         //  nav('/');
         }
+
     }
     const handleChange = (e) => {
         const name = e.target.name;
@@ -39,9 +58,7 @@ function Register() {
     };
 
 
-    const handleModalClose = ()=>{
-        navigate('/');
-    };
+
     return (
 
         <div>
@@ -86,17 +103,17 @@ function Register() {
                         />
                         <Button variant="outlined" type="submit">Registrarse</Button>
                     </form>
-                    <Modal title={modal.title}  body={modal.body} handleClose={handleModalClose} isOpen={modal.isOpen} />
+                    <Modal title={modal.title} body={modal.body} handleClose={modal.handleClose} isOpen={modal.isOpen} />
 
 
-                    <Button variant="contained" onClick={() => navigate('/')}> Iniciar sesion</Button>
+                    <Button variant="contained" onClick={() => nav('/')}> Iniciar sesion</Button>
 
                 </Stack>
 
             </Container>
 
 
-        
+
 
 
 
