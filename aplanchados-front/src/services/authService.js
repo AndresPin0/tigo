@@ -4,6 +4,7 @@ const REGISTER_URL = 'auth/register';
 const AUTHENTICATE_URL = 'auth/authenticate';
 
 const register = async function (data) {
+    localStorage.setItem('access_token','');
     return axiosInstance.post(REGISTER_URL, data);
 };
 
@@ -21,6 +22,7 @@ const  getPermissions=()=> {
 };
 
 const authenticate = async function (data) {
+    localStorage.setItem('access_token','');
     const response = await axiosInstance.post(AUTHENTICATE_URL, data);
     const token = response.data.access_token;
     localStorage.setItem('access_token', token);
