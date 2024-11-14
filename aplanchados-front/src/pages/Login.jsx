@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 export default function Login() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({});
+    const [error, setError] = useState("");  
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,17 +22,15 @@ export default function Login() {
         e.preventDefault();
         try {
             const token = await authenticate(inputs);
-            // Asegúrate de que los permisos se actualicen después de la autenticación
             const permissionsFromToken = getPermissions();
-            alert("PERMISOS DEL TOKEN: " + permissionsFromToken);
+            console.log("PERMISOS DEL TOKEN: ", permissionsFromToken);
             navigate('home');
         } catch {
-            alert("CREDENCIALES INCORRECTAS");
+            setError("Credenciales incorrectas. Intenta nuevamente."); 
         } finally {
             setInputs({ id: '', password: '' });
         }
     }
-    
 
     return (
         <Box
@@ -80,6 +79,12 @@ export default function Login() {
                             onChange={handleChange}
                             sx={{ mb: 2 }}
                         />
+                        {/* Mostrar el mensaje de error si existe */}
+                        {error && (
+                            <Typography variant="body2" color="error" sx={{ textAlign: 'center', mb: 2 }}>
+                                {error}
+                            </Typography>
+                        )}
                         <Button
                             variant="contained"
                             fullWidth
