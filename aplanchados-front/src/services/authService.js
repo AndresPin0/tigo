@@ -1,5 +1,6 @@
 import { axiosInstance } from "./axios";
 import { jwtDecode } from 'jwt-decode';
+
 const REGISTER_URL = 'auth/register';
 const AUTHENTICATE_URL = 'auth/authenticate';
 
@@ -15,25 +16,24 @@ const register = async function (data) {
     return axiosInstance.post(REGISTER_URL, data);
 };
 
-function decodeToken(token) {
+const decodeToken = (token) => {
     try {
         const decoded = jwtDecode(token);
         return decoded;
     } catch (error) {
         return null;
     }
-}
-
-// authService.js
-
-const getPermissions = () => {
-    const token = localStorage.getItem('access_token');
-    if (!token) return [];  // Si no hay token, devolvemos un arreglo vacío
-    const decoded = decodeToken(token);
-    // Asegurarnos de que decoded.permissions sea un arreglo
-    return Array.isArray(decoded?.permissions) ? decoded.permissions : [];
 };
 
+const getPermissions = () => {
+  const token = localStorage.getItem('access_token');
+  if (!token) return [];  // Return an empty array if no token
+  const decoded = decodeToken(token);
+  console.log('decoded:', decoded);
+
+  // Ensure permissions is always an array, even if it's undefined in the token
+  return Array.isArray(decoded?.permissions) ? decoded.permissions : [];
+};
 
 const authenticate = async function (data) {
     localStorage.setItem('access_token', ''); 

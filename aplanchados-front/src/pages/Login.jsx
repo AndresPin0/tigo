@@ -7,11 +7,14 @@ import { useState } from "react";
 import { authenticate, getPermissions } from "../services/authService";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { useDispatch } from 'react-redux';
+import { setPermissions } from '../slices/authSlice';
 
 export default function Login() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({});
     const [error, setError] = useState("");  
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,8 +27,11 @@ export default function Login() {
             const token = await authenticate(inputs);
             const permissionsFromToken = getPermissions();
             console.log("PERMISOS DEL TOKEN: ", permissionsFromToken);
+            dispatch(setPermissions(permissionsFromToken)); // Update Redux store with permissions
             localStorage.setItem('user_id', inputs.id);  // Guarda el ID del usuario en localStorage
             navigate('home');
+
+
         } catch {
             setError("Credenciales incorrectas. Intenta nuevamente."); 
         } finally {

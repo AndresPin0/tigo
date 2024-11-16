@@ -4,32 +4,25 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { usePermissions } from '../context/PermissionsContext'; // Usa el contexto de permisos
+import { getPermissions } from '../services/authService';
 
 export default function Home() {
     const navigate = useNavigate();
-    const permissions = usePermissions();
+    const permissions = getPermissions();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('access_token');
         if (!token) {
-            navigate('/'); // Redirigir al login si no hay token
+            navigate('/'); 
             return;
         }
-
-        // Verifica si la página ya se recargó antes usando localStorage
-        const hasReloaded = localStorage.getItem('hasReloaded');
-        if (!hasReloaded) {
-            localStorage.setItem('hasReloaded', 'true');  // Marca que la recarga ha ocurrido
-            window.location.reload();  // Recargar la página
-            return; // Salir para evitar continuar con el código después de la recarga
-        }
-
-        // Terminar la carga cuando los permisos estén disponibles
+    
         if (permissions.length > 0) {
-            setIsLoading(false); // Terminar la carga cuando los permisos estén disponibles
+            setIsLoading(false); 
         }
-    }, [permissions, navigate]); // Dependencias para ejecutar correctamente
+    }, [permissions, navigate]);
+    
 
     if (isLoading) {
         return <Typography variant="h6">Cargando...</Typography>;
