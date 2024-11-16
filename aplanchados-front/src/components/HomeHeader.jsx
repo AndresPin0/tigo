@@ -24,7 +24,7 @@ function HomeHeader() {
                     </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Link to="/" style={{ color: 'white', textDecoration: 'none', marginRight: '20px' }}>
+                    <Link to="/home" style={{ color: 'white', textDecoration: 'none', marginRight: '20px' }}>
                         Home
                     </Link>
                     <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>

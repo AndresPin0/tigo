@@ -14,13 +14,15 @@ import {
 import { axiosInstance } from '../services/axios';
 import { useNavigate } from 'react-router-dom';
 import { getUserIdFromToken } from '../services/authService';
+import BackArrow from '../components/BackArrow';
+import { useCurrentDate } from '../hooks/useCurrentDate';
 
 export default function ExpensePage() {
     const navigate = useNavigate();
     const [value, setValue] = useState('');
     const [additionalDetail, setAdditionalDetail] = useState('');
     const [personDocumentNumber, setPersonDocumentNumber] = useState('');
-    const [date, setDate] = useState('');
+    const [date, setDate] = useCurrentDate();
     const [paymentMethodCode, setPaymentMethodCode] = useState('');
     const [paymentTypeCode, setPaymentTypeCode] = useState('');
     const [expenseConceptCode, setExpenseConceptCode] = useState('');
@@ -75,7 +77,8 @@ export default function ExpensePage() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
-        >
+        >   
+            <BackArrow /> 
             <Container
                 maxWidth="sm"
                 sx={{
@@ -144,7 +147,6 @@ export default function ExpensePage() {
                             >
                                 <MenuItem value={1}>Tarjeta de Crédito</MenuItem>
                                 <MenuItem value={2}>Efectivo</MenuItem>
-                                {/* Otros métodos de pago */}
                             </Select>
                         </FormControl>
                         <FormControl fullWidth>
@@ -156,7 +158,6 @@ export default function ExpensePage() {
                             >
                                 <MenuItem value={1}>Contado</MenuItem>
                                 <MenuItem value={2}>Crédito</MenuItem>
-                                {/* Otros tipos de pago */}
                             </Select>
                         </FormControl>
                         <FormControl fullWidth>
@@ -169,7 +170,6 @@ export default function ExpensePage() {
                                 <MenuItem value={1}>Insumo</MenuItem>
                                 <MenuItem value={2}>Salida gerencia</MenuItem>
                                 <MenuItem value={3}>Gastos operativos</MenuItem>
-                                {/* Otros conceptos de egreso */}
                             </Select>
                         </FormControl>
                         {error && (

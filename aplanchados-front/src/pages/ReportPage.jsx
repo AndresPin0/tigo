@@ -8,6 +8,7 @@ import {
     Input,
 } from '@mui/material';
 import { axiosInstance } from '../services/axios';
+import BackArrow from '../components/BackArrow';
 
 export default function ReportAndUploadPage() {
     const [file, setFile] = useState(null);
@@ -80,7 +81,7 @@ export default function ReportAndUploadPage() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
-        >
+        > <BackArrow /> 
             <Container
                 maxWidth="sm"
                 sx={{
