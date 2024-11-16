@@ -17,6 +17,8 @@ import tigo.aplanchados.services.interfaces.ExpenseService;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.repositories.ExpenseConceptRepository;
 import tigo.aplanchados.model.ExpenseConcept;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -54,20 +56,29 @@ public class ExpenseController {
 
         // Retrieve related entities and set to expense
         Person person = personRepository.findAll().stream()
-            .filter(p -> p.getPersonPK().getDocumentNumber().equals(expenseDTO.getPersonDocumentNumber()))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
+                .filter(p -> p.getPersonPK().getDocumentNumber().equals(expenseDTO.getPersonDocumentNumber()))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
         expense.setPerson(person);
 
-        PaymentMethod paymentMethod = paymentMethodRepository.findById(expenseDTO.getPaymentMethodCode()).orElse(null);
-        PaymentType paymentType = paymentTypeRepository.findById(expenseDTO.getPaymentTypeCode()).orElse(null);
+        PaymentMethod paymentMethod = paymentMethodRepository.findById(expenseDTO.getPaymentMethodCode())
+                .orElseThrow(() -> new RuntimeException("Método de pago no encontrado"));
+
+        PaymentType paymentType = paymentTypeRepository.findById(expenseDTO.getPaymentTypeCode())
+                .orElseThrow(() -> new RuntimeException("Tipo de pago no encontrado"));
+
+        ExpenseConcept expenseConcept = expenseConceptRepository.findById(expenseDTO.getExpenseConceptCode())
+                .orElseThrow(() -> new RuntimeException("Concepto de egreso no encontrado"));
+
         expense.setPaymentMethod(paymentMethod);
         expense.setPaymentType(paymentType);
-
-        ExpenseConcept expenseConcept = expenseConceptRepository.findById(expenseDTO.getExpenseConceptCode()).orElse(null);
         expense.setExpenseConcept(expenseConcept);
 
-        User user = userRepository.findById(expenseDTO.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Long ID = Long.valueOf(authentication.getName());
+
+        User user = userRepository.findById(ID)
+                .orElseThrow(() -> new RuntimeException("User not found"));
         expense.setUser(user);
 
         // Save expense and convert to DTO for response
@@ -87,7 +98,7 @@ public class ExpenseController {
     @GetMapping("/{id}")
     public ResponseEntity<ExpenseDTO> getExpenseById(@PathVariable("id") Long id) {
         Expense expense = expenseService.findExpenseById(id)
-            .orElseThrow(() -> new RuntimeException("Expense not found"));
+                .orElseThrow(() -> new RuntimeException("Expense not found"));
         ExpenseDTO expenseDTO = ExpenseMapper.INSTANCE.toDTO(expense);
         return ResponseEntity.ok(expenseDTO);
     }

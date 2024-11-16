@@ -4,15 +4,18 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import tigo.aplanchados.dtos.ExpenseDTO;
 import tigo.aplanchados.model.Expense;
+import tigo.aplanchados.model.Person;
 
 @Mapper
 public interface ExpenseMapper {
     ExpenseMapper INSTANCE = Mappers.getMapper(ExpenseMapper.class);
 
     @Mapping(source = "person.personPK.documentNumber", target = "personDocumentNumber")
+    @Mapping(source = "person", target = "personName", qualifiedByName = "personName")
     @Mapping(source = "paymentMethod.code", target = "paymentMethodCode")
     @Mapping(source = "paymentType.code", target = "paymentTypeCode")
     @Mapping(source = "expenseConcept.code", target = "expenseConceptCode")
@@ -27,4 +30,9 @@ public interface ExpenseMapper {
     Expense toEntity(ExpenseDTO expenseDTO);
 
     List<ExpenseDTO> toDTOs(List<Expense> expenses);
+
+    @Named("personName")
+    default String personName(Person person) {
+        return person != null ? person.getName() : null;
+    }
 }

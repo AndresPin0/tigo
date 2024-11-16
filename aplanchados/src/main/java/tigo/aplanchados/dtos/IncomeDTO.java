@@ -11,6 +11,7 @@ public class IncomeDTO {
     private String additionalDetail;
     private String personDocumentNumber;
     private LocalDateTime date;
+    private String personName;
     private Long paymentMethodCode;
     private Long paymentTypeCode;
     private Long incomeConceptCode;
