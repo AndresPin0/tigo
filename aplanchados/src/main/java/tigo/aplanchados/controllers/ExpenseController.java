@@ -46,6 +46,7 @@ public class ExpenseController {
     @PostMapping("/create")
     public ResponseEntity<ExpenseDTO> createExpense(@RequestBody ExpenseDTO expenseDTO) {
         System.out.println("Creating expense with person: " + expenseDTO.getPersonDocumentNumber());
+        System.out.println("Fecha recibida: " + expenseDTO.getDate());
 
         // Convert DTO to entity and set current date
         Expense expense = ExpenseMapper.INSTANCE.toEntity(expenseDTO);

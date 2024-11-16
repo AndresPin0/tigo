@@ -10,6 +10,7 @@ public class ExpenseDTO {
     private Integer value;
     private String additionalDetail;
     private String personDocumentNumber;
+
     private LocalDateTime date;
     private Long paymentMethodCode;
     private Long paymentTypeCode;
