@@ -24,6 +24,7 @@ export default function Login() {
             const token = await authenticate(inputs);
             const permissionsFromToken = getPermissions();
             console.log("PERMISOS DEL TOKEN: ", permissionsFromToken);
+            localStorage.setItem('user_id', inputs.id);  // Guarda el ID del usuario en localStorage
             navigate('home');
         } catch {
             setError("Credenciales incorrectas. Intenta nuevamente."); 

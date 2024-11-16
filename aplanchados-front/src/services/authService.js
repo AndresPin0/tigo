@@ -3,6 +3,13 @@ import { jwtDecode } from 'jwt-decode';
 const REGISTER_URL = 'auth/register';
 const AUTHENTICATE_URL = 'auth/authenticate';
 
+const getUserIdFromToken = () => {
+    const token = localStorage.getItem('access_token');
+    if (!token) return null;
+    const decoded = jwtDecode(token);
+    return decoded.sub ? Number(decoded.sub) : null;
+};
+
 const register = async function (data) {
     localStorage.setItem('access_token', ''); 
     return axiosInstance.post(REGISTER_URL, data);
@@ -33,7 +40,9 @@ const authenticate = async function (data) {
     const response = await axiosInstance.post(AUTHENTICATE_URL, data);
     const token = response.data.access_token;
     localStorage.setItem('access_token', token); 
-    return token; 
+    const decoded = jwtDecode(token);
+    localStorage.setItem('userId', decoded.sub);
+    return token;
 };
 
-export { register, authenticate, getPermissions };
+export { register, authenticate, getPermissions, getUserIdFromToken };
