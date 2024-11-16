@@ -64,8 +64,9 @@ public class IncomeServiceImpl implements IncomeService {
         List<Income> income = incomeRepository.findAll();
         List<Income> incomeByDate= new ArrayList<Income>();
         for(Income e: income){
-            if(e.getDate().getDayOfYear() == date.getDayOfYear() && e.getDate().getYear()== date.getYear())
-            incomeByDate.add(e);
+            if (e.getDate()!=null) 
+                if(e.getDate().getDayOfYear() == date.getDayOfYear() && e.getDate().getYear()== date.getYear())
+                incomeByDate.add(e);
         }
         return incomeByDate;
     }

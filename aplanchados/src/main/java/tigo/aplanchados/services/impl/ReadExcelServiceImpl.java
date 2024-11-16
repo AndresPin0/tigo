@@ -71,7 +71,9 @@ public class ReadExcelServiceImpl implements ReadExcelService {
             
             for (int i = 1; i < numRows; i++) {
                 XSSFRow row = sheet.getRow(i);
-
+                if (row==null) {
+                    break;
+                }
                 String id = getCellValue(row.getCell(0));
                 String person = getCellValue(row.getCell(1));
                 String user = getCellValue(row.getCell(2));
@@ -92,28 +94,40 @@ public class ReadExcelServiceImpl implements ReadExcelService {
         
            private void saveData(String idStr, String personStr, String userStr, String valueStr, String paymMetStr, String paymMTypStr,
             String conceptStr, String dateStr, String additionalDetailStr, String type) {
+
+                LocalDateTime date = null;
+                try {
+                    if (dateStr.contains(".")) {
+                        double excelSerial = Double.parseDouble(dateStr);
+                        date = convertExcelSerialToDate(excelSerial); // Convierte el número serial de Excel
+                    } else {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                        date = LocalDateTime.parse(dateStr, formatter); // Si es una fecha en formato estándar
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();  // Maneja cualquier error en la conversión
+                }
                 
-                Long id = Long.valueOf(idStr);
+                Long id = parseLongFromString(idStr);
                 List<Person> persons = personRepository.findAll();
                 Person person = new Person();
                 for(Person p : persons)
                 if (p.getName().equals(personStr)) {
                     person = p;
                 }
-                User user = userRepository.findById(Long.valueOf(userStr)).orElse(null);
-                Integer value = Integer.valueOf(valueStr);
-                PaymentMethod paymentMethod = paymentMethodRepository.findById(Long.valueOf(paymMetStr)).orElse(null);
-                PaymentType paymentType = paymentTypeRepository.findById(Long.valueOf(paymMetStr)).orElse(null);
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                LocalDateTime date = LocalDateTime.parse(dateStr, formatter);
+                User user = userRepository.findById(parseLongFromString(userStr)).orElse(null);
+                Integer value = parseIntegerFromString(valueStr);
+                PaymentMethod paymentMethod = paymentMethodRepository.findById(parseLongFromString(paymMetStr)).orElse(null);
+                PaymentType paymentType = paymentTypeRepository.findById(parseLongFromString(paymMetStr)).orElse(null);
+                
                 String additional = additionalDetailStr;
                 
                 if ( type.equals("EXPENSE")) {
-                    ExpenseConcept concept = expenseConceptRepository.findById(Long.valueOf(conceptStr)).orElse(null);
+                    ExpenseConcept concept = expenseConceptRepository.findById(parseLongFromString(conceptStr)).orElse(null);
                     expenseRepository.save(new Expense(id,value,additional,person,date,paymentMethod,paymentType,concept,user));
     
                 }else if ( type.equals("INCOME")){
-                    IncomeConcept concept = incomeConceptRepository.findById(Long.valueOf(conceptStr)).orElse(null);
+                    IncomeConcept concept = incomeConceptRepository.findById(parseLongFromString(conceptStr)).orElse(null);
                     incomeRepository.save(new Income(id,value,additional,person,date,paymentMethod,paymentType,concept,user));
                 }
                 
@@ -131,4 +145,26 @@ public class ReadExcelServiceImpl implements ReadExcelService {
                         return cell.getStringCellValue();
                 }
             }
+            private Long parseLongFromString(String value) {
+                if (value.contains(".")) {
+                    value = value.substring(0, value.indexOf(".")); // Elimina la parte decimal
+                }
+                return Long.valueOf(value);
+            }
+            private Integer parseIntegerFromString(String value) {
+                if (value.contains(".")) {
+                    value = value.substring(0, value.indexOf(".")); // Elimina la parte decimal
+                }
+                return Integer.valueOf(value);
+            }
+
+            private LocalDateTime convertExcelSerialToDate(double serial) {
+                // El valor 25569 es el número de días entre el 1 de enero de 1970 (epoch Unix) y el 1 de enero de 1900
+                long daysSince1900 = (long) serial - 25569;
+                // Obtener la fecha a partir del número de días
+                return LocalDateTime.ofEpochSecond(daysSince1900 * 86400, 0, java.time.ZoneOffset.UTC);
+            }
+            
+            
+            
         }

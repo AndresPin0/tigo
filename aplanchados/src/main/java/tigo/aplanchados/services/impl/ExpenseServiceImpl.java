@@ -63,8 +63,9 @@ public class ExpenseServiceImpl implements ExpenseService {
         List<Expense> expenses = ExpenseService.findAll();
         List<Expense> expensesToday = new ArrayList<Expense>();
         for(Expense e: expenses){
-            if(e.getDate().getDayOfYear() == date.getDayOfYear() && e.getDate().getYear()== date.getYear())
-            expensesToday.add(e);
+            if(e.getDate()!=null)
+                if(e.getDate().getDayOfYear() == date.getDayOfYear() && e.getDate().getYear()== date.getYear())
+                expensesToday.add(e);
         }
         return expensesToday;
     }

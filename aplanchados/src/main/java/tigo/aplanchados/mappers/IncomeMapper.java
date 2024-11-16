@@ -4,11 +4,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
-import org.springframework.beans.factory.annotation.Autowired;
 import tigo.aplanchados.dtos.IncomeDTO;
 import tigo.aplanchados.model.Income;
 import tigo.aplanchados.model.Person;
-import tigo.aplanchados.repositories.PersonRepository;
 
 import java.util.List;
 
