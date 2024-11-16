@@ -8,6 +8,8 @@ import ExpensePage from "../pages/ExpensePage";
 import IncomePage from "../pages/IncomePage";
 import ReportPage from "../pages/ReportPage";
 import ProtectedRoute from '../components/ProtectedRoute';  
+import NavBar from '../components/NavBar';
+import BackArrow from '../components/BackArrow';
 
 const routes = createRoutesFromElements(
   <>
@@ -20,6 +22,8 @@ const routes = createRoutesFromElements(
       path="manager" 
       element={
         <ProtectedRoute requiredPermission="MANAGE SYSTEM">
+          <NavBar/>
+          <BackArrow />
           <ManagerPage />
         </ProtectedRoute>
       } 
@@ -28,6 +32,8 @@ const routes = createRoutesFromElements(
       path="expense" 
       element={
         <ProtectedRoute requiredPermission="ADD EXPENSE">
+          <NavBar/>
+          <BackArrow /> 
           <ExpensePage />
         </ProtectedRoute>
       } 
@@ -36,6 +42,8 @@ const routes = createRoutesFromElements(
       path="income/create" 
       element={
         <ProtectedRoute requiredPermission="ADD INCOME">
+          <NavBar/>
+          <BackArrow />
           <IncomePage />
         </ProtectedRoute>
       } 
@@ -44,6 +52,8 @@ const routes = createRoutesFromElements(
       path="report/upload-excel" 
       element={
         <ProtectedRoute requiredPermission="GENERATE REPORT">
+          <NavBar/>
+          <BackArrow /> 
           <ReportPage />
         </ProtectedRoute>
       } 

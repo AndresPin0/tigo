@@ -61,7 +61,7 @@ export default function Home() {
                     Bienvenido a Aplanchados
                 </Typography>
                 <Typography variant="h5" sx={{ mt: 2, fontSize: '1.5rem' }}>
-                    Explora nuestros servicios y gestiona tus pedidos
+                    Explora nuestros servicios y gestiona tus finanzas
                 </Typography>
 
                 {/* Mostrar botones solo si el usuario tiene los permisos correspondientes */}

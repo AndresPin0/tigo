@@ -14,7 +14,6 @@ import {
 import { axiosInstance } from '../services/axios';
 import { useNavigate } from 'react-router-dom';
 import { getUserIdFromToken } from '../services/authService';
-import BackArrow from '../components/BackArrow';
 import { useCurrentDate } from '../hooks/useCurrentDate';
 
 export default function IncomePage() {
@@ -78,7 +77,7 @@ export default function IncomePage() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
-        > <BackArrow /> 
+        > 
             <Container
                 maxWidth="sm"
                 sx={{

@@ -16,7 +16,7 @@ function BackArrow() {
             aria-label="Volver"
             sx={{
                 position: 'absolute', // Para posicionar según lo necesites
-                top: '1rem',
+                top: '5rem',
                 left: '1rem',
                 backgroundColor: '#f57c00',
                 color: 'white',
