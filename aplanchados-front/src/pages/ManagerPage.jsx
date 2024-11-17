@@ -12,15 +12,13 @@ import { useEffect, useState } from 'react';
 import { PersonSearch, SnippetFolderSharp } from '@mui/icons-material';
 import { Select, MenuItem, FormControl, InputLabel, OutlinedInput,Button,Checkbox,TextField } from '@mui/material';
 import Box from '@mui/material/Box';
-
+import ListItemText from '@mui/material/ListItemText';
 import { editUserRole,getPermissions,addRole,removeRolePermissions,updateRolePermissions } from '../services/managerService';
 import Chip from '@mui/material/Chip';
 
 
 export function RoleSelection({ fromRoleIdToRoleName, defaultSelection, userID }) {
     const [selectedRole, setSelectedRole] = useState(0);
-
-
     useEffect(() => {
         setSelectedRole(defaultSelection);
     }, [defaultSelection]);
@@ -29,9 +27,7 @@ export function RoleSelection({ fromRoleIdToRoleName, defaultSelection, userID }
         const newValue = event.target.value;
         setSelectedRole(newValue);
         editUserRole(userID, event.target.value);
-
     };
-
     return (
         <FormControl fullWidth variant="outlined">
             <InputLabel htmlFor="role-select">Role</InputLabel>
@@ -47,7 +43,6 @@ export function RoleSelection({ fromRoleIdToRoleName, defaultSelection, userID }
                     </MenuItem>
                 ))}
             </Select>
-
         </FormControl>
     );
 }
@@ -55,16 +50,12 @@ export function RoleSelection({ fromRoleIdToRoleName, defaultSelection, userID }
 
 
 export function UserTable() {
-
-
     const [roleList, setRoleList] = useState([]);
     function addRow(id, name, lastName, role) {
         return { id, name, lastName, role };
     }
 
     const [rows, setRows] = useState([]);
-
-
     useEffect(function () {
         const fetchData = async () => {
             const newUsersInfo = await getUsers();
@@ -72,22 +63,14 @@ export function UserTable() {
             const rolesMap = new Map(roles.map((role) => [role.id, role.name]));
             const givenRoleList = roles;
 
-            console.log("LISTA DE ROLES");
-
-            console.log(roleList);
-
             setRoleList(rolesMap);
-
 
             setRows(newUsersInfo.map((row) => {
 
-                console.log(rolesMap);
                 row.roleName = rolesMap.get(row.role);
-                console.log(row);
                 return row;
             }));
 
-            // setRows(newUsersInfo);
             console.log("USUAIROS ");
         };
         fetchData();
@@ -142,51 +125,38 @@ export function UserTable() {
 
 
 
+export function MultipleSelectCheckmarks4({ roleName, permissions, rolePermissions }) {
+  const [personName, setPersonName] = useState([]);
 
+  useEffect(() => {
+    const selectedPermissions = permissions
+      .filter(permission => rolePermissions.includes(permission.id))
+      .map(permission => permission.name);
+    setPersonName(selectedPermissions);
+  }, [permissions, rolePermissions]);
 
-
-
-import ListItemText from '@mui/material/ListItemText';
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-
-export function MultipleSelectCheckmarks(roleName,permissions) {
-  const [personName, setPersonName] = React.useState([]);
-  console.log("estos son mis permisos finales");
-    console.log(permissions);
-
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
+    const updatedPersonName = typeof value === 'string' ? value.split(',') : value;
+    setPersonName(updatedPersonName);
 
+    const data = {
+      roleName: roleName,
+      ...updatedPersonName.reduce((acc, perm) => {
+        acc[perm] = true;
+        return acc;
+      }, {})
+    };
+
+    try {
+      const response = await updateRolePermissions(data);
+      console.log('Permisos actualizados:', response);
+    } catch (error) {
+      console.error('Error al actualizar los permisos del rol:', error);
+    }
+  };
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
@@ -198,52 +168,6 @@ export function MultipleSelectCheckmarks(roleName,permissions) {
           value={personName}
           onChange={handleChange}
           input={<OutlinedInput label="Tag" />}
-          renderValue={(selected) => selected.join(', ')}
-          MenuProps={MenuProps}
-        >
-          {names.map((name) => (
-            <MenuItem key={name} value={name}>
-              <Checkbox checked={personName.includes(name)} />
-              <ListItemText primary={name} />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
-  );
-}
-
-
-
-
-
-
-
-export function MultipleSelectCheckmarks2({ roleName, permissions }) {
-  const [personName, setPersonName] = React.useState([]);
-  console.log("estos son mis permisos finales");
-  console.log(permissions);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
-
-  return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-checkbox-label">{roleName}</InputLabel>
-        <Select
-          labelId="demo-multiple-checkbox-label"
-          id="demo-multiple-checkbox"
-          multiple
-          value={personName}
-          onChange={handleChange}
-          input={<OutlinedInput label={roleName} />}
           renderValue={(selected) => selected.join(', ')}
         >
           {permissions.map((permission) => (
@@ -257,6 +181,7 @@ export function MultipleSelectCheckmarks2({ roleName, permissions }) {
     </div>
   );
 }
+
 
 
 
@@ -278,7 +203,6 @@ export const RolesPermissionsTable = () => {
         fetchData();
     }, []);  
 
-    
 
     return (
         <div>
@@ -298,7 +222,7 @@ export const RolesPermissionsTable = () => {
                                         {role.name}
                                     </TableCell>
                                     <TableCell align="left">
-                                        {<MultipleSelectCheckmarks2 roleName= {role.name} permissions={permissions}/>}
+                                        {<MultipleSelectCheckmarks4 roleName= {role.name} permissions={permissions} rolePermissions={role.permissionsIds}/>}
                                         
                                     </TableCell>
                                 </TableRow>
@@ -317,8 +241,8 @@ export const RolesPermissionsTable = () => {
 export default function page() {
     return (
         <div>
-            <UserTable/>
             <RolesPermissionsTable />
+            <UserTable/>
         </div>
 
     );
