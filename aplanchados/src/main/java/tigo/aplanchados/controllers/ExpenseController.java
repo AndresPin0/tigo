@@ -5,18 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import tigo.aplanchados.dtos.ExpenseDTO;
 import tigo.aplanchados.mappers.ExpenseMapper;
-import tigo.aplanchados.model.Expense;
-import tigo.aplanchados.model.PaymentMethod;
-import tigo.aplanchados.model.PaymentType;
-import tigo.aplanchados.model.Person;
-import tigo.aplanchados.model.User;
+import tigo.aplanchados.model.*;
 import tigo.aplanchados.repositories.PaymentMethodRepository;
 import tigo.aplanchados.repositories.PaymentTypeRepository;
 import tigo.aplanchados.repositories.PersonRepository;
+import tigo.aplanchados.services.impl.DocumentTypeServiceImpl;
 import tigo.aplanchados.services.interfaces.ExpenseService;
 import tigo.aplanchados.repositories.UserRepository;
 import tigo.aplanchados.repositories.ExpenseConceptRepository;
-import tigo.aplanchados.model.ExpenseConcept;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -45,6 +41,10 @@ public class ExpenseController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private DocumentTypeServiceImpl documentTypeServiceImpl;
+
+
     @PostMapping("/create")
     public ResponseEntity<ExpenseDTO> createExpense(@RequestBody ExpenseDTO expenseDTO) {
         System.out.println("Creating expense with person: " + expenseDTO.getPersonDocumentNumber());
@@ -54,11 +54,20 @@ public class ExpenseController {
         Expense expense = ExpenseMapper.INSTANCE.toEntity(expenseDTO);
         expense.setDate(LocalDateTime.now());
 
+        DocumentType documentType = documentTypeServiceImpl.getDefaultDocumentType();
+        PersonPK personPK = new PersonPK();
+        personPK.setDocumentNumber(expenseDTO.getPersonDocumentNumber());
+        personPK.setDocumentType(documentType);
+
+
         // Retrieve related entities and set to expense
-        Person person = personRepository.findAll().stream()
-                .filter(p -> p.getPersonPK().getDocumentNumber().equals(expenseDTO.getPersonDocumentNumber()))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
+        Person person = personRepository.findById(personPK).orElseGet(() -> {
+            Person newPerson = new Person();
+            newPerson.setPersonPK(personPK);
+            newPerson.setName(expenseDTO.getPersonName());
+            return personRepository.save(newPerson);
+        });
+
         expense.setPerson(person);
 
         PaymentMethod paymentMethod = paymentMethodRepository.findById(expenseDTO.getPaymentMethodCode())
@@ -70,16 +79,17 @@ public class ExpenseController {
         ExpenseConcept expenseConcept = expenseConceptRepository.findById(expenseDTO.getExpenseConceptCode())
                 .orElseThrow(() -> new RuntimeException("Concepto de egreso no encontrado"));
 
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userRepository.findById(Long.valueOf(username))
+                        .orElseThrow(()-> new RuntimeException("User not found"));
+
+        expense.setUser(user);
         expense.setPaymentMethod(paymentMethod);
         expense.setPaymentType(paymentType);
         expense.setExpenseConcept(expenseConcept);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Long ID = Long.valueOf(authentication.getName());
-
-        User user = userRepository.findById(ID)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        expense.setUser(user);
 
         // Save expense and convert to DTO for response
         Expense createdExpense = expenseService.createExpense(expense);
