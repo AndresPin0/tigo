@@ -80,7 +80,7 @@ export default function ReportAndUploadPage() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
-        >
+        > 
             <Container
                 maxWidth="sm"
                 sx={{
