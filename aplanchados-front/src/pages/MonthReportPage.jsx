@@ -12,49 +12,70 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { axiosInstance } from '../services/axios';
 
-// Registrar los componentes de Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+// Plugin para mostrar etiquetas encima de las barras
+const barLabelPlugin = {
+    id: 'barLabelPlugin',
+    afterDatasetsDraw(chart) {
+        const { ctx, data } = chart;
+        const dataset = data.datasets[0];
+        chart.getDatasetMeta(0).data.forEach((bar, index) => {
+            const value = dataset.data[index];
+            ctx.save();
+            ctx.font = 'bold 12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#000';
+            ctx.fillText(value, bar.x, bar.y - 10); 
+            ctx.restore();
+        });
+    },
+};
 
 export default function MonthlyReportPage() {
     const [month, setMonth] = useState('');
     const [reportData, setReportData] = useState(null);
+    const [previousReportData, setPreviousReportData] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleMonthChange = (event) => {
         setMonth(event.target.value);
     };
 
-    const fetchMonthlyReport = async () => {
+    const fetchMonthlyReports = async () => {
         if (!month) {
             setErrorMessage('Por favor selecciona un mes.');
             return;
         }
 
         try {
-            const response = await axiosInstance.get(`/reports/monthly?month=${month}`);
-            setReportData(response.data);
+            const currentResponse = await axiosInstance.get(`/reports/monthly?month=${month}`);
+            setReportData(currentResponse.data);
+
+            const previousMonth = month === '1' ? '12' : (parseInt(month) - 1).toString();
+            const previousResponse = await axiosInstance.get(`/reports/monthly?month=${previousMonth}`);
+            setPreviousReportData(previousResponse.data);
+
             setErrorMessage('');
         } catch (error) {
-            console.error('Error al obtener el reporte:', error);
-            setErrorMessage('No se pudo obtener el reporte para el mes seleccionado.');
+            console.error('Error al obtener los reportes:', error);
+            setErrorMessage('No se pudo obtener los reportes para los meses seleccionados.');
         }
     };
 
-    // Array de nombres de meses
     const months = [
         'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
     ];
 
-    // Configuración del gráfico
     const chartData = reportData
         ? {
-              labels: ['Ingresos', 'Gastos'], // Etiquetas de las barras
+              labels: ['Ingresos', 'Gastos'],
               datasets: [
                   {
                       label: 'Totales en $',
                       data: [reportData.totalIncome, reportData.totalExpense],
-                      backgroundColor: ['#4caf50', '#f44336'], // Colores de las barras
+                      backgroundColor: ['#4caf50', '#f44336'],
                       borderColor: ['#388e3c', '#d32f2f'],
                       borderWidth: 1,
                   },
@@ -75,6 +96,32 @@ export default function MonthlyReportPage() {
         },
     };
 
+    const getComparisonText = () => {
+        if (!reportData || !previousReportData) return '';
+
+        const incomeDifference =
+            reportData.totalIncome - previousReportData.totalIncome;
+        const expenseDifference =
+            reportData.totalExpense - previousReportData.totalExpense;
+
+        const incomeTrend = incomeDifference > 0 ? 'incrementaron' : 'disminuyeron';
+        const expenseTrend = expenseDifference > 0 ? 'incrementaron' : 'disminuyeron';
+
+        return (
+            <>
+                <Typography variant="body1" sx={{ mt: 2 }}>
+                    Comparado con el mes anterior:
+                </Typography>
+                <Typography variant="body2">
+                    - Los ingresos {incomeTrend} en ${Math.abs(incomeDifference)}.
+                </Typography>
+                <Typography variant="body2">
+                    - Los gastos {expenseTrend} en ${Math.abs(expenseDifference)}.
+                </Typography>
+            </>
+        );
+    };
+
     return (
         <Box
             sx={{
@@ -82,7 +129,7 @@ export default function MonthlyReportPage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundImage: 'url("/images/aplanchado.jpg")',
+                backgroundImage: 'url("/images/aplanchadoV2.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
@@ -127,7 +174,7 @@ export default function MonthlyReportPage() {
                         </Select>
                         <Button
                             variant="contained"
-                            onClick={fetchMonthlyReport}
+                            onClick={fetchMonthlyReports}
                             sx={{
                                 backgroundColor: '#f57c00',
                                 color: '#fff',
@@ -139,17 +186,17 @@ export default function MonthlyReportPage() {
                             Obtener Reporte
                         </Button>
                     </Box>
-    
-                    {/* Mostrar el gráfico si hay datos */}
+
                     {reportData && (
                         <Box sx={{ mt: 4 }}>
                             <Typography variant="h6" sx={{ mb: 2 }}>
                                 Resultados del mes: {months[parseInt(month) - 1]}
                             </Typography>
-                            <Bar data={chartData} options={chartOptions} />
+                            <Bar data={chartData} options={chartOptions} plugins={[barLabelPlugin]} />
+                            {getComparisonText()}
                         </Box>
                     )}
-    
+
                     {errorMessage && (
                         <Typography color="error" sx={{ mt: 2 }}>
                             {errorMessage}

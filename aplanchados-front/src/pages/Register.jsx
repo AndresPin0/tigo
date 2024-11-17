@@ -37,10 +37,10 @@ export default function Register() {
     return (
         <Box
             sx={{
-                height: '100vh', // Ocupa todo el alto de la ventana
-                backgroundImage: 'url("/images/aplanchado.jpg")', // Fondo de la imagen
-                backgroundSize: 'cover', // La imagen cubre todo el fondo
-                backgroundPosition: 'center', // Centrado de la imagen
+                height: '100vh', 
+                backgroundImage: 'url("/images/aplanchadoV2.jpg")',
+                backgroundSize: 'cover', 
+                backgroundPosition: 'center', 
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -49,10 +49,10 @@ export default function Register() {
             <Container
                 maxWidth="xs"
                 sx={{
-                    backgroundColor: 'white', // Color de fondo blanco para el formulario
+                    backgroundColor: 'rgba(255, 255, 255, 0.85)', 
                     padding: '2rem',
                     borderRadius: '8px',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Sombras para el cuadro del formulario
+                    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
                 }}
             >
                 <Box sx={{ textAlign: 'center', mb: 3 }}>

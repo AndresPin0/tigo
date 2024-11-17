@@ -63,6 +63,8 @@ const routes = createRoutesFromElements(
      path="reports/monthly" 
      element={
        <ProtectedRoute requiredPermission="GENERATE REPORT">
+        <NavBar/>
+        <BackArrow /> 
          <MonthlyReportPage />
        </ProtectedRoute>
      } 

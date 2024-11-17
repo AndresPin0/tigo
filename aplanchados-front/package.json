@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aplanchados-front": "file:",
     "axios": "^1.7.7",
-    "chart.js": "^4.4.6",
+    "chart.js": "^3.9.1",
     "jwt-decode": "^4.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-chartjs-2": "^5.2.0",

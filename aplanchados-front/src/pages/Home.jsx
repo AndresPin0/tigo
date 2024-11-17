@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { usePermissions } from '../context/PermissionsContext'; // Usa el contexto de permisos
@@ -14,15 +13,14 @@ export default function Home() {
     useEffect(() => {
         const token = localStorage.getItem('access_token');
         if (!token) {
-            navigate('/'); 
+            navigate('/');
             return;
         }
-    
+
         if (permissions.length > 0) {
             setIsLoading(false); 
         }
     }, [permissions, navigate]);
-    
 
     if (isLoading) {
         return <Typography variant="h6">Cargando...</Typography>;
@@ -33,15 +31,13 @@ export default function Home() {
     console.log('Permisos del usuario:', permissions);
 
     return (
-        <Container
+        <Box
             sx={{
                 minHeight: '100vh',
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
                 alignItems: 'center',
-                padding: '2rem',
-                backgroundImage: 'url(/images/aplanchado2.jpg)',
+                justifyContent: 'center',
+                backgroundImage: 'url("/images/aplanchadoV2.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
@@ -108,7 +104,7 @@ export default function Home() {
                     )}
                 </Box>
             </Box>
-        </Container>
+        </Box>
     );
 }
 

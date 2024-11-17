@@ -76,7 +76,7 @@ export default function ReportAndUploadPage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundImage: 'url("/images/aplanchado.jpg")',
+                backgroundImage: 'url("/images/aplanchadoV2.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
