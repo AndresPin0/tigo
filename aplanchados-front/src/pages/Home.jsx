@@ -37,7 +37,7 @@ export default function Home() {
 
     const hasPermission = (permission) => permissions.includes(permission);
 
-    console.log('Permisos del usuario:', permissions); 
+    console.log('Permisos del usuario:', permissions);
 
     return (
         <Container
@@ -103,6 +103,14 @@ export default function Home() {
                             style={buttonStyle}
                         >
                             Generar Reporte Diario
+                        </button>
+                    )}
+                    {hasPermission('GENERATE REPORT') && (
+                        <button
+                            onClick={() => navigate('/reports/monthly')}
+                            style={buttonStyle}
+                        >
+                            Generar Reporte Mensual
                         </button>
                     )}
                 </Box>

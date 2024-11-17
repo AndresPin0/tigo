@@ -7,6 +7,7 @@ import ManagerPage from "../pages/ManagerPage";
 import ExpensePage from "../pages/ExpensePage";
 import IncomePage from "../pages/IncomePage";
 import ReportPage from "../pages/ReportPage";
+import MonthlyReportPage from '../pages/MonthReportPage'; 
 import ProtectedRoute from '../components/ProtectedRoute';  
 
 
@@ -46,6 +47,14 @@ const routes = createRoutesFromElements(
      element={
        <ProtectedRoute requiredPermission="GENERATE REPORT">
          <ReportPage />
+       </ProtectedRoute>
+     } 
+   />
+   <Route 
+     path="reports/monthly" 
+     element={
+       <ProtectedRoute requiredPermission="GENERATE REPORT">
+         <MonthlyReportPage />
        </ProtectedRoute>
      } 
    />

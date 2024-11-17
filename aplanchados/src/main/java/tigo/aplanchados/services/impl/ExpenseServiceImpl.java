@@ -70,6 +70,21 @@ public class ExpenseServiceImpl implements ExpenseService {
         return expensesToday;
     }
 
+    @Override
+    public List<Expense> findAllExpensesByMonth(int month) {
+        List<Expense> allExpenses = ExpenseService.findAll();
+        List<Expense> monthlyExpenses = new ArrayList<>();
+
+        for (Expense expense : allExpenses) {
+            if (expense.getDate() != null && expense.getDate().getMonthValue() == month) {
+                monthlyExpenses.add(expense);
+            }
+        }
+
+        return monthlyExpenses;
+    }
+
+
 
     
 }

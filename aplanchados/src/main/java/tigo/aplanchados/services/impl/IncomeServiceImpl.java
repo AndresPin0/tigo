@@ -3,8 +3,10 @@ package tigo.aplanchados.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tigo.aplanchados.model.Expense;
 import tigo.aplanchados.model.Income;
 import tigo.aplanchados.repositories.IncomeRepository;
+import tigo.aplanchados.services.interfaces.ExpenseService;
 import tigo.aplanchados.services.interfaces.IncomeService;
 import java.util.List;
 import java.util.Optional;
@@ -69,6 +71,19 @@ public class IncomeServiceImpl implements IncomeService {
                 incomeByDate.add(e);
         }
         return incomeByDate;
+    }
+
+    public List<Income> findAllIncomesByMonth(int month) {
+        List<Income> allIncomes = incomeRepository.findAll();
+        List<Income> monthlyIncomes = new ArrayList<>();
+
+        for (Income income : allIncomes) {
+            if (income.getDate() != null && income.getDate().getMonthValue() == month) {
+                monthlyIncomes.add(income);
+            }
+        }
+
+        return monthlyIncomes;
     }
 
 

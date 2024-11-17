@@ -23,4 +23,6 @@ public interface ExpenseService {
 
     boolean updateExpense(Expense expense);
 
+    List<Expense> findAllExpensesByMonth(int month);
+
 }
