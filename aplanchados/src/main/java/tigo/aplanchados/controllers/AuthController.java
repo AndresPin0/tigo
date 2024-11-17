@@ -3,6 +3,8 @@ package tigo.aplanchados.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import tigo.aplanchados.services.interfaces.UserService;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(maxAge = 3600)
 public class AuthController {
     @Autowired
     private AuthenticationService service;
@@ -47,6 +50,12 @@ public class AuthController {
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
+    }
+
+    @GetMapping("/test")
+    @CrossOrigin
+    public ResponseEntity<String> prueba(){
+        return ResponseEntity.ok("Hola");
     }
 
 }
